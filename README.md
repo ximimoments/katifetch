@@ -10,7 +10,7 @@ This video shows how to install and configure Nerd Fonts for use with Katifetch.
 
 ## Installation
 
-# First the nerd font
+# First use chmod command for use the install.sh
 
 ```bash
 chmod +x install.sh
