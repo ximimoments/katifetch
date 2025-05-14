@@ -1,4 +1,7 @@
-                                                  
+      "cachyos"*)
+            set_colors 6 14 4 15
+            read -rd '' ascii_data <<'EOF'
+${c1} ${c2} ${c3} ${c4}                                            
                                                   
                                                   
           ':ccccccccccccccccccc:::.               
@@ -19,7 +22,7 @@
         ;cccodocccccccclloddddddddddddo           
          .ccoocccccccccccccloodddddddc            
           .clccccccccccccccccccloddd'             
-                                                  
+EOF                                                  
                                                   
                                                   
                                                   
