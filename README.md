@@ -1,10 +1,19 @@
-# katifetch
+# Katifetch
 
-A simple system information tool inspired by Neofetch. It displays basic system info along with customized ASCII logos.
+A lightweight system info script inspired by Neofetch. Supports ASCII logos, themes, and customization.
 
-This project is based on [Neofetch](https://github.com/dylanaraps/neofetch), licensed under the MIT License.
+## Installation
+
+```bash
+bash install.sh
+```
 
 ## Usage
 
 ```bash
-./katifetch.sh
+~/.katifetch/katifetch.sh
+```
+
+## Configuration
+
+Edit `~/.katifetchrc` to change logo, theme, and what info to show.
