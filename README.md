@@ -15,7 +15,7 @@
 ## Installation
 
 ```bash
-git clone https://github.com/tu-usuario/katifetch.git
+git clone https://github.com/ximimoments/katifetch.git
 cd katifetch
 chmod +x install.sh
 ./install.sh
