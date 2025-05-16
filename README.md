@@ -1,27 +1,21 @@
 # Katifetch
 
-A lightweight system info script inspired by Neofetch. Supports ASCII logos, themes, and customization.
+**Katifetch** is a customizable system information tool written in Bash, inspired by [Neofetch](https://github.com/dylanaraps/neofetch). It supports themes, ASCII logos for many Linux distributions, and user configuration via `~/.katifetchrc`.
 
-## 🎥 katifetch: how to install nerdfont
+![Screenshot](https://raw.githubusercontent.com/tu-usuario/katifetch/main/screenshots/katifetch.png)
 
-This video shows how to install and configure Nerd Fonts for use with Katifetch.
+## Features
 
-[![Watch the tutorial](https://img.youtube.com/vi/gWKcaDRoy8s/hqdefault.jpg)](https://www.youtube.com/watch?v=gWKcaDRoy8s)
+- Detects CPU, GPU, RAM, uptime, shell, and more.
+- Uses beautiful ASCII logos.
+- Supports user themes and color customization.
+- Auto-update checker.
+- Nerd Fonts compatible for icon customization.
 
 ## Installation
 
-# First use chmod command for use the install.sh
-
 ```bash
+git clone https://github.com/tu-usuario/katifetch.git
+cd katifetch
 chmod +x install.sh
-```
-
-## Usage
-
-```bash
-~/.katifetch/katifetch.sh
-```
-
-## Configuration
-
-Edit `~/.katifetchrc` to change logo, theme, and what info to show.
+./install.sh
