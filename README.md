@@ -24,21 +24,24 @@ git clone https://github.com/ximimoments/katifetch.git
 cd katifetch
 chmod +x install.sh
 ./install.sh
+```
 
 # 🔄 Update
 
 To update Katifetch, run:
-
+```bash
 chmod +x katifetch-update
 ./katifetch-update
+```
 
 # 🧼 Uninstall
 
 To remove Katifetch from your system:
 
+```bash
 chmod +x uninstall.sh
 ./uninstall.sh
-
+```
 🎥 Video Tutorial
 
 > 📺 **How to Install Nerd Font for Katifetch**  
@@ -60,13 +63,13 @@ show_memory=true
 
 theme=default
 logo=cachyos
-
+```
 You can also add your own themes in the themes/ folder.
 
 ## 🚀 Run Katifetch
-
+```bash
 katifetch
-
+```
 And Enjoy Katifetch!
 ,,,;;;,.':,,,''''''',;';,''',;;;,,,,,,,,'''''',',;::::::;;;;;;,;;:;,;,'''''...          .  .........
 ,,;;;'.;;,',''''''''',;,;,,;::::;;,'''',,,,,,,;:::::;;;;,,,;;;;::;;:;;;;,,,,,...        .           
