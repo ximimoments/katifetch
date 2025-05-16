@@ -1,17 +1,17 @@
 #!/bin/bash
 
 # Katifetch auto-updater
-# Autor: ximimoments
+# Author: ximimoments
 
 REPO="https://github.com/ximimoments/katifetch"
 TMP_DIR="katifetch-tmp"
 
 echo "🔄 Checking for updates..."
 
-# Eliminar cualquier clon temporal anterior
+# Remove any previous temporary clone
 rm -rf "$TMP_DIR"
 
-# Clonar la última versión del repositorio
+# Clone the latest version
 git clone --depth=1 "$REPO" "$TMP_DIR" >/dev/null 2>&1
 
 if [ ! -d "$TMP_DIR" ]; then
@@ -19,11 +19,11 @@ if [ ! -d "$TMP_DIR" ]; then
     exit 1
 fi
 
-# Sobrescribir los archivos necesarios
+# Copy updated files to the current directory
 cp -r "$TMP_DIR/"* ./
 
-# Limpiar
+# Clean up
 rm -rf "$TMP_DIR"
 
-echo "✅ Katifetch has been updated to the latest version."
-echo "🚀 Run it now: ./katifetch.sh"
+echo "✅ Katifetch has been updated successfully."
+echo "🚀 Run it now: katifetch"
