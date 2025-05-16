@@ -19,3 +19,26 @@ git clone https://github.com/ximimoments/katifetch.git
 cd katifetch
 chmod +x install.sh
 ./install.sh
+```
+
+## Update
+
+To update Katifetch, run:
+
+```bash
+chmod +x katifetch-update
+./katifetch-update
+```
+
+## 🎥 Video Tutorial
+
+> 📺 **How to Install Nerd Font for Katifetch**  
+> [![Watch the video](https://img.youtube.com/vi/gWKcaDRoy8s/0.jpg)](https://www.youtube.com/watch?v=gWKcaDRoy8s)
+
+Click on the image above to watch the video tutorial.
+
+## Run Katifetch
+
+```bash
+katifetch
+```
