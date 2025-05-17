@@ -93,3 +93,4 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\katifetch-update.ps1
 ```
+And Enjoy of Katifetch for Windows edition!
