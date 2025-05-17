@@ -84,6 +84,7 @@ If you're on Windows, you can use the PowerShell version of Katifetch.
 ```powershell
 git clone https://github.com/ximimoments/katifetch.git
 cd katifetch
+cd katifetchforwindowsedition
 powershell -ExecutionPolicy Bypass -File .\install.ps1
 ```
 
