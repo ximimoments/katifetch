@@ -101,5 +101,6 @@ To remove Katifetch for Windows:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\uninstall.ps1
+```
 
 And Enjoy of Katifetch for Windows edition!
