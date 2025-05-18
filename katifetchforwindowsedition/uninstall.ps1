@@ -6,7 +6,7 @@ $profilePath = "$PROFILE"
 # Remove alias from profile
 if (Test-Path $profilePath) {
     $profileContent = Get-Content $profilePath
-    $filteredContent = $profileContent | Where-Object { $_ -notmatch "katifetch.ps1" }
+    $filteredContent = $profileContent | Where-Object { $_ -notmatch "katifetchforwindows.ps1" }
     Set-Content -Path $profilePath -Value $filteredContent
     Write-Host "🧹 Alias removed from PowerShell profile." -ForegroundColor Yellow
 }
