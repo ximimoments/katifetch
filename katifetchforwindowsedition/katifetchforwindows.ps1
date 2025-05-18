@@ -1,27 +1,25 @@
-# Katifetch for Windows - Simple PowerShell version
+# Install script for Katifetch for Windows
 
-# Colors
-$cyan = "Cyan"
-$magenta = "Magenta"
-$yellow = "Yellow"
-$green = "Green"
+$targetDir = "$env:USERPROFILE\katifetch"
+if (-Not (Test-Path $targetDir)) {
+    New-Item -ItemType Directory -Path $targetDir | Out-Null
+}
 
-# System Information
-$os = (Get-CimInstance Win32_OperatingSystem).Caption
-$cpu = (Get-CimInstance Win32_Processor)[0].Name
-$memoryTotal = [math]::Round((Get-CimInstance Win32_ComputerSystem).TotalPhysicalMemory / 1GB, 2)
-$uptime = (Get-CimInstance Win32_OperatingSystem).LastBootUpTime
-$uptimeFormatted = ((Get-Date) - $uptime).ToString("dd\.hh\:mm\:ss")
+Copy-Item -Path ".\katifetchforwindows.ps1" -Destination "$targetDir\katifetchforwindows.ps1" -Force
 
-# Output
-Write-Host ""
-Write-Host "==============================" -ForegroundColor $magenta
-Write-Host "         Katifetch" -ForegroundColor $cyan
-Write-Host "==============================" -ForegroundColor $magenta
+# Add alias to PowerShell profile
+$profilePath = "$PROFILE"
+$alias = "function katifetch { & '$targetDir\katifetchforwindows.ps1' }"
 
-Write-Host "`nOS:        $os" -ForegroundColor $green
-Write-Host "CPU:       $cpu" -ForegroundColor $yellow
-Write-Host "Memory:    $memoryTotal GB" -ForegroundColor $cyan
-Write-Host "Uptime:    $uptimeFormatted" -ForegroundColor $magenta
+if (-Not (Test-Path $profilePath)) {
+    New-Item -ItemType File -Path $profilePath -Force | Out-Null
+}
 
-Write-Host "`n🚀 Enjoy Katifetch!" -ForegroundColor $green
+if (-Not (Get-Content $profilePath | Select-String -Pattern "katifetchforwindows.ps1")) {
+    Add-Content -Path $profilePath -Value "`n$alias"
+    Write-Host "✅ Katifetch for Windows installed. Restart PowerShell to use the 'katifetch' command." -ForegroundColor Green
+} else {
+    Write-Host "ℹ️ Katifetch already installed in PowerShell profile." -ForegroundColor Yellow
+}
+
+Write-Host "🚀 Run it using: katifetch" -ForegroundColor Cyan
