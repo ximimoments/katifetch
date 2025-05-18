@@ -35,7 +35,7 @@ $asciiArt = @"
     |__|:|         /__/:/      \__\/          \__\/           \__\/      \  \:\       \__\/          \  \:\         /__/:/   
      \__\|         \__\/                                                  \__\/                       \__\/         \__\/    
 
-                          Katifetch for Windows
+                          
 "@
 
 # Mostrar el logo
@@ -51,5 +51,3 @@ Write-Host "Version:   $version ($is64bit)" -ForegroundColor $cyan
 Write-Host "CPU:       $cpu" -ForegroundColor $yellow
 Write-Host "Memory:    $memoryTotal GB" -ForegroundColor $cyan
 Write-Host "Uptime:    $uptimeFormatted" -ForegroundColor $magenta
-
-Write-Host "`Enjoy Katifetch!" -ForegroundColor $green
