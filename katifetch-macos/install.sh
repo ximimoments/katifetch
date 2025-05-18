@@ -2,7 +2,7 @@
 
 # Installer for katifetch-macos (macOS)
 
-SOURCE_FILE="katifetch-macos.sh"
+SOURCE_FILE="katifetchmacos.sh"
 INSTALL_PATH="/usr/local/bin/katifetch"
 
 echo "📦 Installing katifetch..."
