@@ -52,7 +52,7 @@ Write-Host "         Katifetch" -ForegroundColor $titleColor
 Write-Host "==============================" -ForegroundColor $lineColor
 
 # Datos del sistema
-Write-Host "`nUser:      $user" -ForegroundColor Green
+Write-Host "User:      $user" -ForegroundColor Green
 Write-Host "Hostname:  $hostname" -ForegroundColor Yellow
 Write-Host "Brand:     $brand" -ForegroundColor Cyan
 Write-Host "OS:        $os" -ForegroundColor Magenta
