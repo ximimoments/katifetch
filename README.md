@@ -73,6 +73,8 @@ And Enjoy of Katifetch for Linux!
 
 If you're on Windows, you can use the PowerShell version of Katifetch.
 
+![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/Captura de pantalla 2025-05-18 105102.png)
+
 # 🎥 Katifetch for Windows Demo
 
 📹 See how Katifetch looks on Windows (PowerShell):
