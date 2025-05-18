@@ -117,7 +117,7 @@ powershell -ExecutionPolicy Bypass -File .\katifetch-update.ps1
 ```
 ## And Enjoy of Katifetch for Windows edition!
 
-#
+
 
 # Katifetch for macOS
 
