@@ -73,11 +73,11 @@ And Enjoy of Katifetch for Linux!
 
 If you're on Windows, you can use the PowerShell version of Katifetch.
 
-# 🎥 Katifetch Video Demo for Windows
+# 🎥 Katifetch for Windows Demo
 
 📹 See how Katifetch looks on Windows (PowerShell):
 
-➡️ [Click here to watch the video](media/katifetch-windows-demo.mp4)
+[![Watch the demo](https://img.youtube.com/vi/Y01yuxDgzY4/0.jpg)](https://www.youtube.com/watch?v=Y01yuxDgzY4)
 
 ## 📦 Installation (Windows)
 
