@@ -127,7 +127,7 @@ Katifetch also supports macOS with the same Bash-based script.
 ```bash
 git clone https://github.com/ximimoments/katifetch.git  
 cd katifetch  
-cd katifetch
+cd katifetch-macos
 chmod +x install.sh  
 ./install.sh  
 ```
