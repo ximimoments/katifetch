@@ -26,6 +26,7 @@ cd katifetch
 chmod +x install.sh
 ./install.sh
 ```
+---
 
 # 🔄 Update
 
@@ -34,6 +35,7 @@ To update Katifetch, run:
 chmod +x katifetch-update
 ./katifetch-update
 ```
+---
 
 # 🧼 Uninstall
 
@@ -43,6 +45,22 @@ To remove Katifetch from your system:
 chmod +x uninstall.sh
 ./uninstall.sh
 ```
+---
+
+# 🎨 Customize
+
+Edit the file ~/.katifetchrc to configure your Katifetch:
+```ini
+# Example .katifetchrc  
+show_logo=true  
+show_cpu=true  
+show_gpu=true  
+show_uptime=true  
+show_memory=true  
+theme=default  
+logo=cachyos  
+```
+---
 
 # 🎨 Customize
 
@@ -61,11 +79,13 @@ logo=cachyos
 ```
 You can also add your own themes in the themes/ folder.
 
+---
+
 ## 🚀 Run Katifetch
 ```bash
 katifetch
 ```
-And Enjoy of Katifetch for Linux!
+## And Enjoy of Katifetch for Linux!
 
 #
 
@@ -75,7 +95,7 @@ If you're on Windows, you can use the PowerShell version of Katifetch.
 
 ![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchforwindowsedition.png)
 
-# 🎥 Katifetch for Windows Demo
+# 🎥 Katifetch Video Demo for Windows
 
 📹 See how Katifetch looks on Windows (PowerShell):
 
@@ -95,12 +115,42 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\katifetch-update.ps1
 ```
-## 🧼 Uninstall (Windows)
+## And Enjoy of Katifetch for Windows edition!
 
-To remove Katifetch for Windows:
+#
 
-```powershell
-powershell -ExecutionPolicy Bypass -File .\uninstall.ps1
+# Katifetch for macOS
+
+Katifetch also supports macOS with the same Bash-based script.
+📦 Installation (macOS)
+
+```bash
+git clone https://github.com/ximimoments/katifetch.git  
+cd katifetch  
+cd katifetch
+chmod +x install.sh  
+./install.sh  
 ```
 
-And Enjoy of Katifetch for Windows edition!
+🔄 Update (macOS)
+
+```bash
+chmod +x update-macos.sh  
+./update.sh  
+```
+
+🧼 Uninstall (macOS)
+
+To remove Katifetch on macOS:
+```bash
+chmod +x uninstall.sh  
+./uninstall.sh  
+```
+
+And enjoy Katifetch on macOS!
+
+<p align="center">
+  🙏 Thank you for supporting Katifetch!  
+  <br>
+  — From the Katifetch community 💙
+</p>
