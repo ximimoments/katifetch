@@ -77,6 +77,7 @@ If you're on Windows, you can use the PowerShell version of Katifetch.
 
 📹 See how Katifetch looks on Windows (PowerShell):
 
+[![Watch the demo](https://img.youtube.com/vi/Y01yuxDgzY4/0.jpg)](https://www.youtube.com/watch?v=Y01yuxDgzY4)
 
 ## 📦 Installation (Windows)
 
