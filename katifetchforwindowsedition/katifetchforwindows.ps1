@@ -1,12 +1,27 @@
-# Katifetch for Windows - Simple PowerShell version
+# Katifetch for Windows - PowerShell Version
 
-# Colors
+# Colores
 $cyan = "Cyan"
 $magenta = "Magenta"
 $yellow = "Yellow"
 $green = "Green"
 
-# Logo ASCII
+# Información del sistema
+$os = (Get-CimInstance Win32_OperatingSystem).Caption
+$version = (Get-CimInstance Win32_OperatingSystem).Version
+$cpu = (Get-CimInstance Win32_Processor)[0].Name
+$memoryTotal = [math]::Round((Get-CimInstance Win32_ComputerSystem).TotalPhysicalMemory / 1GB, 2)
+$uptime = (Get-CimInstance Win32_OperatingSystem).LastBootUpTime
+$uptimeFormatted = ((Get-Date) - $uptime).ToString("dd\.hh\:mm\:ss")
+
+# Información adicional
+$hostname = $env:COMPUTERNAME
+$user = $env:USERNAME
+$model = (Get-CimInstance Win32_ComputerSystem).Model
+$manufacturer = (Get-CimInstance Win32_ComputerSystem).Manufacturer
+$is64bit = if ([Environment]::Is64BitOperatingSystem) { "64-bit" } else { "32-bit" }
+
+# Arte ASCII
 $asciiArt = @"
       ___           ___                                                    ___                         ___           ___     
      /  /\         /  /\          ___            ___         ___          /  /\          ___          /  /\         /  /\    
@@ -19,26 +34,22 @@ $asciiArt = @"
     |  |:|          /  /:/     /__/:/        \  \:\          \  \:\     \  \:\_\/     /__/:/        \  \:\           /  /:/  
     |__|:|         /__/:/      \__\/          \__\/           \__\/      \  \:\       \__\/          \  \:\         /__/:/   
      \__\|         \__\/                                                  \__\/                       \__\/         \__\/    
-                                Katifetch for Windows
+
+                          Katifetch for Windows
 "@
 
-Write-Host "`n$asciiArt" -ForegroundColor $magenta
+# Mostrar el logo
+Write-Host "`n$asciiArt" -ForegroundColor Magenta
 
-# System Information
-$os = (Get-CimInstance Win32_OperatingSystem).Caption
-$cpu = (Get-CimInstance Win32_Processor)[0].Name
-$memoryTotal = [math]::Round((Get-CimInstance Win32_ComputerSystem).TotalPhysicalMemory / 1GB, 2)
-$uptime = (Get-CimInstance Win32_OperatingSystem).LastBootUpTime
-$uptimeFormatted = ((Get-Date) - $uptime).ToString("dd\.hh\:mm\:ss")
-
-# Output
-Write-Host "`n==============================" -ForegroundColor $magenta
-Write-Host "         Katifetch" -ForegroundColor $cyan
-Write-Host "==============================" -ForegroundColor $magenta
-
-Write-Host "`nOS:        $os" -ForegroundColor $green
+# Mostrar información del sistema
+Write-Host "`nUser:      $user" -ForegroundColor $green
+Write-Host "Hostname:  $hostname" -ForegroundColor $cyan
+Write-Host "Model:     $model" -ForegroundColor $yellow
+Write-Host "Brand:     $manufacturer" -ForegroundColor $magenta
+Write-Host "OS:        $os" -ForegroundColor $green
+Write-Host "Version:   $version ($is64bit)" -ForegroundColor $cyan
 Write-Host "CPU:       $cpu" -ForegroundColor $yellow
 Write-Host "Memory:    $memoryTotal GB" -ForegroundColor $cyan
 Write-Host "Uptime:    $uptimeFormatted" -ForegroundColor $magenta
 
-Write-Host "`n🚀 Enjoy Katifetch!" -ForegroundColor $green
+Write-Host "`Enjoy Katifetch!" -ForegroundColor $green
