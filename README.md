@@ -100,4 +100,4 @@ powershell -ExecutionPolicy Bypass -File .\katifetch-update.ps1
 ```
 
 And Enjoy of Katifetch for Windows edition!
-](https://github.com/ximimoments/katifetch)
+(https://github.com/ximimoments/katifetch)
