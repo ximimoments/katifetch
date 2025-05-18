@@ -79,6 +79,11 @@ And Enjoy of Katifetch for Linux!
 
 If you're on Windows, you can use the PowerShell version of Katifetch.
 
+<video width="480" controls>
+  <source src="media/katifetch-windows-demo.mp4" type="video/mp4" />
+  Your browser does not support video playback.
+</video>
+
 ## 📦 Installation (Windows)
 
 ```powershell
@@ -93,4 +98,5 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\katifetch-update.ps1
 ```
+
 And Enjoy of Katifetch for Windows edition!
