@@ -1,25 +1,44 @@
-# Install script for Katifetch for Windows
+# Katifetch for Windows - Simple PowerShell version
 
-$targetDir = "$env:USERPROFILE\katifetch"
-if (-Not (Test-Path $targetDir)) {
-    New-Item -ItemType Directory -Path $targetDir | Out-Null
-}
+# Colors
+$cyan = "Cyan"
+$magenta = "Magenta"
+$yellow = "Yellow"
+$green = "Green"
 
-Copy-Item -Path ".\katifetchforwindows.ps1" -Destination "$targetDir\katifetchforwindows.ps1" -Force
+# Logo ASCII
+$asciiArt = @"
+      ___           ___                                                    ___                         ___           ___     
+     /  /\         /  /\          ___            ___         ___          /  /\          ___          /  /\         /  /\    
+    /  /:/        /  /::\        /__/\          /__/\       /  /\        /  /::\        /__/\        /  /::\       /  /:/    
+   /  /:/        /  /:/\:\       \  \:\         \__\:\     /  /::\      /  /:/\:\       \  \:\      /  /:/\:\     /  /:/     
+  /  /::\____   /  /::\ \:\       \__\:\        /  /::\   /  /:/\:\    /  /::\ \:\       \__\:\    /  /:/  \:\   /  /::\ ___ 
+ /__/:/\:::::\ /__/:/\:\_\:\      /  /::\    __/  /:/\/  /  /::\ \:\  /__/:/\:\ \:\      /  /::\  /__/:/ \  \:\ /__/:/\:\  /\
+ \__\/~|:|~~~~ \__\/  \:\/:/     /  /:/\:\  /__/\/:/~~  /__/:/\:\ \:\ \  \:\ \:\_\/     /  /:/\:\ \  \:\  \__\/ \__\/  \:\/:/
+    |  |:|          \__\::/     /  /:/__\/  \  \::/     \__\/  \:\_\/  \  \:\ \:\      /  /:/__\/  \  \:\            \__\::/ 
+    |  |:|          /  /:/     /__/:/        \  \:\          \  \:\     \  \:\_\/     /__/:/        \  \:\           /  /:/  
+    |__|:|         /__/:/      \__\/          \__\/           \__\/      \  \:\       \__\/          \  \:\         /__/:/   
+     \__\|         \__\/                                                  \__\/                       \__\/         \__\/    
+                                Katifetch for Windows
+"@
 
-# Add alias to PowerShell profile
-$profilePath = "$PROFILE"
-$alias = "function katifetch { & '$targetDir\katifetchforwindows.ps1' }"
+Write-Host "`n$asciiArt" -ForegroundColor $magenta
 
-if (-Not (Test-Path $profilePath)) {
-    New-Item -ItemType File -Path $profilePath -Force | Out-Null
-}
+# System Information
+$os = (Get-CimInstance Win32_OperatingSystem).Caption
+$cpu = (Get-CimInstance Win32_Processor)[0].Name
+$memoryTotal = [math]::Round((Get-CimInstance Win32_ComputerSystem).TotalPhysicalMemory / 1GB, 2)
+$uptime = (Get-CimInstance Win32_OperatingSystem).LastBootUpTime
+$uptimeFormatted = ((Get-Date) - $uptime).ToString("dd\.hh\:mm\:ss")
 
-if (-Not (Get-Content $profilePath | Select-String -Pattern "katifetchforwindows.ps1")) {
-    Add-Content -Path $profilePath -Value "`n$alias"
-    Write-Host "✅ Katifetch for Windows installed. Restart PowerShell to use the 'katifetch' command." -ForegroundColor Green
-} else {
-    Write-Host "ℹ️ Katifetch already installed in PowerShell profile." -ForegroundColor Yellow
-}
+# Output
+Write-Host "`n==============================" -ForegroundColor $magenta
+Write-Host "         Katifetch" -ForegroundColor $cyan
+Write-Host "==============================" -ForegroundColor $magenta
 
-Write-Host "🚀 Run it using: katifetch" -ForegroundColor Cyan
+Write-Host "`nOS:        $os" -ForegroundColor $green
+Write-Host "CPU:       $cpu" -ForegroundColor $yellow
+Write-Host "Memory:    $memoryTotal GB" -ForegroundColor $cyan
+Write-Host "Uptime:    $uptimeFormatted" -ForegroundColor $magenta
+
+Write-Host "`n🚀 Enjoy Katifetch!" -ForegroundColor $green
