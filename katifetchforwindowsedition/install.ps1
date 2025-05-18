@@ -2,16 +2,20 @@
 
 $targetDir = "$env:USERPROFILE\katifetch"
 if (-Not (Test-Path $targetDir)) {
-    New-Item -ItemType Directory -Path $targetDir
+    New-Item -ItemType Directory -Path $targetDir | Out-Null
 }
 
 Copy-Item -Path ".\katifetchforwindows.ps1" -Destination "$targetDir\katifetch.ps1" -Force
 
-# Optional: Add a shortcut or alias
+# Optional: Add a shortcut or alias to PowerShell profile
 $profilePath = "$PROFILE"
 $alias = "function katifetch { & '$targetDir\katifetch.ps1' }"
 
-if (-Not (Select-String -Path $profilePath -Pattern "katifetch.ps1")) {
+if (-Not (Test-Path $profilePath)) {
+    New-Item -ItemType File -Path $profilePath -Force | Out-Null
+}
+
+if (-Not (Get-Content $profilePath | Select-String -Pattern "katifetch.ps1")) {
     Add-Content -Path $profilePath -Value "`n$alias"
     Write-Host "✅ Katifetch for Windows installed. Restart PowerShell to use the 'katifetch' command." -ForegroundColor Green
 } else {
