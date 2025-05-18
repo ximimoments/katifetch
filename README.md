@@ -75,14 +75,10 @@ And Enjoy of Katifetch for Linux!
 
 #
 
+
 # Katifetch For Windows edition
 
 If you're on Windows, you can use the PowerShell version of Katifetch.
-
-<video width="480" controls>
-  <source src="media/katifetch-windows-demo.mp4" type="video/mp4" />
-  Your browser does not support video playback.
-</video>
 
 ## 📦 Installation (Windows)
 
@@ -99,5 +95,17 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 powershell -ExecutionPolicy Bypass -File .\katifetch-update.ps1
 ```
 
-And Enjoy of Katifetch for Windows edition!
-(https://github.com/ximimoments/katifetch)
+## 🧼 Uninstall (Windows)
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\uninstall.ps1
+```
+
+## 🎥 Katifetch for Windows Demo
+
+<video width="100%" controls>
+  <source src="media/katifetch-windows-demo.mp4" type="video/mp4">
+  Your browser does not support video playback.
+</video>
+
+And Enjoy Katifetch for Windows edition!
