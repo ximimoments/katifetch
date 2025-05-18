@@ -1,3 +1,4 @@
+
 # Katifetch
 
 **Katifetch** is a customizable system information tool written in Bash, inspired by [Neofetch](https://github.com/dylanaraps/neofetch). It supports themes, ASCII logos for many Linux distributions, and user configuration via `~/.katifetchrc`.
@@ -43,13 +44,6 @@ chmod +x uninstall.sh
 ./uninstall.sh
 ```
 
-# 🎥 Video Tutorial
-
-> 📺 **How to Install Nerd Font for Katifetch**  
-> [![Watch the video](https://img.youtube.com/vi/gWKcaDRoy8s/0.jpg)](https://www.youtube.com/watch?v=gWKcaDRoy8s)
-
-Click the image above to watch the full tutorial.
-
 # 🎨 Customize
 
 Edit the file ~/.katifetchrc to configure your Katifetch:
@@ -75,10 +69,15 @@ And Enjoy of Katifetch for Linux!
 
 #
 
-
 # Katifetch For Windows edition
 
 If you're on Windows, you can use the PowerShell version of Katifetch.
+
+# 🎥 Katifetch Video Demo for Windows
+
+📹 See how Katifetch looks on Windows (PowerShell):
+
+➡️ [Click here to watch the video](media/katifetch-windows-demo.mp4)
 
 ## 📦 Installation (Windows)
 
@@ -94,18 +93,4 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\katifetch-update.ps1
 ```
-
-## 🧼 Uninstall (Windows)
-
-```powershell
-powershell -ExecutionPolicy Bypass -File .\uninstall.ps1
-```
-
-## 🎥 Katifetch for Windows Demo
-
-<video width="100%" controls>
-  <source src="media/katifetch-windows-demo.mp4" type="video/mp4">
-  Your browser does not support video playback.
-</video>
-
-And Enjoy Katifetch for Windows edition!
+And Enjoy of Katifetch for Windows edition!
