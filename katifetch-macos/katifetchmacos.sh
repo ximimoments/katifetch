@@ -22,37 +22,22 @@ fi
 
 # ASCII art For MacOS edition
 logo="
-
-                                  ;ok'            
-                              .:dkkkk.            
-                            'dkkkkkkd             
-                           okkkkkkkx              
-                          dkkkkkkk,               
-                         ;kkkkkk;                 
-                         dkkk.                    
-          .',::::;'.           .';:clc:;,.        
-       ,okkkkkkkkkkkkxl;,.,:lxkkkkkkkkkkkkkxc.    
-    .lkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkx,  
-   ckkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk.   
-  dkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk.     
- dkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk       
-.kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk.       
-okkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkx        
-kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkd        
-xkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk        
-ckkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk.       
-.kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk.      
- xkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk,     
- .kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkd'   
-  ckkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkl'
-   okkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk 
-    okkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk  
-     ckkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk   
-      .kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkl    
-        lkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk.     
-          xkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk'       
-            ,kkkkkkk.           xkkkkkkx          
-               lc                   .             
+                 ,xNMM.
+               .OMMMMo
+               lMM"
+     .;loddo:.  .olloddol;.
+   cKMMMMMMMMMMNWMMMMMMMMMM0:
+ .KMMMMMMMMMMMMMMMMMMMMMMMWd.
+ XMMMMMMMMMMMMMMMMMMMMMMMX.
+;MMMMMMMMMMMMMMMMMMMMMMMM:
+:MMMMMMMMMMMMMMMMMMMMMMMM:
+.MMMMMMMMMMMMMMMMMMMMMMMMX.
+ kMMMMMMMMMMMMMMMMMMMMMMMMWd.
+ 'XMMMMMMMMMMMMMMMMMMMMMMMMMMk
+  'XMMMMMMMMMMMMMMMMMMMMMMMMK.
+    kMMMMMMMMMMMMMMMMMMMMMMd
+     ;KMMMMMMMWXXWMMMMMMMk.
+       "cooc*"    "*coo'"    
 
 "
 
