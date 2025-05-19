@@ -1,84 +1,90 @@
 #!/bin/bash
 
-# Katifetch for macOS - Neofetch Style
-# Author: ximimoments
-
 # Colors
-PURPLE="\033[1;35m"
-CYAN="\033[1;36m"
 RESET="\033[0m"
+BOLD="\033[1m"
+PINK="\033[1;35m"
+CYAN="\033[1;36m"
+WHITE="\033[1;37m"
 
-# Check system
-if [[ "$(uname)" != "Darwin" ]]; then
-    echo -e "${RED}This script is designed for macOS only.${RESET}"
-    exit 1
+# Detect OS
+OS=$(uname)
+IS_MAC=false
+if [[ "$OS" == "Darwin" ]]; then
+  IS_MAC=true
 fi
 
-# Get terminal width
-COLUMNS=$(tput cols)
+# Apple ASCII Logo with color
+apple_logo=$(cat << "EOF"
+                 ,xNN.        
+               .xMMN0o.       
+              ;ldddl'. .oldlddl; 
+             cKMMMMMMMMMMMMMMMMk.
+           .KMMMMMMMMMMMMMMMMMMM0
+           KMMMMMMMMMMMMMMMMMMMMMK
+          :MMMMMMMMMMMMMMMMMMMMMMMK
+         .KMMMMMMMMMMMMMMMMMMMMMMMK
+         :MMMMMMMMMMMMMMMMMMMMMMMMK
+         .KMMMMMMMMMMMMMMMMMMMMMMMK
+          ;KMMMMMMMMMMMMMMMMMMMMMK
+           'KMMMMMMMMMMMMMMMMMMMK
+             KMMMMMMMMMMMMMMMMK
+              KMMMMMMMMMMMMMMK
+               ;KMMMMMMMMMMMK
+                 "coco"  "scoo"
+EOF
+)
 
 # Center function
-center_text() {
-    local text="$1"
-    local width=${#text}
-    local pad=$(( (COLUMNS - width) / 2 ))
-    printf "%*s%s\n" "$pad" "" "$text"
+center() {
+  local term_width=$(tput cols)
+  while IFS= read -r line; do
+    printf "%*s\n" $(((${#line} + term_width) / 2)) "$line"
+  done
 }
 
-# Apple logo (left side)
-logo_lines=(
-"                 ,xNMM."
-"               .OMMMMo"
-"               lMM\""
-"     .;loddo:.  .olloddol;."
-"   cKMMMMMMMMMMNWMMMMMMMMMM0:"
-" .KMMMMMMMMMMMMMMMMMMMMMMMWd."
-" XMMMMMMMMMMMMMMMMMMMMMMMX."
-";MMMMMMMMMMMMMMMMMMMMMMMM:"
-":MMMMMMMMMMMMMMMMMMMMMMMM:"
-".MMMMMMMMMMMMMMMMMMMMMMMX."
-" kMMMMMMMMMMMMMMMMMMMMMMMMWd."
-" 'XMMMMMMMMMMMMMMMMMMMMMMMMMMk"
-"  'XMMMMMMMMMMMMMMMMMMMMMMMMK."
-"    kMMMMMMMMMMMMMMMMMMMMMMd"
-"     ;KMMMMMMMWXXWMMMMMMMk."
-"       \"cooc*\"    \"*coo'\""
-)
-
 # System info
-user=$(whoami)
-hostname=$(scutil --get ComputerName)
-os_version=$(sw_vers -productVersion)
-os_name=$(sw_vers -productName)
-kernel=$(uname -r)
-uptime=$(uptime | awk -F'( |,|:)+' '{print $6"h", $7"m"}')
-model=$(sysctl -n hw.model)
-cpu=$(sysctl -n machdep.cpu.brand_string)
-ram=$(sysctl -n hw.memsize | awk '{printf "%.2f GB", $1 / 1073741824}')
-shell="$SHELL"
-terminal="$TERM"
+USER=$(whoami)
+HOSTNAME=$(hostname)
+KERNEL=$(uname -r)
+UPTIME=$(uptime -p | sed 's/up //')
+MODEL=$(sysctl -n hw.model 2>/dev/null || echo "Unknown")
+CPU=$(sysctl -n machdep.cpu.brand_string 2>/dev/null || echo "Unknown")
+RAM=$(($(sysctl -n hw.memsize) / 1073741824))" GB"
+SHELL="$SHELL"
+TERMINAL="$TERM"
 
-# Info block
-info_lines=(
-"${CYAN}---------------------${RESET}"
-"${PURPLE}      katifetch       ${RESET}"
-"${CYAN}---------------------${RESET}"
-"${CYAN}User:      ${RESET}$user"
-"${CYAN}Hostname:  ${RESET}$hostname"
-"${CYAN}OS:        ${RESET}$os_name $os_version"
-"${CYAN}Kernel:    ${RESET}$kernel"
-"${CYAN}Uptime:    ${RESET}$uptime"
-"${CYAN}Model:     ${RESET}$model"
-"${CYAN}CPU:       ${RESET}$cpu"
-"${CYAN}RAM:       ${RESET}$ram"
-"${CYAN}Shell:     ${RESET}$shell"
-"${CYAN}Terminal:  ${RESET}$terminal"
+# Apply color to Apple logo if macOS
+if $IS_MAC; then
+  apple_logo="$(echo "$apple_logo" | sed "s/^/${PINK}/")"
+fi
+
+# Print logo (left)
+IFS=$'\n' read -rd '' -a logo_lines <<< "$apple_logo"
+
+# Print header and system info
+info=$(cat <<EOF
+${CYAN}----------------------${RESET}
+${PINK}         katifetch${RESET}
+${CYAN}----------------------${RESET}
+${CYAN}User:      ${WHITE}$USER
+${CYAN}Hostname:  ${WHITE}$HOSTNAME
+${CYAN}OS:        ${WHITE}$(sw_vers -productName) $(sw_vers -productVersion)
+${CYAN}Kernel:    ${WHITE}$KERNEL
+${CYAN}Uptime:    ${WHITE}$UPTIME
+${CYAN}Model:     ${WHITE}$MODEL
+${CYAN}CPU:       ${WHITE}$CPU
+${CYAN}RAM:       ${WHITE}$RAM
+${CYAN}Shell:     ${WHITE}$SHELL
+${CYAN}Terminal:  ${WHITE}$TERMINAL${RESET}
+EOF
 )
 
-# Print logo and system info side by side
-for i in "${!logo_lines[@]}"; do
-    line_logo="${logo_lines[$i]}"
-    line_info="${info_lines[$i]}"
-    printf "${PURPLE}%-35s${RESET}" "$line_logo"
-    [[ -n "$line_info" ]] && center_text "$line_info" || echo
+# Print side by side
+i=0
+while [[ $i -lt ${#logo_lines[@]} || $i -lt 10 ]]; do
+  left="${logo_lines[$i]}"
+  right="$(echo "$info" | sed -n "$((i+1))p")"
+  printf "%-40s %s\n" "$left" "$right"
+  ((i++))
 done
