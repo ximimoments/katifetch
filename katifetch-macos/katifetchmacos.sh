@@ -22,17 +22,38 @@ fi
 
 # ASCII art For MacOS edition
 logo="
-       ___           ___                                                    ___                         ___           ___     
-     /  /\\         /  /\\          ___            ___         ___          /  /\\          ___          /  /\\         /  /\\    
-    /  /::\\        /  /::\\        /__/\\          /__/\\       /  /\\        /  /::\\        /__/\\        /  /::\\       /  /:/    
-   /  /:/\\:\\       /  /:/\\:\\       \\  \\:\\         \\__\\:\\     /  /::\\      /  /:/\\:\\       \\  \\:\\      /  /:/\\:\\     /  /:/     
-  /  /::\\____   /  /::\\ \\:\\       \\__\\:\\        /  /::\\   /  /:/\\:\\    /  /::\\ \\:\\       \\__\\:\\    /  /:/  \\:\\   /  /::\\ ___ 
- /__/:/\\:::::\\ /__/:/\\:\\_\\:\\      /  /::\\    __/  /:/\\/  /  /::\\ \\:\\  /__/:/\\:\\ \\:\\      /  /::\\  /__/:/ \\  \\:\\ /__/:/\\:\\  /\\
- \\__\\/~|:|~~~~ \\__\\/  \\:\\/:/     /  /:/\\:\\  /__/\\/:/~~  /__/:/\\:\\ \\:\\ \\  \\:\\ \\:\\_\\/     /  /:/\\:\\ \\  \\:\\  \\__\\/ \\__\\/  \\:\\/:/
-    |  |:|          \\__\\::/     /  /:/__\\/  \\  \\::/     \\__\\/  \\:\\_\\/  \\  \\:\\ \\:\\      /  /:/__\\/  \\  \\:\\            \\__\\::/ 
-    |  |:|          /  /:/     /__/:/        \\  \\:\\          \\  \\:\\     \\  \\:\\_\\/     /__/:/        \\  \\:\\           /  /:/  
-    |__|:|         /__/:/      \\__\\/          \\__\\/           \\__\\/      \\  \\:\\       \\__\\/          \\  \\:\\         /__/:/   
-     \\__\\|         \\__\\/                                                  \\__\\/                       \\__\\/         \\__\\/     
+
+                                  ;ok'            
+                              .:dkkkk.            
+                            'dkkkkkkd             
+                           okkkkkkkx              
+                          dkkkkkkk,               
+                         ;kkkkkk;                 
+                         dkkk.                    
+          .',::::;'.           .';:clc:;,.        
+       ,okkkkkkkkkkkkxl;,.,:lxkkkkkkkkkkkkkxc.    
+    .lkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkx,  
+   ckkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk.   
+  dkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk.     
+ dkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk       
+.kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk.       
+okkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkx        
+kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkd        
+xkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk        
+ckkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk.       
+.kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk.      
+ xkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk,     
+ .kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkd'   
+  ckkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkl'
+   okkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk 
+    okkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk  
+     ckkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk   
+      .kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkl    
+        lkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk.     
+          xkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk'       
+            ,kkkkkkk.           xkkkkkkx          
+               lc                   .             
+
 "
 
 # Collect system info
