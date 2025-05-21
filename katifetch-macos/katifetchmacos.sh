@@ -1,14 +1,16 @@
 #!/bin/bash
 
-# ANSI colors
+# ANSI color codes
 magenta='\033[1;35m'
 white='\033[1;37m'
 reset='\033[0m'
 
-# macOS ASCII logo
-logo="${magenta}                 ,xNMM.
+# Print ASCII logo in magenta
+printf "${magenta}"
+cat <<'EOF'
+                 ,xNMM.
                .OMMMMo
-               lMM\"
+               lMM"
      .;loddo:.  .olloddol;.
    cKMMMMMMMMMMNWMMMMMMMMMM0:
  .KMMMMMMMMMMMMMMMMMMMMMMMWd.
@@ -21,25 +23,17 @@ logo="${magenta}                 ,xNMM.
   'XMMMMMMMMMMMMMMMMMMMMMMMMK.
     kMMMMMMMMMMMMMMMMMMMMMMd
      ;KMMMMMMMWXXWMMMMMMMk.
-       \"cooc*\"    \"*coo'\"${reset}"
+       "cooc*"    "*coo'"
+EOF
+printf "${reset}\n"
 
-# System info
-os=$(sw_vers -productName)
-os_version=$(sw_vers -productVersion)
-kernel=$(uname -r)
-hostname=$(hostname)
-shell=$(basename "$SHELL")
-terminal="$TERM_PROGRAM"
-
-# Info block
-info="${white}katifetch
-
-OS: $os $os_version
-Hostname: $hostname
-Kernel: $kernel
-Shell: $shell
-Terminal: $terminal${reset}"
-
-# Print logo and info
-printf "%s\n\n%s\n" "$logo" "$info"
-
+# System info block
+printf "${white}"
+echo "katifetch"
+echo
+echo "OS: $(sw_vers -productName) $(sw_vers -productVersion)"
+echo "Hostname: $(hostname)"
+echo "Kernel: $(uname -r)"
+echo "Shell: $(basename "$SHELL")"
+echo "Terminal: $TERM_PROGRAM"
+printf "${reset}"
