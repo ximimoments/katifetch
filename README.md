@@ -168,7 +168,7 @@ chmod +x uninstall.sh
 
 And enjoy Katifetch on macOS!
 
-<p align="left">
+<p align="center">
  — 🙏 Thank you for supporting Katifetch! — <br>
  — From the Katifetch community 💙 —<br>
  <a href="https://discord.gg/AK9WrTHTVq">Join our Discord server</a>
