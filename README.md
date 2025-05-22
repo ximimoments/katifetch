@@ -1,20 +1,27 @@
-
 # Katifetch
 
 **Katifetch** is a customizable system information tool written in Bash, inspired by [Neofetch](https://github.com/dylanaraps/neofetch). It supports themes, ASCII logos for many Linux distributions, and user configuration via `~/.katifetchrc`.
 
-![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetch.png)  
+![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetch.png)
 ![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchv2.png)
+
+---
+
+## 📢 Join the Community
+
+Join our growing community to get help, share your setups, or contribute!
+
+👉 **[Join our Discord server](https://discord.gg/AK9WrTHTVq)**
 
 ---
 
 ## Features
 
-- Detects CPU, GPU, RAM, uptime, shell, and more.
-- Uses beautiful ASCII logos.
-- Supports user themes and color customization.
-- Auto-update checker.
-- Nerd Fonts compatible for icon customization.
+* Detects CPU, GPU, RAM, uptime, shell, and more.
+* Uses beautiful ASCII logos.
+* Supports user themes and color customization.
+* Auto-update checker.
+* Nerd Fonts compatible for icon customization.
 
 ---
 
@@ -26,15 +33,18 @@ cd katifetch
 chmod +x install.sh
 ./install.sh
 ```
+
 ---
 
 # 🔄 Update
 
 To update Katifetch, run:
+
 ```bash
 chmod +x katifetch-update
 ./katifetch-update
 ```
+
 ---
 
 # 🧼 Uninstall
@@ -45,11 +55,13 @@ To remove Katifetch from your system:
 chmod +x uninstall.sh
 ./uninstall.sh
 ```
+
 ---
 
 # 🎨 Customize
 
 Edit the file ~/.katifetchrc to configure your Katifetch:
+
 ```ini
 # Example .katifetchrc  
 show_logo=true  
@@ -60,6 +72,7 @@ show_memory=true
 theme=default  
 logo=cachyos  
 ```
+
 ---
 
 # 🎨 Customize
@@ -77,17 +90,20 @@ show_memory=true
 theme=default
 logo=cachyos
 ```
+
 You can also add your own themes in the themes/ folder.
 
 ---
 
 ## 🚀 Run Katifetch
+
 ```bash
 katifetch
 ```
+
 ## And Enjoy of Katifetch for Linux!
 
-#
+---
 
 # Katifetch For Windows edition
 
@@ -115,14 +131,16 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\katifetch-update.ps1
 ```
+
 ## And Enjoy of Katifetch for Windows edition!
 
-
+---
 
 # Katifetch for macOS
 
 Katifetch also supports macOS with the same Bash-based script.
-📦 Installation (macOS)
+
+## 📦 Installation (macOS)
 
 ```bash
 git clone https://github.com/ximimoments/katifetch.git  
@@ -132,16 +150,17 @@ chmod +x install.sh
 ./install.sh  
 ```
 
-🔄 Update (macOS)
+## 🔄 Update (macOS)
 
 ```bash
 chmod +x update-macos.sh  
 ./update.sh  
 ```
 
-🧼 Uninstall (macOS)
+## 🧼 Uninstall (macOS)
 
 To remove Katifetch on macOS:
+
 ```bash
 chmod +x uninstall.sh  
 ./uninstall.sh  
@@ -149,8 +168,8 @@ chmod +x uninstall.sh
 
 And enjoy Katifetch on macOS!
 
-<p align="center">
- — 🙏 Thank you for supporting Katifetch! — 
-  <br>
-  — From the Katifetch community 💙 —
+<p align="left">
+ — 🙏 Thank you for supporting Katifetch! — <br>
+ — From the Katifetch community 💙 —<br>
+ <a href="https://discord.gg/AK9WrTHTVq">Join our Discord server</a>
 </p>
