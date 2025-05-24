@@ -55,23 +55,6 @@ chmod +x uninstall.sh
 Edit the file ~/.katifetchrc to configure your Katifetch:
 
 ```ini
-# Example .katifetchrc  
-show_logo=true  
-show_cpu=true  
-show_gpu=true  
-show_uptime=true  
-show_memory=true  
-theme=default  
-logo=cachyos  
-```
-
----
-
-# 🎨 Customize
-
-Edit the file ~/.katifetchrc to configure your Katifetch:
-
-```ini
 # Example .katifetchrc
 show_logo=true
 show_cpu=true
