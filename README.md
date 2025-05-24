@@ -7,14 +7,6 @@
 
 ---
 
-## 📢 Join the Community
-
-Join our growing community to get help, share your setups, or contribute!
-
-👉 **[Join our Discord server](https://discord.gg/AK9WrTHTVq)**
-
----
-
 ## Features
 
 * Detects CPU, GPU, RAM, uptime, shell, and more.
@@ -175,5 +167,5 @@ And enjoy Katifetch on macOS!
 <p align="center">
  — 🙏 Thank you for supporting Katifetch! — <br>
  — From the Katifetch community 💙 —<br>
- <a href="https://discord.gg/AK9WrTHTVq">Join our Discord server</a>
+ <a href=## 📢 Join the Community  Join our growing community to get help, share your setups, or contribute!  👉 **[Join our Discord server](https://discord.gg/AK9WrTHTVq)**</a>
 </p>
