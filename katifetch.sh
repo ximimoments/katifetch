@@ -5708,21 +5708,21 @@ EOF
             set_colors 2 7
             read -rd '' ascii_data <<'EOF'
 ${c1}         -o          o-
-        ':;                            ;:,        
-        lllc.                         clll.       
-         llll'                      .clll.        
-          llll;        ....        'llll          
-           :lll:',:cllllllllllc:;',llll           
-           ,llllllllllllllllllllllllll:           
-        .,clllllllllllllllllllllllllllll;.        
-      .:llllllllllllllllllllllllllllllllll:.      
-     ;lllllllccllllllllllllllllllllcclllllll:     
-   .cllllll:....llllllllllllllllll,...;llllllc'   
-  .llllllll'...'llllllllllllllllll;....llllllll,  
- .lllllllllc:;cllllllllllllllllllllc;;clllllllll. 
- clllllllllllllllllllllllllllllllllllllllllllllll 
-.llllllllllllllllllllllllllllllllllllllllllllllll,
-,lllllllllllllllllllllllllllllllllllllllllllllllll
+            ':;                    ;:,            
+           lllc.                 clll.            
+            llll'              .clll.             
+             llll;    ....    'llll              
+              :lll:',:cllll:;',llll               
+              ,llllllllllllllllll:               
+          .,clllllllllllllllllllll;.             
+        .:llllllllllllllllllllllllll:.           
+       ;lllllllccllllllllllcclllllll:            
+     .cllllll:...llllllllll,...;llllllc'         
+    .llllllll'...llllllllll;....llllllll,        
+   .lllllllllc:cllllllllllllc;;clllllllll.       
+  clllllllllllllllllllllllllllllllllllllll       
+ .llllllllllllllllllllllllllllllllllllllll,       
+ ,lllllllllllllllllllllllllllllllllllllllll       
 
 EOF
         ;;
