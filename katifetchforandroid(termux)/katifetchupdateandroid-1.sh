@@ -18,7 +18,7 @@ if [ ! -d "$TMP_DIR" ]; then
 fi
 
 # Copy the main katifetchforandroid script and overwrite
-cp "$TMP_DIR/katifetchforandroid" "$INSTALL_DIR/katifetch"
+cp "$TMP_DIR/katifetch" "$INSTALL_DIR/katifetch"
 chmod +x "$INSTALL_DIR/katifetch"
 
 # Copy themes and logos too
@@ -29,4 +29,3 @@ rm -rf "$TMP_DIR"
 
 echo "✅ Katifetch has been updated successfully."
 echo "🚀 Run it now: katifetch"
-
