@@ -5708,23 +5708,22 @@ EOF
             set_colors 2 7
             read -rd '' ascii_data <<'EOF'
 ${c1}         -o          o-
-          +hydNNNNdyh+
-        +mMMMMMMMMMMMMm+
-      `dMM${c2}m:${c1}NMMMMMMN${c2}:m${c1}MMd`
-      hMMMMMMMMMMMMMMMMMMh
-  ..  yyyyyyyyyyyyyyyyyyyy  ..
-.mMMm`MMMMMMMMMMMMMMMMMMMM`mMMm.
-:MMMM-MMMMMMMMMMMMMMMMMMMM-MMMM:
-:MMMM-MMMMMMMMMMMMMMMMMMMM-MMMM:
-:MMMM-MMMMMMMMMMMMMMMMMMMM-MMMM:
-:MMMM-MMMMMMMMMMMMMMMMMMMM-MMMM:
--MMMM-MMMMMMMMMMMMMMMMMMMM-MMMM-
- +yy+ MMMMMMMMMMMMMMMMMMMM +yy+
-      mMMMMMMMMMMMMMMMMMMm
-      `/++MMMMh++hMMMM++/`
-          MMMMo  oMMMM
-          MMMMo  oMMMM
-          oNMm-  -mMNs
+        ':;                            ;:,        
+        lllc.                         clll.       
+         llll'                      .clll.        
+          llll;        ....        'llll          
+           :lll:',:cllllllllllc:;',llll           
+           ,llllllllllllllllllllllllll:           
+        .,clllllllllllllllllllllllllllll;.        
+      .:llllllllllllllllllllllllllllllllll:.      
+     ;lllllllccllllllllllllllllllllcclllllll:     
+   .cllllll:....llllllllllllllllll,...;llllllc'   
+  .llllllll'...'llllllllllllllllll;....llllllll,  
+ .lllllllllc:;cllllllllllllllllllllc;;clllllllll. 
+ clllllllllllllllllllllllllllllllllllllllllllllll 
+.llllllllllllllllllllllllllllllllllllllllllllllll,
+,lllllllllllllllllllllllllllllllllllllllllllllllll
+
 EOF
         ;;
 
@@ -6689,6 +6688,37 @@ ${c1}        ..,::cccc${c3}xOOOkkko;.
 ${c1}            ..,:${c3}dOkxl:.
 EOF
         ;;
+
+"chromeos"*)
+    set_colors 2 7
+    read -rd '' ascii_data <<'EOF'
+${c1}                   ..';::::::;,..                  
+${c1}              .';::::::::::::::::;,..             
+${c1}          .';:::::::::::::::::::::ccc:,.          
+${c1}        .;::::::::::::::::::::::::cccccc:'        
+${c1}      .;::::::::::::::::::::::::::ccccccccc,      
+${c1}    .;;:::::::::::::::::::::::::::ccccccccccc.    
+${c1}   ,;;;:::::::::::::ldkOOOOOkxddddddddddddddddl   
+${c1}  ;lc:;::::::::::d0WMMNXKKXNMMMNKOOOOOOOOOOOOOOd  
+${c1} 'lccc:::::::::xNMNOoc:::::::okNMWXOOOOOOOOOOOOOo 
+${c1} cccccc::::::cXMWx::::::::::::::dNMW0OOOOOOOOOOOO.
+${c1}'ccccccc:::::XMNl::::::::::::::::cNMW0OOOOOOOOOOOo
+${c1}ccccccccc:::dMMd::::::::::::::::::oMMXOOOOOOOOOOOO
+${c1}cccccccccc::kMMc:::::::::::::::::::MMNOOOOOOOOOOOO
+${c1};cccccccccccdMMd::::::::::::::::::oMMXOOOOOOOOOOOx
+${c1}.ccccccccccccXMWl::::::::::::::::cNMW0OOOOOOOOOOO,
+${c1} :ccccccccccccKMWk::::::::::::::xWMW0000OOOOOOOOO 
+${c1}  cccccccccccccxNMWOdc::::::cdONMN0000000000OOOO. 
+${c1}   ccccccccc::::cd0NMMWNXXNWMMW0dd0000000000000.  
+${c1}    cccc::::::::::::ldxkkkkxdl::x0000000000000    
+${c1}     .::::::::::::::::::::::::ck000000000000c     
+${c1}       .:::::::::::::::::::::lO00000000000o       
+${c1}          ::::::::::::::::::o00000000000.         
+${c1}             ::::::::::::::d000000000.            
+${c1}                  ::::::::x00000.                 
+${c1}                       .;dl                       
+EOF
+    ;;
 
         "cleanjaro_small"*)
             set_colors 7 7
