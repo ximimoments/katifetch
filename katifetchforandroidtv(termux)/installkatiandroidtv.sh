@@ -1,48 +1,20 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-# install-android.sh - Katifetch installer for Termux (Android)
+echo "📺 Installing Katifetch for Android TV..."
 
-set -e
+# Rutas
+BIN="$PREFIX/bin"
+SHARE="$PREFIX/share/katifetch"
 
-INSTALL_DIR="$PREFIX/bin"
-SHARE_DIR="$PREFIX/share/katifetch"
-THEME_DIR="$SHARE_DIR/themes"
-LOGO_DIR="$SHARE_DIR/logos"
+mkdir -p "$SHARE"
 
-echo "📂 Creating directories..."
-mkdir -p "$INSTALL_DIR"
-mkdir -p "$THEME_DIR"
-mkdir -p "$LOGO_DIR"
+# Copiar el script principal
+cp katifetch.sh "$BIN/katifetch"
+chmod +x "$BIN/katifetch"
 
-echo "📥 Installing katifetchforandroid as 'katifetch'..."
-cp katifetch "$INSTALL_DIR/katifetch"
-chmod +x "$INSTALL_DIR/katifetch"
-
-echo "🎨 Copying themes and logos..."
-cp -r themes/* "$THEME_DIR"
-cp -r logos/* "$LOGO_DIR"
-
-if [ ! -f "$HOME/.katifetchrc" ]; then
-  echo "⚙️ Installing default config to ~/.katifetchrc..."
-  cp .katifetchrc "$HOME/.katifetchrc"
+# Crear archivo .bashrc si no existe y autolanzar
+if ! grep -q "katifetch" "$HOME/.bashrc"; then
+  echo "katifetch" >> "$HOME/.bashrc"
 fi
 
-echo "✅ Installation complete! Run 'katifetch' to test it."
-
-echo ""
-cat << "EOF"
-     ___           ___                                                    ___                         ___           ___     
-    /  /\         /  /\          ___            ___         ___          /  /\          ___          /  /\         /  /\    
-   /  /:/        /  /::\        /__/\          /__/\       /  /\        /  /::\        /__/\        /  /::\       /  /:/    
-  /  /:/        /  /:/\:\       \  \:\         \__\:\     /  /::\      /  /:/\:\       \  \:\      /  /:/\:\     /  /:/     
- /  /::\____   /  /::\ \:\       \__\:\        /  /::\   /  /:/\:\    /  /::\ \:\       \__\:\    /  /:/  \:\   /  /::\ ___ 
-/__/:/\:::::\ /__/:/\:\_\:\      /  /::\    __/  /:/\/  /  /::\ \:\  /__/:/\:\ \:\      /  /::\  /__/:/ \  \:\ /__/:/\:\  /\
-\__\/~|:|~~~~ \__\/  \:\/:/     /  /:/\:\  /__/\/:/~~  /__/:/\:\ \:\ \  \:\ \:\_\/     /  /:/\:\ \  \:\  \__\/ \__\/  \:\/:/
-   |  |:|          \__\::/     /  /:/__\/  \  \::/     \__\/  \:\_\/  \  \:\ \:\      /  /:/__\/  \  \:\            \__\::/ 
-   |  |:|          /  /:/     /__/:/        \  \:\          \  \:\     \  \:\_\/     /__/:/        \  \:\           /  /:/  
-   |__|:|         /__/:/      \__\/          \__\/           \__\/      \  \:\       \__\/          \  \:\         /__/:/   
-    \__\|         \__\/                                                  \__\/                       \__\/         \__\/    
-    Katifetch for Android (Termux)
-EOF
-echo ""
-
+echo "✅ Installed! Run 'katifetch' or just open Termux."
