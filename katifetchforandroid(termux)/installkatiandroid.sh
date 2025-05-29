@@ -15,7 +15,7 @@ mkdir -p "$THEME_DIR"
 mkdir -p "$LOGO_DIR"
 
 echo "📥 Installing katifetchforandroid as 'katifetch'..."
-cp katifetchforandroid "$INSTALL_DIR/katifetch"
+cp katifetch "$INSTALL_DIR/katifetch"
 chmod +x "$INSTALL_DIR/katifetch"
 
 echo "🎨 Copying themes and logos..."
