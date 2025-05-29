@@ -1,31 +1,33 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-# Katifetch auto-updater for Termux (Android)
-# Author: ximimoments
+# Katifetch Uninstaller Script for Termux (Android)
 
-REPO="https://github.com/ximimoments/katifetch"
-TMP_DIR="$HOME/katifetch-tmp"
-INSTALL_DIR="$PREFIX/bin"
+echo "🗑️ Uninstalling Katifetch..."
 
-echo "🔄 Checking for updates..."
+INSTALL_PATH="$PREFIX/bin/katifetch"
+CONFIG_FILE="$HOME/.katifetchrc"
+SHARE_DIR="$PREFIX/share/katifetch"
 
-rm -rf "$TMP_DIR"
-git clone --depth=1 "$REPO" "$TMP_DIR" >/dev/null 2>&1
-
-if [ ! -d "$TMP_DIR" ]; then
-    echo "❌ Failed to fetch the latest version."
-    exit 1
+if [ -f "$INSTALL_PATH" ]; then
+    rm "$INSTALL_PATH"
+    echo "✔️ Katifetch executable removed from $INSTALL_PATH"
+else
+    echo "ℹ️ No executable found at $INSTALL_PATH"
 fi
 
-# Copy the main katifetchforandroid script and overwrite
-cp "$TMP_DIR/katifetch" "$INSTALL_DIR/katifetch"
-chmod +x "$INSTALL_DIR/katifetch"
+if [ -d "$SHARE_DIR" ]; then
+    rm -rf "$SHARE_DIR"
+    echo "✔️ Removed themes and logos directory at $SHARE_DIR"
+fi
 
-# Copy themes and logos too
-cp -r "$TMP_DIR/themes/"* "$PREFIX/share/katifetch/themes/"
-cp -r "$TMP_DIR/logos/"* "$PREFIX/share/katifetch/logos/"
+if [ -f "$CONFIG_FILE" ]; then
+    read -p "❓ Do you want to remove the configuration file ($CONFIG_FILE)? [y/N]: " answer
+    if [[ "$answer" == "y" || "$answer" == "Y" ]]; then
+        rm "$CONFIG_FILE"
+        echo "✔️ Configuration file removed."
+    else
+        echo "ℹ️ Configuration file kept."
+    fi
+fi
 
-rm -rf "$TMP_DIR"
-
-echo "✅ Katifetch has been updated successfully."
-echo "🚀 Run it now: katifetch"
+echo "✅ Katifetch has been uninstalled."
