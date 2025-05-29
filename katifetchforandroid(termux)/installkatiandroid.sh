@@ -45,4 +45,3 @@ cat << "EOF"
     Katifetch for Android (Termux)
 EOF
 echo ""
-
