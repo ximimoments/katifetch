@@ -151,7 +151,7 @@ And enjoy Katifetch on macOS!
 
 # Katifetch for Android
 
-![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/Androidtermuxkatifetch.jpg)
+<img src="https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/Androidtermuxkatifetch.jpg" width="300" />
 
 Here's where the crazy stuff starts: katifetch on Android?
 Yes! katifetch on Android.
