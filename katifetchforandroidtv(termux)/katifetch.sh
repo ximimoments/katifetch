@@ -1336,8 +1336,8 @@ get_model() {
     case $model in
         "Standard PC"*) model="KVM/QEMU (${model})" ;;
         OpenBSD*)       model="vmm ($model)" ;;
-    esac          ,c:.                                 :c;          
-    
+    esac          ,c:.                                 :c;              
+
 }
 
 get_title() {
