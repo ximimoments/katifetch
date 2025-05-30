@@ -184,9 +184,9 @@ ls
 chmod +x katifetchmenu.sh
 ./katifetchmenu.sh
 ```
-## press 1
-## enter
-## press 4
+# press 1
+# enter
+# press 4
 
 and ready!!!
 
