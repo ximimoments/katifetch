@@ -160,6 +160,36 @@ That is, only on Termux. How cool is that? You can install Termux on f-droid and
 And what's it about?
 The same Linux katifetch as always, but the Android logo is modified, meaning it's kind of crooked.
 
+## 📦 Installation (Android termux)
+
+First download git on termux
+
+```bash
+pkg install git  
+```
+
+and then
+
+```bash
+git clone https://github.com/ximimoments/katifetch.git
+```
+
+Now we go to the cd part, that is, put the exact katifetch directory for android termux
+
+```bash
+ls
+cd katifetch
+cd katifetchforandroid\(termux\)/
+ls
+chmod +x katifetchmenu.sh
+./katifetchmenu.sh
+press 1
+enter
+press 4
+```
+
+and ready!!!
+
 #
 <p align="center">
  — 🙏 Thank you for supporting Katifetch! — <br>
