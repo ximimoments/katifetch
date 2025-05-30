@@ -174,7 +174,7 @@ and then
 git clone https://github.com/ximimoments/katifetch.git
 ```
 
-Now we go to the cd part, that is, put the exact katifetch directory for android termux
+Now we go to the cd part, that is, put the exact katifetch directory for android termux and chmod
 
 ```bash
 ls
