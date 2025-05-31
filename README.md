@@ -188,7 +188,10 @@ press 1 | enter | press 4
 
 and ready!!!
 
+## 🔄 Update (macOS)
+
 #
+
 <p align="center">
  — 🙏 Thank you for supporting Katifetch! — <br>
  — From the Katifetch community 💙 —<br>
