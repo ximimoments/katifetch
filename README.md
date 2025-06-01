@@ -196,7 +196,7 @@ press 1 | enter | press 4
 
 and ready!!!
 
-## 🔄 Update (macOS)
+## 🔄 Update (Android termux)
 
 #
 
