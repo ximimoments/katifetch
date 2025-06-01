@@ -119,7 +119,7 @@ powershell -ExecutionPolicy Bypass -File .\uninstall.ps1
 
  ![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchmacos(4).png)
 
-collaboration with: ![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/colab.png)
+collaboration with: ![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/collab.png)
 
 Katifetch also supports macOS with the same Bash-based script.
 
