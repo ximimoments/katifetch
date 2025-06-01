@@ -117,6 +117,9 @@ powershell -ExecutionPolicy Bypass -File .\uninstall.ps1
 
 # Katifetch for macOS
 
+![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/katifetchmacos.png)
+
+
 Katifetch also supports macOS with the same Bash-based script.
 
 ## 📦 Installation (macOS)
@@ -137,6 +140,8 @@ chmod +x update-macos.sh
 ```
 
 ## 🧼 Uninstall (macOS)
+
+
 
 To remove Katifetch on macOS:
 
