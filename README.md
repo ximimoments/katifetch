@@ -253,7 +253,9 @@ katifetch
 Join our growing community to get help, share your setups, or contribute! 
 👉 **[Join our Discord server](https://discord.gg/AK9WrTHTVq)**
 
-<img src="https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchtiktokaccount.jpg" width="300" />
+#
+
+<img src="https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchtiktokaccount.jpg" width="287" />
 
 ## 🎥 We're on TikTok!
 Follow Katifetch for updates, demos & more:  
