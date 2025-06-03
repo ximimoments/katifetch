@@ -206,36 +206,36 @@ coming soon
 
 but first
 
-   ### first enable the dnf copr:
+   ### 📦 first enable the dnf copr:
 
 ```bash
 sudo dnf copr enable ximios/katifetch 
 ```
-   ### Install katifetch:
+   ### 📦 Install katifetch:
 
 ```bash
 sudo dnf install katifetch
 ```
 
-   ### Update katifetch (to get the latest version):
+   ### 🔄 Update katifetch (to get the latest version):
 
 ```bash
 sudo dnf update katifetch
 ```
 
-  ### Reinstall katifetch (if needed):
+  ### 🔄📦 Reinstall katifetch (if needed):
 
 ```bash
 sudo dnf reinstall katifetch
 ```
 
-   ### Remove katifetch:
+   ### 🧼 Remove katifetch:
 
 ```bash
 sudo dnf remove katifetch
 ```
 
-   ### Run katifetch:
+   ### 🚀 Run katifetch:
 
 ```bash
 katifetch
