@@ -255,10 +255,10 @@ Join our growing community to get help, share your setups, or contribute!
 
 #
 
-<img src="https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchtiktokaccount.jpg" width="287" />
-
 ## 🎥 We're on TikTok!
 Follow Katifetch for updates, demos & more:  
 👉 [@katifetch](https://www.tiktok.com/@katifetch)
+
+<img src="https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchtiktokaccount.jpg" width="287" />
 
 ---
