@@ -17,6 +17,10 @@
 
 ---
 
+## katifetch: how to install nerdfont
+
+[![Watch the demo](https://img.youtube.com/vi/gWKcaDRoy8s/0.jpg)]([https://www.youtube.com/watch?v=gWKcaDRoy8s])
+
 ## 📦 Installation
 
 ```bash
