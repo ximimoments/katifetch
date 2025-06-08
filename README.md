@@ -255,6 +255,12 @@ Join our growing community to get help, share your setups, or contribute!
 
 #
 
+## Podcast katifetch on NotebookLM ai
+
+[![Watch the demo](https://img.youtube.com/vi/k68KF6UpYFo/0.jpg)](https://www.youtube.com/watch?v=k68KF6UpYFo)
+
+#
+
 ## 🎥 We're on TikTok!
 Follow Katifetch for updates, demos & more:  
 👉 [@katifetch](https://www.tiktok.com/@katifetch)
