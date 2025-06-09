@@ -7,6 +7,11 @@
 
 ---
 
+## 📸 Screenshots
+
+See more screenshots from different operating systems here:  
+👉 [More screenshots available in this repository](https://github.com/ximimoments/katifetchscreenshots/blob/main/readme.md)
+
 ## Features
 
 * Detects CPU, GPU, RAM, uptime, shell, and more.
