@@ -95,7 +95,7 @@ If you're on Windows, you can use the PowerShell version of Katifetch.
 
 ![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchforwindowsedition.png)
 
-![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchonwindows10enterpriseltscevaluation2021.png)
+![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchonwindows10enterpriseltscevaluation2021.PNG)
 
 # 🎥 Katifetch Video Demo for Windows
 
