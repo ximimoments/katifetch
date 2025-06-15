@@ -282,3 +282,12 @@ Follow Katifetch for updates, demos & more:
 <img src="https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchtiktokaccount.jpg" width="287" />
 
 ---
+
+## 📷 We're on Youtube!
+Subscribe Katifetch for updates, demos & more:  
+👉 [@katifetch](https://www.youtube.com/@Katifetch)
+
+<img src="https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchtiktokaccount.jpg" width="287" />
+
+---
+
