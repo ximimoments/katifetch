@@ -290,4 +290,10 @@ Subscribe Katifetch for updates, demos & more:
 <img src="https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchyoutube.jpg" width="287" />
 
 ---
+## 📸 We're on Instagram!
+folloe Katifetch for updates, demos & more:  
+👉 [@katifetch](https://www.instagram.com/katifetch/)
 
+<img src="https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchinstagram.jpg" width="287" />
+
+---
