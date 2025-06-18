@@ -89,8 +89,7 @@ You can also add your own themes in the themes/ folder.
 katifetch
 ```
 
-## And Enjoy of Katifetch for Linux!
-
+## And enjoy using Katifetch on Linux!
 ---
 
 # Katifetch For Windows edition
@@ -126,7 +125,7 @@ powershell -ExecutionPolicy Bypass -File .\katifetch-update.ps1
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\uninstall.ps1
 ```
-## And Enjoy of Katifetch for Windows edition!
+## And enjoy using Katifetch on Windows edition! 
 
 ---
 
@@ -159,8 +158,6 @@ chmod +x update-macos.sh
 
 ## 🧼 Uninstall (macOS)
 
-
-
 To remove Katifetch on macOS:
 
 ```bash
@@ -168,7 +165,7 @@ chmod +x uninstall.sh
 ./uninstall.sh  
 ```
 
-And enjoy Katifetch on macOS!
+And enjoy using Katifetch on macOS!
 
 #
 
@@ -257,8 +254,9 @@ katifetch
 ```
 
 #
+And enjoy using Katifetch with Fedora Copr
 
-<p align="center">
+<p al!ign="center">
  — 🙏 Thank you for supporting Katifetch! — <br>
  — From the Katifetch community 💙 —<br>
  <a</a>
