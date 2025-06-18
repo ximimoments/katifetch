@@ -178,7 +178,7 @@ Yes! katifetch on Android.
 After many days of development on this project and thinking about which devices to use, katifetch was officially launched on Android!
 That is, only on Termux. How cool is that? You can install Termux on f-droid and in the Play Store, which is typical.
 And what's it about?
-The same Linux katifetch as always, but the Android logo is modified, meaning it's kind of crooked.
+The same Linux katifetch as always, but with a customized Android logo to match the style.
 
 ## 📦 Installation (Android termux)
 
