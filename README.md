@@ -262,6 +262,17 @@ And enjoy using Katifetch with Fedora Copr
  <a</a>
 </p>
 
+## ✅ Platform Compatibility
+
+| Platform           | Status | Notes                         |
+|--------------------|--------|-------------------------------|
+| **Linux**          | ✅     | Native Bash support           |
+| **macOS**          | ✅     | Bash with Apple logo          |
+| **Windows**        | ✅     | PowerShell version            |
+| **Android (Termux)** | ✅   | Runs on Termux, customized logo |
+
+---
+
 ## 📢 Join the Community
 Join our growing community to get help, share your setups, or contribute! 
 👉 **[Join our Discord server](https://discord.gg/AK9WrTHTVq)**
