@@ -364,7 +364,7 @@ chmod +x katifetch-update.sh
 ```
 #
 
-<p al!ign="center">
+<p align="center">
  — 🙏 Thank you for supporting Katifetch! — <br>
  — From the Katifetch community 💙 —<br>
  <a</a>
