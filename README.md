@@ -26,7 +26,8 @@ See more screenshots from different operating systems here:
 |------------------------|--------|------------------------------------------------------------|
 | **Linux**              | ✅     | Native Bash support                                        |
 | **macOS**              | ✅     | Bash with Apple logo                                       |
-| **Windows**            | ✅     | PowerShell version                                         |
+| **Windows 11**            | ✅     | 		PowerShell version (supports .ps1, with optional PATH setup) |
+| **Windows 10**            | ✅     | 		PowerShell script + .bat command support (katifetch from console) |
 | **Android (Termux)**   | ✅     | Runs on Termux, customized logo                            |
 | **Android (proot-distro)** | ✅ | Runs inside proot-distro container on termux (Debian/Ubuntu/etc.)   |
 | **Fedora (COPR repo)** | ✅     | Available via COPR repository for easy install (Fedora only) |
