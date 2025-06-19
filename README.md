@@ -394,7 +394,7 @@ Follow Katifetch for updates, demos & more:
 Subscribe Katifetch for updates, demos & more:  
 👉 [@katifetch](https://www.youtube.com/@Katifetch)
 
-<img src="https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchYoutubev2.jpg" width="287" />
+<img src="https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchYouTubev2.jpg" width="287" />
 
 ---
 ## 📸 We're on Instagram!
