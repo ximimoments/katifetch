@@ -411,3 +411,5 @@ folloe Katifetch for updates, demos & more:
 <img src="https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchInstagramv2.jpg" width="287" />
 
 ---
+
+**Proudly made in San José de Mayo, San José Department, Uruguay 🇺🇾**
