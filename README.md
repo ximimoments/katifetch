@@ -412,4 +412,10 @@ folloe Katifetch for updates, demos & more:
 
 ---
 
-**Proudly made in San José de Mayo, San José Department, Uruguay 🇺🇾**
+<hr>
+
+<div align="center">
+  <p><small>Free and open-source — Built with ❤️ in Uruguay 🇺🇾</small></p>
+  <p><small>South America</small></p>
+</div>
+
