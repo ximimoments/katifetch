@@ -13,15 +13,15 @@ while true; do
 
   case $choice in
     1)
-      bash install-android.sh
+      bash installkatiandroid.sh
       read -p "🔁 Press Enter to return to menu..."
       ;;
     2)
-      bash update-android.sh
+      bash katifetchupdateandroid-1.sh
       read -p "🔁 Press Enter to return to menu..."
       ;;
     3)
-      bash uninstall-android.sh
+      bash katifetchuninstallandroid-1.sh
       read -p "🔁 Press Enter to return to menu..."
       ;;
     4)
