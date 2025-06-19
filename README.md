@@ -28,9 +28,10 @@ See more screenshots from different operating systems here:
 | **macOS**              | ✅     | Bash with Apple logo                                       |
 | **Windows 11**            | ✅     | 		PowerShell version (supports .ps1, with optional PATH setup) |
 | **Windows 10**            | ✅     | 		PowerShell script + .bat command support (katifetch from console) |
-| **WSL (Windows Subsystem for Linux)**   | ✅     | 		Native Linux version with WSL detection and host Windows integration |
+| **WSL (Windows Subsystem for Linux)**   |  ✅   | 		Native Linux version with WSL detection and host Windows integration |
 | **Android (Termux)**   | ✅     | Runs on Termux, customized logo                            |
 | **Android (proot-distro)** | ✅ | Runs inside proot-distro container on termux (Debian/Ubuntu/etc.)   |
+| **Android TV (Termux)**   | ❓     | 	Minimalist version planned – coming soon                            |
 | **Fedora (COPR repo)** | ✅     | Available via COPR repository for easy install (Fedora only) |
 
 ---
