@@ -31,7 +31,7 @@ See more screenshots from different operating systems here:
 | **WSL (Windows Subsystem for Linux)**   |  ✅   | 		Native Linux version with WSL detection and host Windows integration |
 | **Android (Termux)**   | ✅     | Runs on Termux, customized logo                            |
 | **Android (proot-distro)** | ✅ | Runs inside proot-distro container on termux (Debian/Ubuntu/etc.)   |
-| **Android TV (Termux)**   | ❓     | 	Minimalist version planned – coming soon                            |
+| **Android TV (Termux)**   | ❓     | 	Minimalist version planned – available August 6, 2025                          |
 | **Fedora (COPR repo)** | ✅     | Available via COPR repository for easy install (Fedora only) |
 
 ---
