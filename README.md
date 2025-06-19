@@ -294,7 +294,7 @@ Run Katifetch inside a Linux container using `proot-distro` on Termux!
 
 ### 1. Log in to your Proot-Distro
 
-Replace `<your_distro>` with your installed distro name (e.g. `debian`, `ubuntu`):
+Replace `<your_distro>` with your installed distro name (e.g. `debian`, `ubuntu`, `fedora`):
 
 ```bash
 proot-distro login <your_distro>
