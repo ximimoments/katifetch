@@ -357,6 +357,7 @@ To update Katifetch inside your Proot-Distro environment:
 chmod +x katifetch-update.sh
 ./katifetch-update.sh
 ```
+#
 
 <p al!ign="center">
  — 🙏 Thank you for supporting Katifetch! — <br>
