@@ -409,9 +409,7 @@ folloe Katifetch for updates, demos & more:
 👉 [@katifetch](https://www.instagram.com/katifetch/)
 
 <img src="https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchInstagramv2.jpg" width="287" />
-
 ---
-
 <hr>
 
 <div align="center">
