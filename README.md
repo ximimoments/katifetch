@@ -34,6 +34,8 @@ See more screenshots from different operating systems here:
 | **Android TV (Termux)**   | ❓     | 	Minimalist version planned – available August 6, 2025                          |
 | **Fedora (COPR repo)** | ✅     | Available via COPR repository for easy install (Fedora only) |
 
+📅 Last updated: June 19, 2025
+📆 Android TV version planned for: August 6, 2025
 ---
 
 ## Features
