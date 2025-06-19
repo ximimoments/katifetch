@@ -286,6 +286,8 @@ And enjoy using Katifetch with Fedora Copr
 
 # Katifetch for Proot-Distro (Android Termux)
 
+<img src="https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchontermuxdebian.jpg" width="300" />
+
 Run Katifetch inside a Linux container using `proot-distro` on Termux!
 
 ---
