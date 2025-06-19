@@ -223,7 +223,22 @@ and ready!!!
 
 ## 🔄 Update (Android termux)
 
-coming soon
+```bash
+./katifetchmenu.sh
+```
+press 2 | enter | press 4
+
+and ready!!!
+
+
+## 🧼 Uninstall (Android termux)
+
+```bash
+./katifetchmenu.sh
+```
+press 3 | enter | press 4
+
+and ready!!!
 
 #
 
@@ -268,6 +283,78 @@ katifetch
 
 #
 And enjoy using Katifetch with Fedora Copr
+
+# Katifetch for Proot-Distro (Android Termux)
+
+Run Katifetch inside a Linux container using `proot-distro` on Termux!
+
+---
+
+## 📦 Installation (Proot-Distro in Termux)
+
+### 1. Log in to your Proot-Distro
+
+Replace `<your_distro>` with your installed distro name (e.g. `debian`, `ubuntu`):
+
+```bash
+proot-distro login <your_distro>
+```
+
+---
+
+### 2. Clone the Katifetch repository
+
+```bash
+git clone https://github.com/ximimoments/katifetch.git
+```
+
+---
+
+### 3. Navigate to the Proot-Distro folder
+
+```bash
+cd katifetch/katifetchforprootdistrotermux/
+```
+
+---
+
+### 4. Make the installer executable
+
+```bash
+chmod +x install.sh
+```
+
+> 💡 *Note: A version without `chmod` is coming soon for easier setup.*
+
+---
+
+### 5. Install Katifetch
+
+```bash
+./install.sh
+```
+
+---
+
+## 🧼 Uninstall (Proot-Distro Termux)
+
+To remove Katifetch from your Proot-Distro environment:
+
+```bash
+chmod +x uninstall.sh
+./uninstall.sh
+```
+
+---
+
+## 🔄 Update (Proot-Distro Termux)
+
+To update Katifetch inside your Proot-Distro environment:
+
+```bash
+chmod +x katifetch-update.sh
+./katifetch-update.sh
+```
 
 <p al!ign="center">
  — 🙏 Thank you for supporting Katifetch! — <br>
