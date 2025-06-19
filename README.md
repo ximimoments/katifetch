@@ -17,15 +17,15 @@ See more screenshots from different operating systems here:
 #
 
 ## ✅ Platform Compatibility
-| Platform           | Status | Notes                                      |
-|--------------------|--------|--------------------------------------------|
-| **Linux**          | ✅     | Native Bash support                        |
-| **macOS**          | ✅     | Bash with Apple logo                       |
-| **Windows**        | ✅     | PowerShell version                         |
-| **Android (Termux)** | ✅   | Runs on Termux, customized logo            |
-| **Android (proot-distro)** | ✅ | Runs inside proot-distro container (Debian/Ubuntu/etc.) |
-| **Fedora (COPR repo)** | ✅  | Available via COPR repository for easy install (Only for Fedora) |
 
+| Platform               | Status | Notes                                                      |
+|------------------------|--------|------------------------------------------------------------|
+| **Linux**              | ✅     | Native Bash support                                        |
+| **macOS**              | ✅     | Bash with Apple logo                                       |
+| **Windows**            | ✅     | PowerShell version                                         |
+| **Android (Termux)**   | ✅     | Runs on Termux, customized logo                            |
+| **Android (proot-distro)** | ✅ | Runs inside proot-distro container on termux (Debian/Ubuntu/etc.)   |
+| **Fedora (COPR repo)** | ✅     | Available via COPR repository for easy install (Fedora only) |
 
 ---
 
