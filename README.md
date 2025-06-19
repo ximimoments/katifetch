@@ -386,7 +386,7 @@ Join our growing community to get help, share your setups, or contribute!
 Follow Katifetch for updates, demos & more:  
 👉 [@katifetch](https://www.tiktok.com/@katifetch)
 
-<img src="https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchtiktokaccount.jpg" width="287" />
+<img src="https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchTikTokv2.jpg" width="287" />
 
 ---
 
@@ -394,13 +394,13 @@ Follow Katifetch for updates, demos & more:
 Subscribe Katifetch for updates, demos & more:  
 👉 [@katifetch](https://www.youtube.com/@Katifetch)
 
-<img src="https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchyoutube.jpg" width="287" />
+<img src="https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchYoutubev2.jpg" width="287" />
 
 ---
 ## 📸 We're on Instagram!
 folloe Katifetch for updates, demos & more:  
 👉 [@katifetch](https://www.instagram.com/katifetch/)
 
-<img src="https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchinstagram.jpg" width="287" />
+<img src="https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchInstagramv2.jpg" width="287" />
 
 ---
