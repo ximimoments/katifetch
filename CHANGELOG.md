@@ -1,4 +1,4 @@
-## [1.1 (prerelease)] - 2025-06-20 🚀
+## [1.1 (prerelease)] - 2025-06-20 ⚠️
 - ✨ Updated support for Fedora 41, 42, and newer.
 - 🐛 Fixed theme loading issues.
 - 🛠 Optimized RPM and tar.gz packaging.
