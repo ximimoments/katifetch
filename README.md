@@ -34,7 +34,18 @@ See more screenshots from different operating systems here:
 | **Android TV (Termux)**   | ❓     | 	Minimalist version planned – available August 6, 2025                          |
 | **Fedora (COPR repo)** | ✅     | Available via COPR repository for easy install (Fedora only) |
 
-📅 Last updated: June 19, 2025
+📅 **Last updated:** June 20, 2025
+
+## Release Notes
+
+### Version 1.1 — June 20, 2025
+
+- Added official RPM and tar.gz packages compatible with Fedora 41 and 42.
+- Improved theme loading with a fallback to `ozozfetch.theme`.
+- Fixed bugs related to theme file detection and shebang usage.
+- Optimized script for better compatibility and maintainability.
+
+_For more details, check the [CHANGELOG](./CHANGELOG.md)._
 
 📆 Android TV version planned for: August 6, 2025
 
