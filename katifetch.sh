@@ -41,9 +41,21 @@ PATH=$PATH:/usr/xpg4/bin:/usr/sbin:/sbin:/usr/etc:/usr/libexec
 reset='\e[0m'
 shopt -s nocasematch
 
-# Load the theme
-THEME_FILE="./themes/${theme:-default}.theme"
-[ -f "$THEME_FILE" ] && source "$THEME_FILE" || echo "Theme file not found"
+# Force preferred theme with fallback
+theme="ozozfetch"
+THEME_FILE="./themes/${theme}.theme"
+
+if [ ! -f "$THEME_FILE" ]; then
+  theme="default"
+  THEME_FILE="./themes/${theme}.theme"
+fi
+
+if [ -f "$THEME_FILE" ]; then
+  source "$THEME_FILE"
+  echo "Loaded theme: $theme"
+else
+  echo "Theme file not found: $THEME_FILE"
+fi
 
 # Establecer configuraciones de localización y optimización
 LC_ALL=C
