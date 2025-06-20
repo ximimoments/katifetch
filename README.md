@@ -38,7 +38,7 @@ See more screenshots from different operating systems here:
 
 ## Release Notes
 
-### Version 1.1 — June 20, 2025
+### Version 1.1 (prerelease) — June 20, 2025
 
 - Added official RPM and tar.gz packages compatible with Fedora 41 and 42.
 - Improved theme loading with a fallback to `ozozfetch.theme`.
