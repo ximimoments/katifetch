@@ -36,16 +36,18 @@ See more screenshots from different operating systems here:
 
 📅 **Last updated:** June 20, 2025
 
-## Release Notes
+## 📄 Release Notes
 
-### Version 1.1 (prerelease) — June 20, 2025
+### Version 1.1.2 (Official Release) — June 20, 2025
 
-- Added official RPM and tar.gz packages compatible with Fedora 41 and 42.
-- Improved theme loading with a fallback to `ozozfetch.theme`.
-- Fixed bugs related to theme file detection and shebang usage.
-- Optimized script for better compatibility and maintainability.
+- 📦 Added official `.rpm`, `.src.rpm`, and `.tar.gz` packages for Fedora 42 and compatible systems.  
+- 🐛 Improved theme loading logic — silent and reliable with automatic fallback to `default.theme`.  
+- 🧹 Removed the `“Loaded theme:”` message for cleaner terminal output.  
+- 🛠 Optimized packaging and release workflow for RPM and tarball formats.  
+- ☁️ Published `.rpm` via [Fedora COPR](https://copr.fedorainfracloud.org/coprs/ximios/katifetch/).  
+- 📚 Updated documentation and streamlined installation process.
 
-_For more details, check the [CHANGELOG](./CHANGELOG.md)._
+_For full details, see the [CHANGELOG](./CHANGELOG.md)._
 
 📆 Android TV version planned for: August 6, 2025
 
