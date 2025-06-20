@@ -52,9 +52,9 @@ fi
 
 if [ -f "$THEME_FILE" ]; then
   source "$THEME_FILE"
-  echo "Loaded theme: $theme"
+#  echo "Loaded theme: $theme"
 else
-  echo "Theme file not found: $THEME_FILE"
+#  echo "Theme file not found: $THEME_FILE"
 fi
 
 # Establecer configuraciones de localización y optimización
