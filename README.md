@@ -35,7 +35,7 @@ See more screenshots from different operating systems here:
 | **Fedora (COPR repo)** | ✅     | Available via COPR repository for easy install (Fedora only) |
 | **Ubuntu 10.04**       | ✅     | Minimalist Bash script with colored logo, compatible with Ubuntu 10.04 LTS |
 
-📅 **Last updated:** June 20, 2025
+📅 **Last updated:** June 21, 2025
 
 ## 📄 Release Notes
 
