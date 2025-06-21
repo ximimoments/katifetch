@@ -2,17 +2,11 @@
   <img src="https://readme-typing-svg.herokuapp.com?font=DM+Serif+Text&weight=100&size=31&pause=1000&color=F7BE6C&center=true&width=435&lines=%F0%9F%A7%91%E2%80%8D%F0%9F%92%BBKatifetch%F0%9F%A7%91%E2%80%8D%F0%9F%92%BB" alt="Typing SVG">
 </p>
 
-<p align="center">
-  <a href="https://github.com/ximimoments/katifetch">
-    <img src="https://img.shields.io/github/stars/ximimoments/katifetch?style=for-the-badge&logo=github" alt="Stars">
-  </a>
-  <a href="https://github.com/ximimoments/katifetch/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/ximimoments/katifetch?style=for-the-badge" alt="License">
-  </a>
-  <a href="https://github.com/ximimoments/katifetch">
-    <img src="https://img.shields.io/github/repo-size/ximimoments/katifetch?style=for-the-badge" alt="Repo Size">
-  </a>
-</p>
+[![Stars](https://img.shields.io/github/stars/ximimoments/katifetch?style=for-the-badge&logo=github)](https://github.com/ximimoments/katifetch)
+
+[![License](https://img.shields.io/github/license/ximimoments/katifetch?style=for-the-badge)](https://github.com/ximimoments/katifetch/blob/main/LICENSE)
+
+[![Repo Size](https://img.shields.io/github/repo-size/ximimoments/katifetch?style=for-the-badge)](https://github.com/ximimoments/katifetch)
 
 > *Katifetch is not affiliated with or endorsed by the Fedora Project™. The Fedora™ and COPR™ logos are used for informational purposes only.*
 
