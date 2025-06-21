@@ -1,3 +1,10 @@
+[Ubuntu 10.04 Minimal] - 2025-06-21 🧡
+
+-    🐚 Minimal Bash script version tailored for Ubuntu 10.04 LTS.
+-    🎨 Added orange-colored ASCII logo.
+-    ✅ Basic system info: OS, Kernel, CPU, Memory, Uptime.
+-    ⚡ Lightweight and compatible with legacy Ubuntu systems.
+
 ## [1.1.2 (official release)] - 2025-06-20 🚀
 - ✨ Updated support for Fedora 41, 42, and newer.
 - 🐛 Improved theme loading — silent and reliable with fallback to default.
