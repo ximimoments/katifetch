@@ -1,4 +1,4 @@
-[Ubuntu 10.04 Minimal] - 2025-06-21 🧡
+## [Ubuntu 10.04 Minimal] - 2025-06-21 🧡
 
 -    🐚 Minimal Bash script version tailored for Ubuntu 10.04 LTS.
 -    🎨 Added orange-colored ASCII logo.
