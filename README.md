@@ -33,6 +33,7 @@ See more screenshots from different operating systems here:
 | **Android (proot-distro)** | ✅ | Runs inside proot-distro container on termux (Debian/Ubuntu/etc.)   |
 | **Android TV (Termux)**   | ❓     | 	Minimalist version planned – available August 6, 2025                          |
 | **Fedora (COPR repo)** | ✅     | Available via COPR repository for easy install (Fedora only) |
+| **Ubuntu 10.04**       | ✅     | Minimalist Bash script with colored logo, compatible with Ubuntu 10.04 LTS |
 
 📅 **Last updated:** June 20, 2025
 
