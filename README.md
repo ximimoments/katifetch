@@ -2,12 +2,11 @@
   <img src="https://readme-typing-svg.herokuapp.com?font=DM+Serif+Text&weight=100&size=31&pause=1000&color=F7BE6C&center=true&width=435&lines=%F0%9F%A7%91%E2%80%8D%F0%9F%92%BBKatifetch%F0%9F%A7%91%E2%80%8D%F0%9F%92%BB" alt="Typing SVG">
 </p>
 
-[![GitHub Stars](https://img.shields.io/github/stars/ximimoments/katifetch?style=flat-square&color=orange)](https://github.com/ximimoments/katifetch)
-[![License: MIT](https://img.shields.io/github/license/ximimoments/katifetch?style=flat-square&color=brightgreen)](https://github.com/ximimoments/katifetch/blob/main/LICENSE)
-[![Repo Size](https://img.shields.io/github/repo-size/ximimoments/katifetch?style=flat-square&color=blue)](https://github.com/ximimoments/katifetch)
-[![Issues](https://img.shields.io/github/issues/ximimoments/katifetch?style=flat-square&color=yellow)](https://github.com/ximimoments/katifetch/issues)
-[![Last Commit](https://img.shields.io/github/last-commit/ximimoments/katifetch?style=flat-square&color=red)](https://github.com/ximimoments/katifetch/commits/main)
-
+[![GitHub Stars](https://img.shields.io/github/stars/ximimoments/katifetch?style=for-the-badge&logo=github&label=Stars)](https://github.com/ximimoments/katifetch)
+[![License: MIT](https://img.shields.io/github/license/ximimoments/katifetch?style=for-the-badge&logo=open-source-initiative)](https://github.com/ximimoments/katifetch/blob/main/LICENSE)
+[![Repo Size](https://img.shields.io/github/repo-size/ximimoments/katifetch?style=for-the-badge&logo=files&label=Repo%20Size)](https://github.com/ximimoments/katifetch)
+[![Open Issues](https://img.shields.io/github/issues/ximimoments/katifetch?style=for-the-badge&logo=github&label=Issues)](https://github.com/ximimoments/katifetch/issues)
+[![Last Commit](https://img.shields.io/github/last-commit/ximimoments/katifetch?style=for-the-badge&logo=git&label=Last%20Commit)](https://github.com/ximimoments/katifetch/commits/main)
 
 *Katifetch is not affiliated with or endorsed by any distribution, including but not limited to the Fedora Project™. Logos and names (such as Fedora™ and COPR™) are used strictly for informational and compatibility purposes only.*
 
