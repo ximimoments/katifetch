@@ -54,6 +54,7 @@ if [ -f "$THEME_FILE" ]; then
   source "$THEME_FILE"
 #  echo "Loaded theme: $theme"
 else
+  :
 #  echo "Theme file not found: $THEME_FILE"
 fi
 
@@ -75,11 +76,12 @@ read -rd '' config <<'EOF'
 # https://github.com/dylanaraps/neofetch/wiki/Customizing-Info
 # themes/Ozozfetch.theme
 
+read -rd '' config <<'EOF'
 print_info() {
     info title
     info underline
     
-    info "${c1}  OS" os
+    info "${c1} Linux OS" os
     info "${c1} ├󰌽 " distro
     info "${c1} ├ " kernel
     info "${c1} ├󰏗 " packages
@@ -101,6 +103,8 @@ print_info() {
     
 }
 
+EOF
+	
 ##--------- Title
 
 # Hide/Show Fully qualified domain name.
@@ -900,9 +904,6 @@ background_color=
 # Default: 'off'
 # Values: 'on', 'off'
 stdout="off"
-
-
-EOF
 
 # DETECT INFORMATION
 
@@ -11528,7 +11529,7 @@ oMMMMmMMMMNds:.+MMMmmMMN/.-odNMMMMmMMMM+
           `:hMMMMMM. NMMMMMh/`
              .odNm+  /dNms.
 EOF
-                ;;
+;;
 
             esac
         ;;
