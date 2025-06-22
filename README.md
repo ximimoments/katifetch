@@ -5,7 +5,7 @@
 [![GitHub Stars](https://img.shields.io/github/stars/ximimoments/katifetch?style=for-the-badge&logo=github&label=Stars)](https://github.com/ximimoments/katifetch)
 [![License: MIT](https://img.shields.io/github/license/ximimoments/katifetch?style=for-the-badge&logo=open-source-initiative)](https://github.com/ximimoments/katifetch/blob/main/LICENSE)
 [![Repo Size](https://img.shields.io/github/repo-size/ximimoments/katifetch?style=for-the-badge&logo=files&label=Repo%20Size)](https://github.com/ximimoments/katifetch)
-[![Open Issues](https://img.shields.io/github/issues/ximimoments/katifetch?style=for-the-badge&logo=exclamation&label=Issues)](https://github.com/ximimoments/katifetch/issues)
+[![Open Issues](https://img.shields.io/github/issues/ximimoments/katifetch?style=for-the-badge&logo=issue-opened&label=Issues)](https://github.com/ximimoments/katifetch/issues)
 [![Last Commit](https://img.shields.io/github/last-commit/ximimoments/katifetch?style=for-the-badge&logo=git&label=Last%20Commit)](https://github.com/ximimoments/katifetch/commits/main)
 
 
