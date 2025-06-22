@@ -386,12 +386,64 @@ chmod +x katifetch-update.sh
 ```
 #
 
+# 🧡 Katifetch for Ubuntu 10.04
+
+Minimal version of Katifetch designed exclusively for legacy systems like Ubuntu 10.04 LTS.
+
+
+
+---
+
+## 📦 Installation
+
+```bash
+git clone https://github.com/ximimoments/katifetchubuntu10.04.git
+cd katifetchubuntu10.04
+chmod +x install.sh
+sudo ./install.sh
+```
+
+## 🔄 Update
+
+To update Katifetch:
+
+```bash
+chmod +x update.sh
+sudo ./update.sh
+```
+## 🧼 Uninstall
+
+To remove Katifetch:
+
+```bash
+chmod +x uninstall.sh
+sudo ./uninstall.sh
+```
+🖥 Run Katifetch
+```bash
+katifetch
+```
+✨ Features
+
+-    🎨 Orange ASCII logo
+
+-    💻 System info: OS, Kernel, CPU, Memory, Uptime
+
+-    🐚 Bash-compatible
+
+-    ⚙️ Lightweight and fast
+
+-    🧠 Compatible with low-memory environments
+
+And enjoy using Katifetch on Ubuntu 10.04!
+
+#
+
 <p align="center">
  — 🙏 Thank you for supporting Katifetch! — <br>
  — From the Katifetch community 💙 —<br>
  <a</a>
 </p>
-
 
 ## 📢 Join the Community
 Join our growing community to get help, share your setups, or contribute! 
