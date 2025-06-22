@@ -396,7 +396,7 @@ chmod +x katifetch-update.sh
 
 Minimal version of Katifetch designed exclusively for legacy systems like Ubuntu 10.04 LTS.
 
-![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/ddd.png)
+![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/dd.png)
 
 📖 **Full tutorial**: [How to Install Katifetch on Ubuntu 10.04 (PDF)](https://github.com/ximimoments/katifetch/raw/main/katifetchubuntu10.04/tutorial%20file/Tutorial%3A%20How%20to%20Install%20Katifetch%20on%20Ubuntu%2010.04.pdf)
 
