@@ -26,10 +26,20 @@ echo "Copying themes and logos..."
 sudo cp -r themes/* "$THEME_DIR"
 sudo cp -r logos/* "$LOGO_DIR"
 
-# Copy default config (optional)
+# Copy or create default config
 if [ ! -f "$HOME/.katifetchrc" ]; then
   echo "Installing default configuration to ~/.katifetchrc..."
-  cp .katifetchrc "$HOME/.katifetchrc"
+
+  if [ -f ".katifetchrc" ]; then
+    cp .katifetchrc "$HOME/.katifetchrc"
+  else
+    cat > "$HOME/.katifetchrc" <<EOF
+# Katifetch default configuration
+theme=default
+show_logo=yes
+show_colors=yes
+EOF
+  fi
 fi
 
 echo "Installation complete! Run 'katifetch' to test it."
