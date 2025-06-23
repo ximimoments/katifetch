@@ -491,7 +491,7 @@ folloe Katifetch for updates, demos & more:
 
 Got feedback? Want to share your setup or ask something?
 You're welcome in the official Katifetch subreddit:
-👉 [r/katifetch](https://www.reddit.com/r/t5_ercnf8/s/MuRUniKppL)
+👉 [r/katifetch](https://www.reddit.com/r/katifetch/)
 
 > 💬 Help us grow and shape the future of Katifetch!
 
