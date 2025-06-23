@@ -487,9 +487,11 @@ folloe Katifetch for updates, demos & more:
 
 👥 Join our Reddit Community!
 
+<img src="https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/whatsup.jpg" width="287" />
+
 Got feedback? Want to share your setup or ask something?
 You're welcome in the official Katifetch subreddit:
-👉 [r/katifetch](https://www.reddit.com/r/t5_ercnf8/s/SPx9ZurUZ8)
+👉 [r/katifetch](https://www.reddit.com/r/t5_ercnf8/s/MuRUniKppL)
 
 > 💬 Help us grow and shape the future of Katifetch!
 
