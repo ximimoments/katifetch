@@ -2,7 +2,7 @@
 
 ---
 
-### [1.2 (official release)] - 2025-06-24 🎉  
+### [1.2 (official release)] - 2025-06-23 🎉  
 - 📦 Added official `.deb` package for Debian and Ubuntu users.  
 - 🛠 Fixed installer to auto-create `.katifetchrc` on first run.  
 - 🌍 Verified compatibility with users in Brazil 🇧🇷 and Japan 🇯🇵.  
