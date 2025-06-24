@@ -45,26 +45,23 @@ See more screenshots from different operating systems here:
 | **Ubuntu/Debian (.deb)**        | ✅     | Official `.deb` package available — easy install                     |
 | **Ubuntu 10.04**                | ✅     | Basic Bash script support with colored logo                          |
 
-📅 **Last updated:** June 23, 2025
-
----
+📅 **Last updated:** June 24, 2025
 
 ## 📄 Release Notes
 
-### Version 1.2 (Official Release) — June 23, 2025
+### Version 1.2 (Official Release) — June 24, 2025
 
-- 🐞 Fixed installer to automatically create `.katifetchrc` config file on first run.  
-- 📦 Added support for `.deb` packages — simplified install on Debian/Ubuntu.  
-- 🌎 Improved compatibility and tested with users from Brazil 🇧🇷 and Japan 🇯🇵.  
-- 🎨 Updated themes and scripts for a better visual experience.  
-- 🧰 Refactored internal logic for improved reliability across systems.  
-- 📁 Available formats: `.rpm`, `.deb`, `.tar.gz`.
+- 📦 Added official `.deb` package for Debian and Ubuntu systems.
+- 🐛 Fixed installer to automatically create `.katifetchrc` on first run.
+- 🎨 Updated themes and default appearance with `ozozfetch`.
+- 🌍 Improved compatibility with systems in Brazil 🇧🇷 and Japan 🇯🇵.
+- ⚙️ Better fallback logic and error handling in the fetch script.
 
-## 📥 Installation
+🆕 Now supporting `.deb` format alongside `.rpm` and `.tar.gz` builds.
 
-```bash
-# Fedora / RHEL
-sudo dnf install ./katifetch-1.2-1.fc42.noarch.rpm
+📄 For full details, see the [`CHANGELOG.md`](./CHANGELOG.md).
+
+📆 **Android TV minimalist version scheduled for:** August 6, 2025
 
 # Ubuntu / Debian
 sudo dpkg -i katifetch-1.2-debian.deb
