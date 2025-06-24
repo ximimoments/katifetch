@@ -182,9 +182,47 @@ powershell -ExecutionPolicy Bypass -File .\katifetch-update.ps1
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\uninstall.ps1
 ```
-## And enjoy using Katifetch on Windows edition! 
+## And enjoy using Katifetch on Windows 11 edition! 
 
 ---
+# Katifetch For Windows 10 edition
+
+If you're using Windows 10, especially Enterprise LTSC Evaluation 2021, you can run the special PowerShell edition of Katifetch designed for older systems.
+
+##  📦 Installation (Windows 10)
+
+1) Download or clone the repository:
+
+```cmd
+git clone https://github.com/ximimoments/katifetch.git
+```
+
+2) Navigate to the Windows batch edition folder:
+```cmd
+cd katifetch\katifetchforwindowsedition
+```
+
+3) Run the install script:
+
+```cmd
+katifetch
+```
+
+## 🔄 Update (Windows 10)
+
+To update Katifetch, run:
+
+```cmd
+update.bat
+```
+
+🧼 Uninstall (Windows 10)
+
+To uninstall Katifetch, run:
+
+```cmd
+uninstall.bat
+```
 
 # Katifetch for macOS
 
