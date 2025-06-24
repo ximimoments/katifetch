@@ -31,35 +31,48 @@ See more screenshots from different operating systems here:
 
 ## ✅ Platform Compatibility
 
-| Platform               | Status | Notes                                                      |
-|------------------------|--------|------------------------------------------------------------|
-| **Linux**              | ✅     | Native Bash support                                        |
-| **macOS**              | ✅     | Bash with Apple logo                                       |
-| **Windows 11**            | ✅     | 		PowerShell version (supports .ps1, with optional PATH setup) |
-| **Windows 10**            | ✅     | 		PowerShell script + .bat command support (katifetch from console) |
-| **WSL (Windows Subsystem for Linux)**   |  ✅   | 		Native Linux version with WSL detection and host Windows integration |
-| **Android (Termux)**   | ✅     | Runs on Termux, customized logo                            |
-| **Android (proot-distro)** | ✅ | Runs inside proot-distro container on termux (Debian/Ubuntu/etc.)   |
-| **Android TV (Termux)**   | ❓     | 	Minimalist version planned – available August 6, 2025                          |
-| **Fedora (COPR repo)** | ✅     | Available via COPR repository for easy install (Fedora only) |
-| **Ubuntu 10.04**       | ✅     | Minimalist Bash script with colored logo, compatible with Ubuntu 10.04 LTS |
+| Platform                         | Status | Notes                                                                 |
+|----------------------------------|--------|-----------------------------------------------------------------------|
+| **Linux**                        | ✅     | Native Bash support                                                  |
+| **macOS**                        | ✅     | Bash with Apple logo                                                 |
+| **Windows 11**                   | ✅     | PowerShell version (.ps1) with optional PATH setup                   |
+| **Windows 10**                   | ✅     | PowerShell + `.bat` command (run `katifetch` from console)           |
+| **WSL (Windows Subsystem for Linux)** | ✅ | Native Linux version with WSL detection + Windows integration        |
+| **Android (Termux)**            | ✅     | Runs in Termux with custom logo                                      |
+| **Android (proot-distro)**      | ✅     | Runs in Debian/Ubuntu containers via proot-distro                    |
+| **Android TV (Termux)**         | ❓     | Minimalist version planned — available August 6, 2025                |
+| **Fedora (COPR repo)**          | ✅     | Installable via [COPR](https://copr.fedorainfracloud.org/coprs/ximios/katifetch/) |
+| **Ubuntu/Debian (.deb)**        | ✅     | Official `.deb` package available — easy install                     |
+| **Ubuntu 10.04**                | ✅     | Basic Bash script support with colored logo                          |
 
-📅 **Last updated:** June 21, 2025
+📅 **Last updated:** June 24, 2025
+
+---
 
 ## 📄 Release Notes
 
-### Version 1.1.2 (Official Release) — June 20, 2025
+### Version 1.2 (Official Release) — June 24, 2025
 
-- 📦 Added official `.rpm`, `.src.rpm`, and `.tar.gz` packages for Fedora 42 and compatible systems.  
-- 🐛 Improved theme loading logic — silent and reliable with automatic fallback to `default.theme`.  
-- 🧹 Removed the `“Loaded theme:”` message for cleaner terminal output.  
-- 🛠 Optimized packaging and release workflow for RPM and tarball formats.  
-- ☁️ Published `.rpm` via [Fedora COPR](https://copr.fedorainfracloud.org/coprs/ximios/katifetch/).  
-- 📚 Updated documentation and streamlined installation process.
+- 🐞 Fixed installer to automatically create `.katifetchrc` config file on first run.  
+- 📦 Added support for `.deb` packages — simplified install on Debian/Ubuntu.  
+- 🌎 Improved compatibility and tested with users from Brazil 🇧🇷 and Japan 🇯🇵.  
+- 🎨 Updated themes and scripts for a better visual experience.  
+- 🧰 Refactored internal logic for improved reliability across systems.  
+- 📁 Available formats: `.rpm`, `.deb`, `.tar.gz`.
 
-_For full details, see the [CHANGELOG](./CHANGELOG.md)._
+## 📥 Installation
 
-📆 Android TV version planned for: August 6, 2025
+```bash
+# Fedora / RHEL
+sudo dnf install ./katifetch-1.2-1.fc42.noarch.rpm
+
+# Ubuntu / Debian
+sudo dpkg -i katifetch-1.2-debian.deb
+
+# Universal (manual install)
+tar -xzf katifetch-1.2.tar.gz
+cd katifetch-1.2
+./install.sh
 
 ---
 
