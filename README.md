@@ -45,11 +45,11 @@ See more screenshots from different operating systems here:
 | **Ubuntu/Debian (.deb)**        | ✅     | Official `.deb` package available — easy install                     |
 | **Ubuntu 10.04**                | ✅     | Basic Bash script support with colored logo                          |
 
-📅 **Last updated:** June 24, 2025
+📅 **Last updated:** June 23, 2025
 
 ## 📄 Release Notes
 
-### Version 1.2 (Official Release) — June 24, 2025
+### Version 1.2 (Official Release) — June 23, 2025
 
 - 📦 Added official `.deb` package for Debian and Ubuntu systems.
 - 🐛 Fixed installer to automatically create `.katifetchrc` on first run.
