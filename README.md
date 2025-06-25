@@ -577,6 +577,7 @@ katifetchforbazzite-steamdeck-gnome.sh	 flavor for Steam Deck users
 
 Bazzite KDE Plasma
 
+![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/adsljks.png)
 
 
 Bazzite GNOME
@@ -595,6 +596,8 @@ Steam Deck GNOME
 ---
 
 Enjoy Katifetch in your Bazzite-powered setup! 🐧💻🎮
+
+#
 
 <p align="center">
  — 🙏 Thank you for supporting Katifetch! — <br>
