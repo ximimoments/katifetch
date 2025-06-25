@@ -505,6 +505,97 @@ And enjoy using Katifetch on Ubuntu 10.04!
 
 #
 
+# Katifetch for Bazzite Editions
+
+Katifetch supports multiple editions of Bazzite, each one tailored to its desktop environment or device (GNOME, KDE Plasma, Steam Deck).
+Choose the one that matches your setup!
+
+
+---
+
+## 📦 Installation (All Bazzite Editions)
+
+```bash
+git clone https://github.com/ximimoments/katifetch.git  
+cd katifetch  
+cd katifetchforbazzite  
+chmod +x install.sh  
+./install.sh
+```
+
+> A menu will appear to select the edition:
+
+1) Bazzite GNOME (Base)
+
+2) Steam Deck KDE
+
+3) Steam Deck GNOME
+
+4) Bazzite KDE Plasma
+
+---
+
+## 🔄 Update (All Editions)
+
+```bash
+chmod +x update.sh  
+./update.sh
+```
+
+---
+
+🧼 Uninstall (All Editions)
+
+```bash
+chmod +x uninstall.sh  
+./uninstall.sh
+```
+
+---
+
+🎮 Available Editions
+
+Bazzite GNOME (Base)
+katifetchforbazzite-gnome.sh	
+Default Bazzite edition
+
+Bazzite KDE Plasma
+katifetchforbazzite.sh	Standard KDE desktop edition
+
+Bazzite Steam Deck KDE
+katifetchforbazzite-steamdeck-kde.sh	
+Optimized for Steam Deck KDE
+
+Bazzite Steam Deck GNOME	
+katifetchforbazzite-steamdeck-gnome.sh	 flavor for Steam Deck users
+
+
+
+---
+
+🖼️ Screenshots
+
+Bazzite KDE Plasma
+
+
+
+Bazzite GNOME
+
+
+
+Steam Deck KDE
+
+
+
+Steam Deck GNOME
+
+
+
+
+---
+
+Enjoy Katifetch in your Bazzite-powered setup! 🐧💻🎮
+
 <p align="center">
  — 🙏 Thank you for supporting Katifetch! — <br>
  — From the Katifetch community 💙 —<br>
