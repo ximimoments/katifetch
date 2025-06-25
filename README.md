@@ -8,9 +8,7 @@
 [![Open Issues](https://img.shields.io/github/issues/ximimoments/katifetch?style=for-the-badge&logo=bug&label=Issues)](https://github.com/ximimoments/katifetch/issues)
 [![Last Commit](https://img.shields.io/github/last-commit/ximimoments/katifetch?style=for-the-badge&logo=git&label=Last%20Commit)](https://github.com/ximimoments/katifetch/commits/main)
 
-
-
-*Katifetch is not affiliated with or endorsed by any distribution, including but not limited to the Fedora Project™. Logos and names (such as Fedora™ and COPR™) are used strictly for informational and compatibility purposes only.*
+*Disclaimer: Katifetch is an independent project and is not affiliated with, endorsed by, or sponsored by any Linux distribution or organization, including but not limited to the Fedora Project™, Red Hat™, or Valve™. All trademarks, logos, and names (e.g., Fedora™, Bazzite™, Steam Deck™, COPR™) are the property of their respective owners and are used solely for identification and compatibility purposes.*
 
 **Katifetch** is a customizable system information tool written in Bash, inspired by [Neofetch](https://github.com/dylanaraps/neofetch). It supports themes, ASCII logos for many Linux distributions, and user configuration via `~/.katifetchrc`.
 
