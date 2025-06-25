@@ -45,7 +45,18 @@ See more screenshots from different operating systems here:
 | **Ubuntu/Debian (.deb)**        | ✅     | Official `.deb` package available — easy install                     |
 | **Ubuntu 10.04**                | ✅     | Basic Bash script support with colored logo                          |
 
-📅 **Last updated:** June 23, 2025
+## 🧪 Bazzite Compatibility
+
+| Edition                             | Status | Notes                                                           |
+|-------------------------------------|--------|-----------------------------------------------------------------|
+| `Bazzite KDE Plasma (Desktop)`      | ✅     | Official Katifetch script with detailed UI & vivid colors       |
+| `Bazzite GNOME (Base)`              | ✅     | Dedicated script included — detected automatically              |
+| `Bazzite Steam Deck (KDE Plasma)`   | ✅     | Requires Steam Deck hardware — includes custom tweaks           |
+| `Bazzite Steam Deck (GNOME)`        | ✅     | Runs only on Steam Deck — separate detection logic              |
+| `Other distros using Bazzite script`| ❌     | Not supported — shows error message on execution                |
+
+
+📅 **Last updated:** June 24, 2025
 
 ## 📄 Release Notes
 
