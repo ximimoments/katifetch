@@ -645,6 +645,11 @@ Got feedback? Want to share your setup or ask something?
 You're welcome in the official Katifetch subreddit:
 👉 [r/katifetch](https://www.reddit.com/r/katifetch/)
 
+## 🗣️ Real user feedback
+
+> Hey man, Katifetch is so cool. I just installed it and I love how much easier it is to configure compared to Fastfetch.  
+> It’s a bit slower than Fastfetch (maybe just my laptop lol), but I really like the project. You should totally add it to the AUR.
+
 > 💬 Help us grow and shape the future of Katifetch!
 
 <hr>
@@ -653,4 +658,3 @@ You're welcome in the official Katifetch subreddit:
   <p><small>Free and open-source — Built with ❤️ in Uruguay 🇺🇾</small></p>
   <p><small>South America</small></p>
 </div>
-
