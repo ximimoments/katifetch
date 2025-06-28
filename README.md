@@ -648,6 +648,8 @@ Stay lightweight, stay minimal. 🐧
 
 -    ✅ Arch container *(systemd-nspawn, podman, toolbox, etc.)*
 
+#
+
 <p align="center">
  — 🙏 Thank you for supporting Katifetch! — <br>
  — From the Katifetch community 💙 —<br>
