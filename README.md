@@ -581,15 +581,15 @@ Bazzite KDE Plasma
 
 Bazzite GNOME
 
-![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/2.png)
+![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/aa2.png)
 
 Steam Deck KDE
 
-![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/3.png)
+![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/aa3.png)
 
 Steam Deck GNOME
 
-![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/4.png)
+![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/aa1.png)
 
 ---
 
