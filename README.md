@@ -610,7 +610,7 @@ With an AUR helper like ```yay```:
 ```bash
 yay -S katifetch
 ```
-Or manually via makepkg:
+Or manually via ```makepkg```:
 
 ```bash
 git clone https://aur.archlinux.org/katifetch.git
@@ -622,7 +622,7 @@ makepkg -si
 
 ## 🔄 Updating Katifetch
 
-If using an AUR helper:
+Using an AUR helper:
 
 ```bash
 yay -Syu katifetch
@@ -644,7 +644,7 @@ sudo pacman -Rns katifetch
 Katifetch runs perfectly on Arch, Manjaro, EndeavourOS, and any Arch-based distro.
 Stay lightweight, stay minimal. 🐧
 
-🐧 Tested Environments
+## 🐧 Tested Environments
 
 -    ✅ Arch container *(systemd-nspawn, podman, toolbox, etc.)*
 
