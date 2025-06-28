@@ -597,6 +597,57 @@ Enjoy Katifetch in your Bazzite-powered setup! 🐧💻🎮
 
 #
 
+# Katifetch for Arch Linux
+
+![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/asasddasd.png)
+
+### Arch Linux users, meet Katifetch! 🧠📟
+Now available directly from the AUR — fast, clean, and customizable.
+
+## 📦 Installation (AUR)
+
+With an AUR helper like ```yay```:
+```bash
+yay -S katifetch
+```
+Or manually via makepkg:
+
+```bash
+git clone https://aur.archlinux.org/katifetch.git
+cd katifetch
+makepkg -si
+```
+
+🔗 AUR package: aur.archlinux.org/packages/katifetch
+
+## 🔄 Updating Katifetch
+
+If using an AUR helper:
+
+```bash
+yay -Syu katifetch
+```
+Or manually:
+
+```bash
+cd katifetch
+git pull
+makepkg -si
+
+```
+## 🧼 Uninstall
+
+```bash
+sudo pacman -Rns katifetch
+```
+
+Katifetch runs perfectly on Arch, Manjaro, EndeavourOS, and any Arch-based distro.
+Stay lightweight, stay minimal. 🐧
+
+🐧 Tested Environments
+
+-    ✅ Arch container *(systemd-nspawn, podman, toolbox, etc.)*
+
 <p align="center">
  — 🙏 Thank you for supporting Katifetch! — <br>
  — From the Katifetch community 💙 —<br>
