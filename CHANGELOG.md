@@ -3,12 +3,16 @@
 ---
 
 ### [1.2 (official release)] - 2025-06-23 🎉  
-- 📦 Added official `.deb` package for Debian and Ubuntu users.  
-- 🛠 Fixed installer to auto-create `.katifetchrc` on first run.  
-- 🌍 Verified compatibility with users in Brazil 🇧🇷 and Japan 🇯🇵.  
-- 🎨 Refreshed themes and improved default appearance (`ozozfetch`).  
-- 🔧 Enhanced install script with better fallback logic and clearer error output.  
-- 📚 Updated documentation across all packages.
+- 📦 Added official .deb package for Debian and Ubuntu users
+- 📦 Published to the Arch User Repository (AUR) on 2025-06-28
+-  🐧 Confirmed compatibility on Arch containers (systemd-nspawn, toolbox, podman, etc.)
+-  🛠 Fixed installer to auto-create .katifetchrc on first run
+-  🌍 Verified compatibility with users in Brazil 🇧🇷 and Japan 🇯🇵
+-  🎨 Refreshed themes and improved default appearance (ozozfetch)
+-  🔧 Enhanced install script with better fallback logic and clearer error output
+-  📚 Updated documentation across all packages
+
+
 
 ---
 
