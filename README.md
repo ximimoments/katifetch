@@ -42,6 +42,7 @@ See more screenshots from different operating systems here:
 | **Fedora (COPR repo)**          | ✅     | Installable via [COPR](https://copr.fedorainfracloud.org/coprs/ximios/katifetch/) |
 | **Ubuntu/Debian (.deb)**        | ✅     | Official `.deb` package available — easy install                     |
 | **Ubuntu 10.04**                | ✅     | Basic Bash script support with colored logo                          |
+| **Arch Linux (AUR)**           | ✅     | Available in the Arch User Repository — install via yay or other AUR helpers |
 
 ## 🧪 Bazzite Compatibility
 
