@@ -62,6 +62,8 @@ See more screenshots from different operating systems here:
 ### Version 1.2 (Official Release) — June 23, 2025
 
 - 📦 Added official `.deb` package for Debian and Ubuntu systems.
+- 📦 Now available on the Arch User Repository (AUR) ON June 28, 2025
+- 🐧 Confirmed compatibility with Arch containers (systemd-nspawn, toolbox, podman, etc.).
 - 🐛 Fixed installer to automatically create `.katifetchrc` on first run.
 - 🎨 Updated themes and default appearance with `ozozfetch`.
 - 🌍 Improved compatibility with systems in Brazil 🇧🇷 and Japan 🇯🇵.
