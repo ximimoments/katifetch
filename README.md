@@ -706,7 +706,7 @@ You're welcome in the official Katifetch subreddit:
 Explore the full history, features, compatibility list, and more about Katifetch:  
 👉 [Katifetch Wikipedia Draft](https://en.wikipedia.org/wiki/Draft:Katifetch)
 
-<img src="https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchWikipedia.png" width="287" />
+![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchWikipedia.png)
 
 
 ## 🗣️ Real user feedback
