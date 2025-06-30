@@ -702,6 +702,13 @@ Got feedback? Want to share your setup or ask something?
 You're welcome in the official Katifetch subreddit:
 👉 [r/katifetch](https://www.reddit.com/r/katifetch/)
 
+## 📖 We're on Wikipedia!
+Explore the full history, features, compatibility list, and more about Katifetch:  
+👉 [Katifetch Wikipedia Draft](https://en.wikipedia.org/wiki/Draft:Katifetch)
+
+<img src="https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchWikipedia.png" width="287" />
+
+
 ## 🗣️ Real user feedback
 
 > Hey man, Katifetch is so cool. I just installed it and I love how much easier it is to configure compared to Fastfetch.  
