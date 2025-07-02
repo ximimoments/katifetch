@@ -73,8 +73,6 @@ See more screenshots from different operating systems here:
 
 📄 For full details, see the [`CHANGELOG.md`](./CHANGELOG.md).
 
-📆 **Android TV minimalist version scheduled for:** August 6, 2025
-
 # Ubuntu / Debian
 sudo dpkg -i katifetch-1.2-debian.deb
 
@@ -722,3 +720,5 @@ Explore the full history, features, compatibility list, and more about Katifetch
   <p><small>Free and open-source — Built with ❤️ in Uruguay 🇺🇾</small></p>
   <p><small>South America</small></p>
 </div>
+
+https://github.com/user-attachments/assets/49ca5c90-bbae-4e0f-a82d-485465ef8969
