@@ -725,12 +725,13 @@ Explore the full history, features, compatibility list, and more about Katifetch
 
 - 👨‍💻 Developer: kati dev  
 - ✉️ Email: [katifetchs@gmail.com](mailto:katifetchs@gmail.com)  
-- 📞 Phone: [+598 95 444 325](tel:+59895444325)  
+- 📞 Phone: [+598 95 444 325](tel:+59895444325) *(only SMS, no calls)*  
 - 🐙 GitHub: [@ximimoments](https://github.com/ximimoments)  
-- 🎮 Discord: `kati.dev`  
+- 🎮 Discord: `katifetch`  
 - 🎵 TikTok: [@katifetch](https://www.tiktok.com/@katifetch)
 
 ---
+
 
 <div align="center">
   <p><small>Free and open-source — Built with ❤️ in Uruguay 🇺🇾</small></p>
