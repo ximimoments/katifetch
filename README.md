@@ -719,6 +719,19 @@ Explore the full history, features, compatibility list, and more about Katifetch
 
 <hr>
 
+---
+
+## 📬 Contact
+
+- 👨‍💻 Developer: kati dev  
+- ✉️ Email: [katifetchs@gmail.com](mailto:katifetchs@gmail.com)  
+- 📞 Phone: [+598 95 444 325](tel:+59895444325)  
+- 🐙 GitHub: [@ximimoments](https://github.com/ximimoments)  
+- 🎮 Discord: `kati.dev`  
+- 🎵 TikTok: [@katifetch](https://www.tiktok.com/@katifetch)
+
+---
+
 <div align="center">
   <p><small>Free and open-source — Built with ❤️ in Uruguay 🇺🇾</small></p>
   <p><small>South America</small></p>
