@@ -92,6 +92,9 @@ cd katifetch-1.2
 * Nerd Fonts compatible for icon customization.
 
 ---
+## ⭐ Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=ximimoments/katifetch&type=Date)](https://star-history.com/#ximimoments/katifetch&Date)
 
 ## katifetch: how to install nerdfont
 
