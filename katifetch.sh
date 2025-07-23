@@ -54,8 +54,7 @@ if [ -f "$THEME_FILE" ]; then
   source "$THEME_FILE"
 #  echo "Loaded theme: $theme"
 else
-  :
-#  echo "Theme file not found: $THEME_FILE"
+ echo "Theme file not found: $THEME_FILE"
 fi
 
 # Establecer configuraciones de localización y optimización
@@ -72,50 +71,51 @@ gpu=$(lspci | grep -i vga | sed 's/.*: //')   # GPU
 
 # Neofetch default config.
 read -rd '' config <<'EOF'
+# Source: https://github.com/chick2d/neofetch-themes
+# Configuration made by Chick
+
 # See this wiki page for more info:
 # https://github.com/dylanaraps/neofetch/wiki/Customizing-Info
-# themes/Ozozfetch.theme
 
-read -rd '' config <<'EOF'
+# I used custom seperators as the older one looked not very properly proportioned
+# Quote the prin's and unqote the underlines if you want.
+
 print_info() {
-    info title
-    info underline
-    
-    info "${c1} Linux OS" os
-    info "${c1} ├󰌽 " distro
-    info "${c1} ├ " kernel
-    info "${c1} ├󰏗 " packages
-    info "${c1} └ " shell
-    echo
-    info "${c2} DE/WM" wm
-    info "${c2} ├󰂫 " theme
-    info "${c2} ├󰂫 " icons
-    info "${c2} └ " term
-    echo
-    info "${c3} PC" model
-    info "${c3} ├󰍛 " cpu
-    info "${c3} ├󰍹 " gpu
-    info "${c3} ├ " memory
-    info "${c3} ├󰅐 " uptime
-    info "${c3} └ " resolution
-    
-    info cols
-    
+indent="                              "  # 26 espacios
+
+    # prin "Eat  , Sleep  , Linux  ."
+    # info underline
+
+    prin "Katifetch $indent"
+    prin "-----------------------------------------------------"
+    prin "${cl3}Hardware Information"
+    info "󰌢 " model
+    info "󰍛 " cpu
+    info "󰘚 " gpu
+    # info " " disk
+    info "󰟖 " memory
+    info "󰍹 " resolution
+    # info "󱈑 " battery
+
+    prin "-----------------------------------------------------"
+    prin "Software Information"
+    info " " distro
+    info " " kernel
+    # info " " de
+    info " " wm
+    info " " term
+    info " " term_font
+    # info "󰉼 " theme
+    # info "󰀻 " icons
+    info "󰊠 " packages
+    # info "󰅐 " uptime
+
+    prin "-----------------------------------------------------"
+    prin "${cl3}󰮯 \n \n ${cl5}󰊠 \n \n ${cl2}󰊠  \n \n ${cl6}󰊠  \n \n ${cl4}󰊠  \n \n ${cl1}󰊠  \n \n ${cl7}󰊠  \n \n ${cl0}󰊠  \n \n "
 }
 
-EOF
-	
-##--------- Title
+# Kernel
 
-# Hide/Show Fully qualified domain name.
-#
-# Default:  'off'
-# Values:   'on', 'off'
-# Flag:     --title_fqdn
-title_fqdn="off"
-
-
-##--------- Kernel
 
 # Shorten the output of the kernel function.
 #
@@ -130,7 +130,8 @@ title_fqdn="off"
 kernel_shorthand="on"
 
 
-##--------- Distro
+# Distro
+
 
 # Shorten the output of the distro function
 #
@@ -153,7 +154,8 @@ distro_shorthand="off"
 os_arch="on"
 
 
-##--------- Uptime
+# Uptime
+
 
 # Shorten the output of the uptime function
 #
@@ -167,8 +169,8 @@ os_arch="on"
 # off:  '2 days, 10 hours, 3 minutes'
 uptime_shorthand="on"
 
+# Memory
 
-##--------- Memory
 
 # Show memory pecentage in output.
 #
@@ -179,22 +181,11 @@ uptime_shorthand="on"
 # Example:
 # on:   '1801MiB / 7881MiB (22%)'
 # off:  '1801MiB / 7881MiB'
-memory_percent="off"
-
-# Change memory output unit.
-#
-# Default: 'mib'
-# Values:  'kib', 'mib', 'gib'
-# Flag:    --memory_unit
-#
-# Example:
-# kib  '1020928KiB / 7117824KiB'
-# mib  '1042MiB / 6951MiB'
-# gib: ' 0.98GiB / 6.79GiB'
-memory_unit="mib"
+memory_percent="on"
 
 
-##--------- Packages
+# Packages
+
 
 # Show/Hide Package Manager names.
 #
@@ -209,7 +200,8 @@ memory_unit="mib"
 package_managers="on"
 
 
-##--------- Shell
+# Shell
+
 
 # Show the path to $SHELL
 #
@@ -234,7 +226,8 @@ shell_path="off"
 shell_version="on"
 
 
-##--------- CPU
+# CPU
+
 
 # CPU speed type
 #
@@ -255,7 +248,7 @@ speed_type="bios_limit"
 # Example:
 # on:    'i7-6500U (4) @ 3.1GHz'
 # off:   'i7-6500U (4) @ 3.100GHz'
-speed_shorthand="off"
+speed_shorthad="on"
 
 # Enable/Disable CPU brand in output.
 #
@@ -273,12 +266,12 @@ cpu_brand="on"
 #
 # Default: 'on'
 # Values:  'on', 'off'
-# Flag:    --cpu_speed
+# Flag:    --cp_speed
 #
 # Example:
 # on:  'Intel i7-6500U (4) @ 3.1GHz'
 # off: 'Intel i7-6500U (4)'
-cpu_speed="on"
+cpu_speed="off"
 
 # CPU Cores
 # Display CPU cores in output
@@ -309,10 +302,11 @@ cpu_cores="logical"
 # C:   'Intel i7-6500U (4) @ 3.1GHz [27.2°C]'
 # F:   'Intel i7-6500U (4) @ 3.1GHz [82.0°F]'
 # off: 'Intel i7-6500U (4) @ 3.1GHz'
-cpu_temp="on"
+cpu_temp="off"
 
 
-##--------- GPU
+# GPU
+
 
 # Enable/Disable GPU Brand
 #
@@ -345,7 +339,8 @@ gpu_brand="on"
 gpu_type="all"
 
 
-##--------- Resolution
+# Resolution
+
 
 # Display refresh rate next to each monitor
 # Default: 'off'
@@ -356,10 +351,11 @@ gpu_type="all"
 # Example:
 # on:  '1920x1080 @ 60Hz'
 # off: '1920x1080'
-refresh_rate="off"
+refresh_rate="on"
 
 
-##--------- Gtk Theme / Icons / Font
+# Gtk Theme / Icons / Font
+
 
 # Shorten output of GTK Theme / Icons / Font
 #
@@ -370,7 +366,8 @@ refresh_rate="off"
 # Example:
 # on:  'Numix, Adwaita'
 # off: 'Numix [GTK2], Adwaita [GTK3]'
-gtk_shorthand="off"
+gtk_shorthand="on"
+
 
 # Enable/Disable gtk2 Theme / Icons / Font
 #
@@ -395,7 +392,8 @@ gtk2="on"
 gtk3="on"
 
 
-##--------- IP Address
+# IP Address
+
 
 # Website to ping for the public IP
 #
@@ -411,17 +409,9 @@ public_ip_host="http://ident.me"
 # Flag:    --ip_timeout
 public_ip_timeout=2
 
-# Desktop Environment
 
-# Show Desktop Environment version
-#
-# Default: 'on'
-# Values:  'on', 'off'
-# Flag:    --de_version
-de_version="on"
+# Disk
 
-
-##--------- Disk
 
 # Which disks to display.
 # The values can be any /dev/sdXX, mount point or directory.
@@ -445,7 +435,7 @@ disk_show=('/')
 # What to append to the Disk subtitle.
 #
 # Default: 'mount'
-# Values:  'mount', 'name', 'dir', 'none'
+# Values:  'mount', 'name', 'dir'
 # Flag:    --disk_subtitle
 #
 # Example:
@@ -459,26 +449,11 @@ disk_show=('/')
 # dir:    'Disk (/): 74G / 118G (66%)'
 #         'Disk (Local Disk): 74G / 118G (66%)'
 #         'Disk (Videos): 74G / 118G (66%)'
-#
-# none:   'Disk: 74G / 118G (66%)'
-#         'Disk: 74G / 118G (66%)'
-#         'Disk: 74G / 118G (66%)'
-disk_subtitle="mount"
-
-# Disk percent.
-# Show/Hide disk percent.
-#
-# Default: 'on'
-# Values:  'on', 'off'
-# Flag:    --disk_percent
-#
-# Example:
-# on:  'Disk (/): 74G / 118G (66%)'
-# off: 'Disk (/): 74G / 118G'
-disk_percent="on"
+#disk_subtitle="mount"
 
 
-##--------- Song
+# Song
+
 
 # Manually specify a music player.
 #
@@ -503,17 +478,13 @@ disk_percent="on"
 # gmusicbrowser
 # gogglesmm
 # guayadeque
-# io.elementary.music
 # iTunes
 # juk
 # lollypop
 # mocp
 # mopidy
 # mpd
-# muine
 # netease-cloud-music
-# olivia
-# playerctl
 # pogo
 # pragha
 # qmmp
@@ -523,13 +494,12 @@ disk_percent="on"
 # smplayer
 # spotify
 # strawberry
-# tauonmb
 # tomahawk
 # vlc
 # xmms2d
 # xnoise
 # yarock
-music_player="auto"
+music_player="vlc"
 
 # Format to display song information.
 #
@@ -539,7 +509,7 @@ music_player="auto"
 #
 # Example:
 # default: 'Song: Jet - Get Born - Sgt Major'
-song_format="%artist% - %album% - %title%"
+song_format="%artist% - %title%"
 
 # Print the Artist, Album and Title on separate lines
 #
@@ -562,7 +532,8 @@ song_shorthand="off"
 mpc_args=()
 
 
-##--------- Text Colors
+# Text Colors
+
 
 # Text Colors
 #
@@ -579,7 +550,8 @@ mpc_args=()
 colors=(distro)
 
 
-##--------- Text Options
+# Text Options
+
 
 # Toggle bold text
 #
@@ -600,7 +572,7 @@ underline_enabled="on"
 # Default:  '-'
 # Values:   'string'
 # Flag:     --underline_char
-underline_char="󰍴"
+underline_char="-"
 
 # Info Separator
 # Replace the default separator with the specified string.
@@ -611,10 +583,11 @@ underline_char="󰍴"
 # Example:
 # separator="->":   'Shell-> bash'
 # separator=" =":   'WM = dwm'
-separator="->"
+separator="  "
 
 
-##--------- Color Blocks
+# Color Blocks
+
 
 # Color block range
 # The range of colors to print.
@@ -630,9 +603,37 @@ separator="->"
 #
 # Display colors 0-15 in the blocks. (16 colors)
 # neofetch --block_range 0 15
-block_range=(0 15)
+#block_range=(8 15)
+block_range=(1 7)
 
 # Toggle color blocks
+
+# Colors for custom colorblocks
+#colors
+#bold="(tput bold)"
+magenta="\033[1;35m"
+green="\033[1;32m"
+white="\033[1;37m"
+blue="\033[1;34m"
+red="\033[1;31m"
+black="\033[1;40;30m"
+yellow="\033[1;33m"
+cyan="\033[1;36m"
+reset="\033[0m"
+bgyellow="\033[1;43;33m"
+bgwhite="\033[1;47;37m"
+cl0="${reset}"
+cl1="${magenta}"
+cl2="${green}"
+cl3="${white}"
+cl4="${blue}"
+cl5="${red}"
+cl6="${yellow}"
+cl7="${cyan}"
+cl8="${black}"
+cl9="${bgyellow}"
+cl10="${bgwhite}"
+
 #
 # Default:  'on'
 # Values:   'on', 'off'
@@ -644,7 +645,7 @@ color_blocks="on"
 # Default:  '3'
 # Values:   'num'
 # Flag:     --block_width
-block_width=3
+block_width=4
 
 # Color block height in lines
 #
@@ -653,21 +654,9 @@ block_width=3
 # Flag:     --block_height
 block_height=1
 
-# Color Alignment
-#
-# Default: 'auto'
-# Values: 'auto', 'num'
-# Flag: --col_offset
-#
-# Number specifies how far from the left side of the terminal (in spaces) to
-# begin printing the columns, in case you want to e.g. center them under your
-# text.
-# Example:
-# col_offset="auto" - Default behavior of neofetch
-# col_offset=7      - Leave 7 spaces then print the colors
-col_offset="auto"
 
-##--------- Progress Bars
+# Progress Bars
+
 
 # Bar characters
 #
@@ -709,6 +698,7 @@ bar_length=15
 bar_color_elapsed="distro"
 bar_color_total="distro"
 
+
 # Info display
 # Display a bar with the info.
 #
@@ -724,19 +714,20 @@ bar_color_total="distro"
 # infobar: 'info [---=======]'
 # barinfo: '[---=======] info'
 # off:     'info'
-cpu_display="off"
-memory_display="off"
-battery_display="off"
-disk_display="off"
+cpu_display="on"
+memory_display="on"
+battery_display="on"
+disk_display="on"
 
 
-##--------- Backend Settings
+# Backend Settings
+
 
 # Image backend.
 #
 # Default:  'ascii'
 # Values:   'ascii', 'caca', 'chafa', 'jp2a', 'iterm2', 'off',
-#           'pot', 'termpix', 'pixterm', 'tycat', 'w3m', 'kitty'
+#           'termpix', 'pixterm', 'tycat', 'w3m', 'kitty'
 # Flag:     --backend
 image_backend="ascii"
 
@@ -752,10 +743,9 @@ image_backend="ascii"
 # NOTE: 'auto' will pick the best image source for whatever image backend is used.
 #       In ascii mode, distro ascii art will be used and in an image mode, your
 #       wallpaper will be used.
-image_source="auto"
+#image_source="$HOME/.config/neofetch/archlogo.txt"
+# Ascii Options
 
-
-##--------- Ascii Options
 
 # Ascii distro
 # Which distro's ascii art to display.
@@ -763,46 +753,13 @@ image_source="auto"
 # Default: 'auto'
 # Values:  'auto', 'distro_name'
 # Flag:    --ascii_distro
-# NOTE: AIX, Alpine, Anarchy, Android, Antergos, antiX, "AOSC OS",
-#       "AOSC OS/Retro", Apricity, ArcoLinux, ArchBox, ARCHlabs,
-#       ArchStrike, XFerience, ArchMerge, Arch, Artix, Arya, Bedrock,
-#       Bitrig, BlackArch, BLAG, BlankOn, BlueLight, bonsai, BSD,
-#       BunsenLabs, Calculate, Carbs, CentOS, Chakra, ChaletOS,
-#       Chapeau, Chrom*, Cleanjaro, ClearOS, Clear_Linux, Clover,
-#       Condres, Container_Linux, CRUX, Cucumber, Debian, Deepin,
-#       DesaOS, Devuan, DracOS, DarkOs, DragonFly, Drauger, Elementary,
-#       EndeavourOS, Endless, EuroLinux, Exherbo, Fedora, Feren, FreeBSD,
-#       FreeMiNT, Frugalware, Funtoo, GalliumOS, Garuda, Gentoo, Pentoo,
-#       gNewSense, GNOME, GNU, GoboLinux, Grombyang, Guix, Haiku, Huayra,
-#       Hyperbola, janus, Kali, KaOS, KDE_neon, Kibojoe, Kogaion,
-#       Korora, KSLinux, Kubuntu, LEDE, LFS, Linux_Lite,
-#       LMDE, Lubuntu, Lunar, macos, Mageia, MagpieOS, Mandriva,
-#       Manjaro, Maui, Mer, Minix, LinuxMint, MX_Linux, Namib,
-#       Neptune, NetBSD, Netrunner, Nitrux, NixOS, Nurunner,
-#       NuTyX, OBRevenge, OpenBSD, openEuler, OpenIndiana, openmamba,
-#       OpenMandriva, OpenStage, OpenWrt, osmc, Oracle, OS Elbrus, PacBSD,
-#       Parabola, Pardus, Parrot, Parsix, TrueOS, PCLinuxOS, Peppermint,
-#       popos, Porteus, PostMarketOS, Proxmox, Puppy, PureOS, Qubes, Radix,
-#       Raspbian, Reborn_OS, Redstar, Redcore, Redhat, Refracted_Devuan,
-#       Regata, Rosa, sabotage, Sabayon, Sailfish, SalentOS, Scientific,
-#       Septor, SereneLinux, SharkLinux, Siduction, Slackware, SliTaz,
-#       SmartOS, Solus, Source_Mage, Sparky, Star, SteamOS, SunOS,
-#       openSUSE_Leap, openSUSE_Tumbleweed, openSUSE, SwagArch, Tails,
-#       Trisquel, Ubuntu-Budgie, Ubuntu-GNOME, Ubuntu-MATE, Ubuntu-Studio,
-#       Ubuntu, Venom, Void, Obarun, windows10, Windows7, Xubuntu, Zorin,
-#       and IRIX have ascii logos
-# NOTE: Arch, Ubuntu, Redhat, and Dragonfly have 'old' logo variants.
-#       Use '{distro name}_old' to use the old logos.
+#
+# NOTE: Arch and Ubuntu have 'old' logo variants.
+#       Change this to 'arch_old' or 'ubuntu_old' to use the old logos.
 # NOTE: Ubuntu has flavor variants.
-#       Change this to Lubuntu, Kubuntu, Xubuntu, Ubuntu-GNOME,
-#       Ubuntu-Studio, Ubuntu-Mate  or Ubuntu-Budgie to use the flavors.
-# NOTE: Arcolinux, Dragonfly, Fedora, Alpine, Arch, Ubuntu,
-#       CRUX, Debian, Gentoo, FreeBSD, Mac, NixOS, OpenBSD, android,
-#       Antrix, CentOS, Cleanjaro, ElementaryOS, GUIX, Hyperbola,
-#       Manjaro, MXLinux, NetBSD, Parabola, POP_OS, PureOS,
-#       Slackware, SunOS, LinuxLite, OpenSUSE, Raspbian,
-#       postmarketOS, and Void have a smaller logo variant.
-#       Use '{distro name}_small' to use the small variants.
+#       Change this to 'Lubuntu', 'Xubuntu', 'Ubuntu-GNOME' or 'Ubuntu-Budgie' to use the flavors.
+# NOTE: Arch, Crux and Gentoo have a smaller logo variant.
+#       Change this to 'arch_small', 'crux_small' or 'gentoo_small' to use the small logos.
 ascii_distro="auto"
 
 # Ascii Colors
@@ -814,7 +771,7 @@ ascii_distro="auto"
 # Example:
 # ascii_colors=(distro)      - Ascii is colored based on Distro colors.
 # ascii_colors=(4 6 1 8 8 6) - Ascii is colored using these colors.
-ascii_colors=(1 2 3 4 5 6 7 8)
+ascii_colors=(distro)
 
 # Bold ascii logo
 # Whether or not to bold the ascii logo.
@@ -825,7 +782,8 @@ ascii_colors=(1 2 3 4 5 6 7 8)
 ascii_bold="on"
 
 
-##--------- Image Options
+# Image Options
+
 
 # Image loop
 # Setting this to on will make neofetch redraw the image constantly until
@@ -896,7 +854,7 @@ xoffset=0
 background_color=
 
 
-##--------- Misc Options
+# Misc Options
 
 # Stdout mode
 # Turn off all colors and disables image backend (ASCII/Image).
@@ -904,6 +862,8 @@ background_color=
 # Default: 'off'
 # Values: 'on', 'off'
 stdout="off"
+
+EOF
 
 # DETECT INFORMATION
 
@@ -8298,7 +8258,8 @@ EOF
             read -rd '' ascii_data <<'EOF'
 ${c2}        #####
 ${c2}       #######
-${c2}       ##${c1}O${c2}#${c1}O${c2}##
+            ##O#O##
+            #######
 ${c2}       #${c3}#####${c2}#
 ${c2}     ##${c1}##${c3}###${c1}##${c2}##
 ${c2}    #${c1}##########${c2}##
@@ -11529,7 +11490,7 @@ oMMMMmMMMMNds:.+MMMmmMMN/.-odNMMMMmMMMM+
           `:hMMMMMM. NMMMMMh/`
              .odNm+  /dNms.
 EOF
-;;
+                ;;
 
             esac
         ;;
