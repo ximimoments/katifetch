@@ -724,8 +724,7 @@ Explore the full history, features, compatibility list, and more about Katifetch
 ## 📬 Contact
 
 - 👨‍💻 Developer: ximimoments
-- ✉️ Email: [katifetchs@gmail.com](mailto:katifetchs@gmail.com)  
-- 📞 Phone: [+598 95 444 325](tel:+59895444325) *(only SMS, Whatsapp and telegram. no calls)*  
+- ✉️ Email: [katifetchs@gmail.com](mailto:katifetchs@gmail.com)
 - 🐙 GitHub: [@ximimoments](https://github.com/ximimoments)  
 - 🎮 Discord: `katifetch`  
 - 🎵 TikTok: [@katifetch](https://www.tiktok.com/@katifetch)
