@@ -141,8 +141,51 @@ katifetch
 
 <img width="1920" height="1080" alt="imagen" src="https://github.com/user-attachments/assets/2834f048-c19c-4869-87d8-236e6079af39" />
 
+Run Katifetch natively on FreeBSD and other BSD-based systems with a custom BSD logo!
+This edition is designed to work out of the box with FreeBSD, OpenBSD, NetBSD, DragonFlyBSD ETC
+
+## 📦 Installation (BSD)
+Clone the Katifetch repository:
+
+```bash
+git clone https://github.com/ximimoments/katifetch.git
+```
+```bash
+Navigate to the BSD edition folder:
+```
+```bash
+cd katifetch/katifetchforbsd
+```
+
+Run the installer:
+
+```bash
+sudo chmod +x install_katifetch.sh
+sudo ./install_katifetch.sh
+```
+
+## 🔄 Update (BSD)
+To update Katifetch on your BSD system:
+
+```bash
+sudo chmod +x updatebsd.sh
+sudo ./updatebsd.sh
+```
+
+
+## 🧼 Uninstall (BSD)
+To uninstall Katifetch:
+
+```bash
+sudo chmod +x uninstall_katifetch.sh
+sudo ./uninstall_katifetch.sh
+```
+## 🐚 And enjoy using Katifetch on BSD editions!
+
+#
 
 # Katifetch For Windows editions
+
 
 If you're on Windows, you can use the PowerShell version of Katifetch.
 
