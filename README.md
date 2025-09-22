@@ -10,7 +10,7 @@
 
 *Disclaimer: Katifetch is an independent project and is not affiliated with, endorsed by, or sponsored by any Linux distribution or organization, including but not limited to the Fedora Project™, Red Hat™, or Valve™. All trademarks, logos, and names (e.g., Fedora™, Bazzite™, Steam Deck™, COPR™) are the property of their respective owners and are used solely for identification and compatibility purposes.*
 
-**Katifetch** is a customizable system information tool written in Bash, inspired by [Neofetch](https://github.com/dylanaraps/neofetch). It supports themes, ASCII logos for many Linux distributions, and user configuration via `~/.katifetchrc`.
+**Katifetch** is a customizable system information tool written in Bash, inspired by [Neofetch](https://github.com/dylanaraps/neofetch). It supports themes, ASCII logos for many Linux distributions and BSD distributions, and user configuration via `~/.katifetchrc`.
 
 ![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/dsadsafg.png)
 ![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetch.png)
