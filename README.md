@@ -38,11 +38,12 @@ See more screenshots from different operating systems here:
 | **WSL (Windows Subsystem for Linux)** | ✅ | Native Linux version with WSL detection + Windows integration        |
 | **Android (Termux)**            | ✅     | Runs in Termux with custom logo                                      |
 | **Android (proot-distro)**      | ✅     | Runs in Debian/Ubuntu containers via proot-distro                    |
-| **Android TV (Termux)**         | ❓     | Minimalist version planned — available August ? , 2025                |
+| **Android TV (Termux)**         | ❓     | Minimalist version planned — available October 1 , 2025                |
 | **Fedora (COPR repo)**          | ✅     | Installable via [COPR](https://copr.fedorainfracloud.org/coprs/ximios/katifetch/) |
 | **Ubuntu/Debian (.deb)**        | ✅     | Official `.deb` package available — easy install                     |
 | **Ubuntu 10.04**                | ✅     | Basic Bash script support with colored logo                          |
 | **Arch Linux (AUR)**           | ✅     | Available in the Arch User Repository — install via yay or other AUR helpers |
+| **BSD (FreeBSD / OpenBSD / NetBSD / DragonFly / Unknown BSD)**           | ✅     | Bash edition with full color logos, installer, uninstaller, updater |
 
 ## 🧪 Bazzite Compatibility
 
