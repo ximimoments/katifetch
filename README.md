@@ -56,32 +56,6 @@ See more screenshots from different operating systems here:
 | `Other distros using Bazzite script`| ❌     | Not supported — shows error message on execution                |
 
 
-📅 **Last updated:** June 24, 2025
-
-## 📄 Release Notes
-
-### Version 1.2 (Official Release) — June 23, 2025
-
-- 📦 Added official `.deb` package for Debian and Ubuntu systems.
-- 📦 Now available on the Arch User Repository (AUR) ON June 28, 2025
-- 🐧 Confirmed compatibility with Arch containers (systemd-nspawn, toolbox, podman, etc.).
-- 🐛 Fixed installer to automatically create `.katifetchrc` on first run.
-- 🎨 Updated themes and default appearance with `ozozfetch`.
-- 🌍 Improved compatibility with systems in Brazil 🇧🇷 and Japan 🇯🇵.
-- ⚙️ Better fallback logic and error handling in the fetch script.
-
-🆕 Now supporting `.deb` format alongside `.rpm` and `.tar.gz` builds.
-
-📄 For full details, see the [`CHANGELOG.md`](./CHANGELOG.md).
-
-# Ubuntu / Debian
-sudo dpkg -i katifetch-1.2-debian.deb
-
-# Universal (manual install)
-tar -xzf katifetch-1.2.tar.gz
-cd katifetch-1.2
-./install.sh
-
 ---
 
 ## Features
@@ -163,7 +137,12 @@ katifetch
 ## And enjoy using Katifetch on Linux!
 ---
 
-# Katifetch For Windows edition
+# Katifetch For BSD editions
+
+<img width="1920" height="1080" alt="imagen" src="https://github.com/user-attachments/assets/2834f048-c19c-4869-87d8-236e6079af39" />
+
+
+# Katifetch For Windows editions
 
 If you're on Windows, you can use the PowerShell version of Katifetch.
 
@@ -215,6 +194,7 @@ git clone https://github.com/ximimoments/katifetch.git
 ```cmd
 cd katifetch\katifetchforwindowsedition
 ```
+
 
 3) Run the install script:
 
