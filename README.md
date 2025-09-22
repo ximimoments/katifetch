@@ -150,9 +150,8 @@ Clone the Katifetch repository:
 ```bash
 git clone https://github.com/ximimoments/katifetch.git
 ```
-```bash
 Navigate to the BSD edition folder:
-```
+
 ```bash
 cd katifetch/katifetchforbsd
 ```
