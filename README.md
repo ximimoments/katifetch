@@ -179,6 +179,9 @@ To uninstall Katifetch:
 sudo chmod +x uninstall_katifetch.sh
 sudo ./uninstall_katifetch.sh
 ```
+# ⚠️ and this is optional:
+### Have Sudo and Bash
+
 ## 🐚 And enjoy using Katifetch on BSD editions!
 
 #
