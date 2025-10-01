@@ -17,11 +17,11 @@ while true; do
       read -p "🔁 Press Enter to return to menu..."
       ;;
     2)
-      bash katifetchupdateandroidtv-1.sh
+      bash katifetchupdateandroidtv.sh
       read -p "🔁 Press Enter to return to menu..."
       ;;
     3)
-      bash katifetchuninstallandroidtv-1.sh
+      bash katifetchuninstallandroidtv.sh
       read -p "🔁 Press Enter to return to menu..."
       ;;
     4)
