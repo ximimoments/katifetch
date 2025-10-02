@@ -271,7 +271,7 @@ uninstall.bat
 
 collaboration with: 
 
-![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/collab.png)
+<img width="940" height="788" alt="Add a subheading" src="https://github.com/user-attachments/assets/5ce09d79-c0c8-45d2-b378-44913e0b38dd" />
 
 Katifetch also supports macOS with the same Bash-based script.
 
