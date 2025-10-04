@@ -691,7 +691,7 @@ Stay lightweight, stay minimal. 🐧
 Join our growing community to get help, share your setups, or contribute! 
 👉 **[Join our Discord server](https://discord.gg/AK9WrTHTVq)**
 
-![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchdiscordserver.png)
+![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchdiscordserverv2.png)
 
 #
 
