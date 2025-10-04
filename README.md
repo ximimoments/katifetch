@@ -752,7 +752,8 @@ Explore the full history, features, compatibility list, and more about Katifetch
 ## 📬 Contact
 
 - 👨‍💻 Developer: ximimoments
-- ✉️ Email: [katifetchs@gmail.com](mailto:katifetchs@gmail.com)
+- ✉️ Email (Global) : [katifetchs@gmail.com](mailto:katifetchs@gmail.com)
+- ✉️ Email (Spanish) : [katifetch@outlook.es](mailto:katifetch@outlook.es)
 - 🐙 GitHub: [@ximimoments](https://github.com/ximimoments)  
 - 🎮 Discord: `katifetch`  
 - 🎵 TikTok: [@katifetch](https://www.tiktok.com/@katifetch)
