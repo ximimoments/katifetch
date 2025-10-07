@@ -30,6 +30,9 @@ $user = $env:USERNAME
 $hostname = $env:COMPUTERNAME
 $brand = (Get-CimInstance Win32_ComputerSystem).Manufacturer
 
+# NUEVA LÍNEA: Información de GPU
+$gpu = (Get-CimInstance Win32_VideoController | Select-Object -First 1).Name
+
 # Logo ASCII de Katifetch
 Write-Host ""
 Write-Host @"
@@ -58,6 +61,7 @@ Write-Host "Brand:     $brand" -ForegroundColor Cyan
 Write-Host "OS:        $os" -ForegroundColor Magenta
 Write-Host "Version:   $osVersion" -ForegroundColor Blue
 Write-Host "CPU:       $cpu" -ForegroundColor Red
+Write-Host "GPU:       $gpu" -ForegroundColor White
 Write-Host "Memory:    $memoryTotal GB" -ForegroundColor Green
 Write-Host "Uptime:    $uptimeFormatted" -ForegroundColor Yellow
 Write-Host "Model:     $model" -ForegroundColor Cyan
