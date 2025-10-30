@@ -1,0 +1,97 @@
+KATIFETCH KALLOWEEN EDITION - User Guide
+========================================
+Version: 1.0
+Author: kati dev (github.com/ximimoments)
+Date: October 2025
+
+🎃 Welcome to Katifetch Kalloween Edition! 🕯️
+This is a Halloween-themed, Linux-only system info script with spooky ASCII art and random phrases.
+
+────────────────────────────────────────
+1. OVERVIEW
+────────────────────────────────────────
+Katifetch Kalloween Edition is a single-file Bash script that shows:
+- Halloween pumpkin ASCII logo
+- Basic system information (OS, kernel, shell, terminal, user, hostname, CPU, memory, disk)
+- Random Halloween phrases every time you run it
+- Fully functional without any colors or with colored output by default (orange, red, purple)
+
+────────────────────────────────────────
+2. INSTALLATION
+────────────────────────────────────────
+To install the script system-wide, run:
+
+$ bash katifetchkalloween.sh --install
+
+This will copy the script to:
+
+/usr/local/bin/katifetchkalloween
+
+and make it executable. After installation, you can simply run:
+
+$ katifetchkalloween
+
+No need to type 'bash' each time!
+
+────────────────────────────────────────
+3. UNINSTALLATION
+────────────────────────────────────────
+To remove the installed script, run:
+
+$ bash katifetchkalloween.sh --uninstall
+
+This will delete:
+
+/usr/local/bin/katifetchkalloween
+
+────────────────────────────────────────
+4. USAGE
+────────────────────────────────────────
+Run the script directly:
+
+$ bash katifetchkalloween.sh
+
+Optional flags:
+
+  --install       Install the script system-wide (requires sudo)
+  --uninstall     Uninstall the script
+  --no-logo       Hide the Halloween ASCII pumpkin
+  --no-color      Disable colored output (output will be plain text)
+  --help          Show this help message
+
+Example:
+
+$ katifetchkalloween --no-logo
+
+────────────────────────────────────────
+5. RANDOM HALLOWEEN PHRASES
+────────────────────────────────────────
+Each time you run Katifetch Kalloween Edition, it prints one random spooky phrase, such as:
+
+- 🕯️  Happy Halloween from Kati Dev!
+- 💀 Your system awakens from the digital grave...
+- 🎃 Stay spooky and hack responsibly.
+- 👻 Beware of ghost processes in /var/run...
+- 🦇 Night falls, and the kernel stirs...
+- 🕸️  Creeping updates detected...
+- ⚰️  Something dark lurks in /tmp...
+- 🧛 Your CPU thirsts... for power...
+- 🪦 Memory leaks are rising from the dead...
+- 🧙 Summoning bash magic...
+
+────────────────────────────────────────
+6. NOTES
+────────────────────────────────────────
+- The script is designed for Linux only.
+- Colors are enabled by default (orange, red, purple). Use `--no-color` to disable.
+- The ASCII pumpkin logo and phrases can be hidden with `--no-logo`.
+
+────────────────────────────────────────
+7. CREDITS
+────────────────────────────────────────
+Created by kati dev  
+GitHub: https://github.com/ximimoments  
+Halloween edition inspired by spooky terminals and fun system info scripts.
+
+────────────────────────────────────────
+Enjoy your spooky system checks! 🎃🕯️👻
