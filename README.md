@@ -2,6 +2,9 @@
   <img src="https://readme-typing-svg.herokuapp.com?font=DM+Serif+Text&weight=100&size=31&pause=1000&color=F7BE6C&center=true&width=435&lines=%F0%9F%A7%91%E2%80%8D%F0%9F%92%BBKatifetch%F0%9F%A7%91%E2%80%8D%F0%9F%92%BB" alt="Typing SVG">
 </p>
 
+[![Packaging status](https://repology.org/badge/vertical-allrepos/katifetch.svg)](https://repology.org/project/katifetch/versions) 
+No COPR :(
+
 [![GitHub Stars](https://img.shields.io/github/stars/ximimoments/katifetch?style=for-the-badge&logo=github&label=Stars)](https://github.com/ximimoments/katifetch)
 [![License: MIT](https://img.shields.io/github/license/ximimoments/katifetch?style=for-the-badge&logo=open-source-initiative)](https://github.com/ximimoments/katifetch/blob/main/LICENSE)
 [![Repo Size](https://img.shields.io/github/repo-size/ximimoments/katifetch?style=for-the-badge&logo=files&label=Repo%20Size)](https://github.com/ximimoments/katifetch)
