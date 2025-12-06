@@ -141,6 +141,10 @@ katifetch
 ## And enjoy using Katifetch on Linux!
 ---
 
+# Katifetch For Old Distros And Discontinued OS
+
+Coming Soon
+
 # Katifetch For BSD editions
 
 <img width="1920" height="1080" alt="imagen" src="https://github.com/user-attachments/assets/2834f048-c19c-4869-87d8-236e6079af39" />
