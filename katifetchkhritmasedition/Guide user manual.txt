@@ -1,0 +1,97 @@
+KATIFETCH KHRITMAS EDITION - User Guide
+=====================================
+Version: 1.0
+Author: kati dev (github.com/ximimoments)
+Date: December 2025
+
+🎄 Welcome to Katifetch Khritmas Edition! ✨
+This is a Christmas-themed, Linux-only system info script with festive ASCII art and joyful random phrases.
+
+────────────────────────────────────────
+1. OVERVIEW
+────────────────────────────────────────
+Katifetch Khritmas Edition is a single-file Bash script that shows:
+- Christmas-themed ASCII art (tree / festive design)
+- Basic system information (OS, kernel, shell, terminal, user, hostname)
+- Random Christmas / Khritmas phrases every time you run it
+- Colored festive output by default (red, green, white, gold)
+
+────────────────────────────────────────
+2. INSTALLATION
+────────────────────────────────────────
+To install the script system-wide, run:
+
+$ bash katifetchkhritmas.sh --install
+
+This will copy the script to:
+
+/usr/local/bin/katifetchkhritmas
+
+and make it executable. After installation, you can simply run:
+
+$ katifetchkhritmas
+
+No need to type 'bash' each time!
+
+────────────────────────────────────────
+3. UNINSTALLATION
+────────────────────────────────────────
+To remove the installed script, run:
+
+$ bash katifetchkhritmas.sh --uninstall
+
+This will delete:
+
+/usr/local/bin/katifetchkhritmas
+
+────────────────────────────────────────
+4. USAGE
+────────────────────────────────────────
+Run the script directly:
+
+$ bash katifetchkhritmas.sh
+
+Optional flags:
+
+  --install       Install the script system-wide (requires sudo)
+  --uninstall     Uninstall the script
+  --no-logo       Hide the Khritmas ASCII art
+  --help          Show this help message
+
+Example:
+
+$ katifetchkhritmas --no-logo
+
+────────────────────────────────────────
+5. RANDOM KHRITMAS PHRASES
+────────────────────────────────────────
+Each time you run Katifetch Khritmas Edition, it prints one random festive phrase, such as:
+
+- 🎄 Merry Khritmas from kati dev!
+- 🎅 Ho ho ho! Your system is ready.
+- ❄️ Let it snow… in your terminal.
+- 🎁 Updates wrapped and ready.
+- ✨ Powered by Khritmas spirit.
+- 🦌 Santa checked your kernel twice.
+- ☃️ Cold outside, stable inside.
+- 🔔 Jingle bells, bash shell.
+- 🎄 Another year, another uptime.
+- ✨ Peace, joy and clean logs.
+
+────────────────────────────────────────
+6. NOTES
+────────────────────────────────────────
+- The script is designed for Linux only.
+- Festive colors are enabled by default (red, green, white, gold).
+- The ASCII art and phrases can be hidden with `--no-logo`.
+- This is a special seasonal edition of Katifetch.
+
+────────────────────────────────────────
+7. CREDITS
+────────────────────────────────────────
+Created by kati dev  
+GitHub: https://github.com/ximimoments  
+Khritmas edition inspired by festive terminals, nostalgia, and cozy system info.
+
+────────────────────────────────────────
+Enjoy your Khritmas system checks! 🎄✨🎁
