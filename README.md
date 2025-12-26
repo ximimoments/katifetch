@@ -772,6 +772,6 @@ Explore the full history, features, compatibility list, and more about Katifetch
   <p><small>South America</small></p>
 </div>
 
-sorry if I say this but on October 1st there will be katifetch for tv and on October 28th we are going to put a new katifetch for halloween (like we will change the OS logo) although it would take a long time, so I don't know if I will upload it as a repo in fedora arch or . deb of debian and ubuntu, so I don't know, sorry if I don't update katifetch since July, soon we will see if there will be katifetch 13.1 or katifetch 14 so well, soon!!! (now I am on linux mint)
-
-https://github.com/user-attachments/assets/49ca5c90-bbae-4e0f-a82d-485465ef8969
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ximimoments/katifetch/main/media/Copia%20de%20katifetch.png">
+</p>
