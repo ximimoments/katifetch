@@ -772,6 +772,10 @@ Explore the full history, features, compatibility list, and more about Katifetch
   <p><small>South America</small></p>
 </div>
 
+---
+
+
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/ximimoments/katifetch/main/media/Copia%20de%20katifetch.png">
 </p>
