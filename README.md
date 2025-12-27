@@ -564,6 +564,12 @@ menuentry "Katifetch" {
 sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
 
+if grub2 does not exist
+
+```
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+```
+
 ### Reboot your system.
 
 ## 🚀 Usage
@@ -591,6 +597,12 @@ Regenerate GRUB:
 
 ```
 sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+```
+
+if grub2 does not exist
+
+```
+sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 Reboot.
