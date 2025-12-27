@@ -421,6 +421,73 @@ Run Katifetch inside a Linux container using `proot-distro` on Termux!
 
 ---
 
+## 📦 Installation (Proot-Distro in Termux)
+
+### 1. Log in to your Proot-Distro
+
+Replace `<your_distro>` with your installed distro name (e.g. `debian`, `ubuntu`, `fedora`):
+
+```bash
+proot-distro login <your_distro>
+```
+
+---
+
+### 2. Clone the Katifetch repository
+
+```bash
+git clone https://github.com/ximimoments/katifetch.git
+```
+
+---
+
+### 3. Navigate to the Proot-Distro folder
+
+```bash
+cd katifetch/katifetchforprootdistrotermux/
+```
+
+---
+
+### 4. Make the installer executable
+
+```bash
+chmod +x install.sh
+```
+
+> 💡 *Note: A version without `chmod` is coming soon for easier setup.*
+
+---
+
+### 5. Install Katifetch
+
+```bash
+./install.sh
+```
+
+---
+
+## 🧼 Uninstall (Proot-Distro Termux)
+
+To remove Katifetch from your Proot-Distro environment:
+
+```bash
+chmod +x uninstall.sh
+./uninstall.sh
+```
+
+---
+
+## 🔄 Update (Proot-Distro Termux)
+
+To update Katifetch inside your Proot-Distro environment:
+
+```bash
+chmod +x katifetch-update.sh
+./katifetch-update.sh
+```
+#
+
 ## Katifetch for GRUB
 
 Katifetch can also live inside GRUB as a custom boot menu entry.
@@ -534,72 +601,6 @@ Reboot.
 ## not as a real operating system entry.
 
 And Enjoy Katifetch on grub!!!
-
-## 📦 Installation (Proot-Distro in Termux)
-
-### 1. Log in to your Proot-Distro
-
-Replace `<your_distro>` with your installed distro name (e.g. `debian`, `ubuntu`, `fedora`):
-
-```bash
-proot-distro login <your_distro>
-```
-
----
-
-### 2. Clone the Katifetch repository
-
-```bash
-git clone https://github.com/ximimoments/katifetch.git
-```
-
----
-
-### 3. Navigate to the Proot-Distro folder
-
-```bash
-cd katifetch/katifetchforprootdistrotermux/
-```
-
----
-
-### 4. Make the installer executable
-
-```bash
-chmod +x install.sh
-```
-
-> 💡 *Note: A version without `chmod` is coming soon for easier setup.*
-
----
-
-### 5. Install Katifetch
-
-```bash
-./install.sh
-```
-
----
-
-## 🧼 Uninstall (Proot-Distro Termux)
-
-To remove Katifetch from your Proot-Distro environment:
-
-```bash
-chmod +x uninstall.sh
-./uninstall.sh
-```
-
----
-
-## 🔄 Update (Proot-Distro Termux)
-
-To update Katifetch inside your Proot-Distro environment:
-
-```bash
-chmod +x katifetch-update.sh
-./katifetch-update.sh
-```
 #
 
 # 🧡 Katifetch for Ubuntu 10.04
