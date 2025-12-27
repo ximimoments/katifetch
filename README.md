@@ -421,6 +421,120 @@ Run Katifetch inside a Linux container using `proot-distro` on Termux!
 
 ---
 
+## Katifetch for GRUB
+
+Katifetch can also live inside GRUB as a custom boot menu entry.
+
+This version displays a Katifetch-style system overview directly from the GRUB menu, acting as a visual easter egg before booting your operating system.
+
+---
+
+## ⚠️ Important note
+
+GRUB cannot fetch real-time system data.  
+All information shown is static or marked as `Unknown` by design.
+
+---
+
+## ✨ Features
+
+- Katifetch-style layout inside GRUB  
+- ASCII logo and formatted system overview  
+- Safe: does not boot an OS  
+- Automatically returns to the GRUB menu  
+- Works on BIOS and UEFI systems
+
+---
+
+## 📦 Installation (GRUB)
+
+### Open the GRUB custom entries file
+
+```bash
+sudo nano /etc/grub.d/40_custom
+```
+
+## Paste the following menuentry at the end of the file
+> (below the comments, without modifying the header):
+```bash
+menuentry "Katifetch" {
+    clear
+    echo ""
+    echo ",,                                           Katifetch"
+    echo "  .g8\"\"\"bgd                     *MM          -----------------------------------------------------"
+    echo ".dP'     \`M                      MM          Hardware Information"
+    echo "dM'       \` \`7Mb,od8 \`7MM  \`7MM  MM,dMMb.    Device   -> {Your Devices Name}"
+    echo "MM            MM' \"'   MM    MM  MM    \`Mb   CPU      -> {Your CPU}"
+    echo "MM.    \`7MMF' MM       MM    MM  MM     M8   GPU      -> {Your GPU}"
+    echo "\`Mb.     MM   MM       MM    MM  MM.   ,M9   RAM      -> Unknown"
+    echo "  \`\"bmmmdPY .JMML.     \`Mbod\"YML.P^YbmdP'    Monitor  -> 1366x768 @ 60.03Hz"
+    echo "                                             Disk (/) -> Unknown / {Your storage} (unknown %)"
+    echo "                                             -----------------------------------------------------"
+    echo "                                             Software Information"
+    echo "                                             Distro   -> {Your Distro}"
+    echo "                                             Kernel   -> {Your Kernel}"
+    echo "                                             DE       -> GRUB"
+    echo "                                             WM       -> GRUB"
+    echo "                                             TTY      -> GRUB"
+    echo "                                             Font     -> Unknown"
+    echo "                                             Shell    -> Unknown"
+    echo "                                             Battery  -> Unknown"
+    echo "                                             Packages -> Unknown"
+    echo "                                             Uptime   -> Unknown"
+    echo "                                             Icons    -> Unknown"
+    echo "                                             -----------------------------------------------------"
+    echo "                                             Palette"
+    echo "                                             o o o o o o o o"
+    echo ""
+    echo "                                             Returning to GRUB menu..."
+    sleep 8
+}
+
+```
+
+## Regenerate GRUB configuration:
+```
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+```
+
+### Reboot your system.
+
+## 🚀 Usage
+
+## Reboot your PC
+
+## In the GRUB menu, select Katifetch
+
+## Katifetch will be displayed for a few seconds
+
+### GRUB automatically returns to the main menu
+
+# 🧼 Uninstall (GRUB)
+
+### To remove Katifetch from GRUB:
+
+### Edit the custom entries file:
+```
+ sudo nano /etc/grub.d/40_custom
+```
+
+### Delete the menuentry "Katifetch" { ... } block
+
+Regenerate GRUB:
+
+```
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+```
+
+Reboot.
+
+## 💡 Tip
+
+## Katifetch for GRUB is meant as a visual / aesthetic feature or easter egg,
+## not as a real operating system entry.
+
+And Enjoy Katifetch on grub!!!
+
 ## 📦 Installation (Proot-Distro in Termux)
 
 ### 1. Log in to your Proot-Distro
