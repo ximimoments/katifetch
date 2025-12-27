@@ -534,7 +534,7 @@ menuentry "Katifetch" {
     echo "MM            MM' \"'   MM    MM  MM    \`Mb   CPU      -> {Your CPU}"
     echo "MM.    \`7MMF' MM       MM    MM  MM     M8   GPU      -> {Your GPU}"
     echo "\`Mb.     MM   MM       MM    MM  MM.   ,M9   RAM      -> Unknown"
-    echo "  \`\"bmmmdPY .JMML.     \`Mbod\"YML.P^YbmdP'    Monitor  -> 1366x768 @ 60.03Hz"
+    echo "  \`\"bmmmdPY .JMML.     \`Mbod\"YML.P^YbmdP'    Monitor  -> {Your Monitor}"
     echo "                                             Disk (/) -> Unknown / {Your storage} (unknown %)"
     echo "                                             -----------------------------------------------------"
     echo "                                             Software Information"
