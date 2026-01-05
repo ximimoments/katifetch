@@ -42,7 +42,7 @@ See more screenshots from different operating systems here:
 | **WSL (Windows Subsystem for Linux)** | ✅ | Native Linux version with WSL detection + Windows integration        |
 | **Android (Termux)**            | ✅     | Runs in Termux with custom logo                                      |
 | **Android (proot-distro)**      | ✅     | Runs in Debian/Ubuntu containers via proot-distro                    |
-| **Android TV (Termux)**         | ❓     | Minimalist version planned — available October 1 , 2025                |
+| **Android TV (Termux)**         | ✅     | Runs in Termux with Android logo                |
 | **Fedora (COPR repo)**          | ✅     | Installable via [COPR](https://copr.fedorainfracloud.org/coprs/ximios/katifetch/) |
 | **Ubuntu/Debian (.deb)**        | ✅     | Official `.deb` package available — easy install                     |
 | **Ubuntu 10.04**                | ✅     | Basic Bash script support with colored logo                          |
