@@ -5139,7 +5139,7 @@ ASCII:
                                 XFerience, ArchMerge, Arch, Archriot, Arkane Linux, Artix, Arya, Armbian Asahi, Aurora, Bedrock, Bitrig,
                                 Bazzite, BlackArch, BLAG, BlankOn, BlueLight, Bodhi, bonsai, BSD, BunsenLabs,
                                 Cachyos, Calculate, Canaima, Carbs, CentOS, Chakra, ChaletOS, Chapeau, Chimera, Chrom, CircleOS
-                                Cleanjaro, ClearOS, Clear_Linux, ClonOS Clover, Condres, Container_Linux, DAT_Linux,
+                                Cleanjaro, ClearOS, Clear_Linux, ClonOS Clover, Condres, Container_Linux, DAT_Linux
                                 Crystal Linux, CRUX, Cucumber, dahlia, Debian, Deepin, DesaOS, Devuan,
                                 DracOS, Droidian, DarkOs, Itc, DragonFly, Drauger, Dynebolic, Elementary, EndeavourOS, Endless,
                                 EuroLinux, Exherbo, Fedora, Feren, FreeBSD, FreeMiNT, Frugalware,
@@ -7446,6 +7446,7 @@ EOF
                     ++++++=                    
 EOF
                 ;;
+
 
                 "dahlia"*)
                     set_colors 1 7 3
@@ -12201,7 +12202,7 @@ EOF
     c3="${cl4}"  # azul (detalles)
 
     read -rd '' ascii_data <<'EOF'
-                                         + 
+                                          + 
                                        #.%
                                        @*
                                     = *
@@ -12229,6 +12230,10 @@ EOF
           :.
 EOF
 ;;
+
+
+
+
 
         "Trisquel"*)
             set_colors 4 6

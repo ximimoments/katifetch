@@ -120,31 +120,30 @@ print_info() {
 prin "Katifetch $indent"
     prin "-----------------------------------------------------"
     prin "${cl3}Hardware Information"
-    info "󰌢 " model
-    info "󰍛 " cpu
-    info "󰘚 " gpu
-    info "󰟖 " memory
-    info "󰍹 " resolution
-    info "󰋊 " disk
+    info "Model" model
+    info "Cpu" cpu
+    info "Gpu" gpu
+    info "Memory" memory
+    info "Resolution" resolution
+    info "Disk" disk
 
     prin "-----------------------------------------------------"
     prin "Software Information"
-    info " " distro
-    info " " kernel
-    info "󰀻 " de
-    info " " wm
-    info " " term
-    info " " term_font
-    info " " shell
-    info "󰟀 " hostname
-    info "󰁹 " battery
-    info "󰊠 " packages
-    info "󱎫 " uptime
-    info "󰀚 " icons
+    info "Distro" distro
+    info "Kernel" kernel
+    info "DE" de
+    info "WM" wm
+    info "Term" term
+    info "Term_Font" term_font
+    info "Shell" shell
+    info "Hostname" hostname
+    info "Battery" battery
+    info "Packages" packages
+    info "Uptime" uptime
+    info "Icons" icons
 
-    prin "-----------------------------------------------------"
     prin "${cl3}Palette:"
-    prin "${cl1} ${cl2} ${cl3} ${cl4} ${cl5} ${cl6} ${cl7} ${cl0}${reset}"
+    prin "${cl1}### ${cl2}### ${cl3}### ${cl4}### ${cl5}### ${cl6}### ${cl7}### ${cl0}###${reset}"
 }
 
 # =====================================================
@@ -156,23 +155,23 @@ print_info_phone() {
     prin ""
     prin "-----------------------------------------------------"
     prin "${cl3}Hardware Information"
-    info "󰌢 " model
-    info "󰍛 " cpu
-    info "󰘚 " gpu
-    info "󰟖 " memory
-    info "󰍹 " resolution
+    info "Model: " model
+    info "Cpu: " cpu
+    info "Gpu: " gpu
+    info "Memory: " memory
+    info "Resolution: " resolution
 
     prin "-----------------------------------------------------"
     prin "${cl3}Software Information"
-    info " " distro
-    info " " kernel
-    info " " wm
-    info " " term
-    info " " term_font
-    info " " shell
-    info "󰟀 " hostname
-    info "󰁹 " battery
-    info "󰊠 " packages
+    info "Distro: " distro
+    info "Kernel: " kernel
+    info "WM: " wm
+    info "Term " term
+    info "Term Font " term_font
+    info "Shell " shell
+    info "Hostnames " hostname
+    info "Battery " battery
+    info "Packages " packages
 
     prin "-----------------------------------------------------"
     prin "${cl3}Palette:"
@@ -650,7 +649,7 @@ underline_char="-"
 # Example:
 # separator="->":   'Shell-> bash'
 # separator=" =":   'WM = dwm'
-separator="  "
+separator=":"
 
 
 # Color Blocks
@@ -5139,7 +5138,7 @@ ASCII:
                                 XFerience, ArchMerge, Arch, Archriot, Arkane Linux, Artix, Arya, Armbian Asahi, Aurora, Bedrock, Bitrig,
                                 Bazzite, BlackArch, BLAG, BlankOn, BlueLight, Bodhi, bonsai, BSD, BunsenLabs,
                                 Cachyos, Calculate, Canaima, Carbs, CentOS, Chakra, ChaletOS, Chapeau, Chimera, Chrom, CircleOS
-                                Cleanjaro, ClearOS, Clear_Linux, ClonOS Clover, Condres, Container_Linux, DAT_Linux,
+                                Cleanjaro, ClearOS, Clear_Linux, ClonOS Clover, Condres, Container_Linux, DAT_Linux
                                 Crystal Linux, CRUX, Cucumber, dahlia, Debian, Deepin, DesaOS, Devuan,
                                 DracOS, Droidian, DarkOs, Itc, DragonFly, Drauger, Dynebolic, Elementary, EndeavourOS, Endless,
                                 EuroLinux, Exherbo, Fedora, Feren, FreeBSD, FreeMiNT, Frugalware,

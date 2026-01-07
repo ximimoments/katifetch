@@ -15,27 +15,27 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 # Create directories
 echo "Creating directories..."
-sudo mkdir -p "$INSTALL_DIR"
-sudo mkdir -p "$THEME_DIR"
-sudo mkdir -p "$LOGO_DIR"
-sudo mkdir -p "$BADAPPLE_DIR"
+doas mkdir -p "$INSTALL_DIR"
+doas mkdir -p "$THEME_DIR"
+doas mkdir -p "$LOGO_DIR"
+doas mkdir -p "$BADAPPLE_DIR"
 
 # Copy main script
 echo "Installing katifetch..."
-sudo cp "$SCRIPT_DIR/katifetch.sh" "$INSTALL_DIR/katifetch"
-sudo chmod +x "$INSTALL_DIR/katifetch"
+doas cp "$SCRIPT_DIR/katifetch.sh" "$INSTALL_DIR/katifetch"
+doas chmod +x "$INSTALL_DIR/katifetch"
 
 # Copy themes and logos
 echo "Copying themes and logos..."
-sudo cp -r "$SCRIPT_DIR/themes/"* "$THEME_DIR"
-sudo cp -r "$SCRIPT_DIR/logos/"* "$LOGO_DIR"
+doas cp -r "$SCRIPT_DIR/themes/"* "$THEME_DIR"
+doas cp -r "$SCRIPT_DIR/logos/"* "$LOGO_DIR"
 
 # ---- Bad Apple installation ----
 if [ -f "$SCRIPT_DIR/assets/kaka.sh" ] && [ -f "$SCRIPT_DIR/assets/badapple_6572frames.ascii.gz" ]; then
   echo "Installing Bad Apple assets..."
-  sudo cp "$SCRIPT_DIR/assets/kaka.sh" "$BADAPPLE_DIR/"
-  sudo cp "$SCRIPT_DIR/assets/badapple_6572frames.ascii.gz" "$BADAPPLE_DIR/"
-  sudo chmod +x "$BADAPPLE_DIR/kaka.sh"
+  doas cp "$SCRIPT_DIR/assets/kaka.sh" "$BADAPPLE_DIR/"
+  doas cp "$SCRIPT_DIR/assets/badapple_6572frames.ascii.gz" "$BADAPPLE_DIR/"
+  doas chmod +x "$BADAPPLE_DIR/kaka.sh"
 else
   echo "Bad Apple assets not found, skipping."
 fi
@@ -71,5 +71,5 @@ cat << "EOF"
     |  |:|          /  /:/     /__/:/        \  \:\          \  \:\     \  \:\_\/     /__/:/        \  \:\           /  /:/  
     |__|:|         /__/:/      \__\/          \__\/           \__\/      \  \:\       \__\/          \  \:\         /__/:/   
      \__\|         \__\/                                                  \__\/                       \__\/         \__\/    
-     Katifetch for Linux
+     Katifetch for Linux & BSD
 EOF

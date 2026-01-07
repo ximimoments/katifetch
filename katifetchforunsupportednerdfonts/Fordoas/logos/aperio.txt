@@ -1,0 +1,10 @@
+"Aperio GNU/Linux"*)
+	    set_colors 255
+	    read -rd '' ascii_data <<'EOF'
+${c2}
+ _.._  _ ._.. _
+(_][_)(/,[  |(_)
+   |   GNU/Linux
+EOF
+	;;
+

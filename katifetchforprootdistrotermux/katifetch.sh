@@ -3,12 +3,12 @@
 # shellcheck source=/dev/null
 # shellcheck disable=2009
 #
-# Neofetch: A command-line system information tool written in bash 3.2+.
-# https://github.com/dylanaraps/neofetch
+# katifetch: A command-line system information tool written in bash 3.2+.
+# https://github.com/ximimoments/katifetch
 #
 # The MIT License (MIT)
 #
-# Copyright (c) 2015-2021 Dylan Araps
+# Copyright (c) 2025-2025 ximimoments
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -28,7 +28,28 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-version=7.1.0
+version="13.1 Beta 23 (Final beta :3)"
+
+# flags
+bad_apple="off"
+for arg in "$@"; do
+    case "$arg" in
+        --bad_apple|--Bad_apple|--Bad_Apple)
+            bad_apple="on"
+        ;;
+    esac
+done
+
+# bad apple
+if [[ "$bad_apple" == "on" ]]; then
+    if [[ -x "/usr/local/share/katifetch/assets/badapple/kaka.sh" ]]; then
+        /usr/local/share/katifetch/assets/badapple/kaka.sh
+        exit 0
+    else
+        echo "Bad Apple not installed"
+        exit 1
+    fi
+fi
 
 # Fallback to a value of '5' for shells which support bash
 # but do not set the 'BASH_' shell variables (osh).
@@ -41,11 +62,23 @@ PATH=$PATH:/usr/xpg4/bin:/usr/sbin:/sbin:/usr/etc:/usr/libexec
 reset='\e[0m'
 shopt -s nocasematch
 
-# Load the theme
-THEME_FILE="./themes/${theme:-default}.theme"
-[ -f "$THEME_FILE" ] && source "$THEME_FILE" || echo "Theme file not found"
+# Force preferred theme with fallback
+theme="ozozfetch"
+THEME_FILE="./themes/${theme}.theme"
 
-# Establecer configuraciones de localización y optimización
+if [ ! -f "$THEME_FILE" ]; then
+  theme="ozozfetch"
+  THEME_FILE="$(dirname "$0")/themes/${theme}.theme"
+fi
+
+if [ -f "$THEME_FILE" ]; then
+  source "$THEME_FILE"
+#  echo "Loaded theme: $theme"
+# else
+#  echo "Theme file not found: $THEME_FILE"
+fi
+
+# Set localization and optimization settings
 LC_ALL=C
 LANG=C
 
@@ -57,49 +90,99 @@ os=$(uname -o)                # Sistema operativo
 cpu=$(lscpu | grep "Model name" | sed 's/Model name:[[:space:]]*//')  # CPU
 gpu=$(lspci | grep -i vga | sed 's/.*: //')   # GPU
 
-# Neofetch default config.
+# katifetch default config.
 read -rd '' config <<'EOF'
+# Source: https://github.com/chick2d/neofetch-themes
+# Configuration made by Chick
+
 # See this wiki page for more info:
 # https://github.com/dylanaraps/neofetch/wiki/Customizing-Info
-# themes/Ozozfetch.theme
+
+# I used custom seperators as the older one looked not very properly proportioned
+# Quote the prin's and unqote the underlines if you want.
 
 print_info() {
-    info title
-    info underline
-    
-    info "${c1}  OS" os
-    info "${c1} ├󰌽 " distro
-    info "${c1} ├ " kernel
-    info "${c1} ├󰏗 " packages
-    info "${c1} └ " shell
-    echo
-    info "${c2} DE/WM" wm
-    info "${c2} ├󰂫 " theme
-    info "${c2} ├󰂫 " icons
-    info "${c2} └ " term
-    echo
-    info "${c3} PC" model
-    info "${c3} ├󰍛 " cpu
-    info "${c3} ├󰍹 " gpu
-    info "${c3} ├ " memory
-    info "${c3} ├󰅐 " uptime
-    info "${c3} └ " resolution
-    
-    info cols
-    
+
+    # ================================
+    #  Phone mode (info BELOW ASCII)
+    # ================================
+    if [[ "$katifetch_phone_mode" == "true" ]]; then
+        print_info_phone
+        return
+    fi
+
+    # ================================
+    #  Normal PC / laptop mode
+    # ================================
+
+    indent="                              "
+
+prin "Katifetch $indent"
+    prin "-----------------------------------------------------"
+    prin "${cl3}Hardware Information"
+    info "󰌢 " model
+    info "󰍛 " cpu
+    info "󰘚 " gpu
+    info "󰟖 " memory
+    info "󰍹 " resolution
+    info "󰋊 " disk
+
+    prin "-----------------------------------------------------"
+    prin "Software Information"
+    info " " distro
+    info " " kernel
+    info "󰀻 " de
+    info " " wm
+    info " " term
+    info " " term_font
+    info " " shell
+    info "󰟀 " hostname
+    info "󰁹 " battery
+    info "󰊠 " packages
+    info "󱎫 " uptime
+    info "󰀚 " icons
+
+    prin "-----------------------------------------------------"
+    prin "${cl3}Palette:"
+    prin "${cl1} ${cl2} ${cl3} ${cl4} ${cl5} ${cl6} ${cl7} ${cl0}${reset}"
 }
 
-##--------- Title
+# =====================================================
+#  PHONE LAYOUT (info *below* ASCII)
+# =====================================================
 
-# Hide/Show Fully qualified domain name.
-#
-# Default:  'off'
-# Values:   'on', 'off'
-# Flag:     --title_fqdn
-title_fqdn="off"
+print_info_phone() {
 
+    prin ""
+    prin "-----------------------------------------------------"
+    prin "${cl3}Hardware Information"
+    info "󰌢 " model
+    info "󰍛 " cpu
+    info "󰘚 " gpu
+    info "󰟖 " memory
+    info "󰍹 " resolution
 
-##--------- Kernel
+    prin "-----------------------------------------------------"
+    prin "${cl3}Software Information"
+    info " " distro
+    info " " kernel
+    info " " wm
+    info " " term
+    info " " term_font
+    info " " shell
+    info "󰟀 " hostname
+    info "󰁹 " battery
+    info "󰊠 " packages
+
+    prin "-----------------------------------------------------"
+    prin "${cl3}Palette:"
+    prin "${cl1} ${cl2} ${cl3} ${cl4} ${cl5} ${cl6} ${cl7} ${cl0}${reset}"
+    
+    prin ""
+}
+
+# Kernel
+
 
 # Shorten the output of the kernel function.
 #
@@ -114,7 +197,8 @@ title_fqdn="off"
 kernel_shorthand="on"
 
 
-##--------- Distro
+# Distro
+
 
 # Shorten the output of the distro function
 #
@@ -137,7 +221,8 @@ distro_shorthand="off"
 os_arch="on"
 
 
-##--------- Uptime
+# Uptime
+
 
 # Shorten the output of the uptime function
 #
@@ -151,8 +236,8 @@ os_arch="on"
 # off:  '2 days, 10 hours, 3 minutes'
 uptime_shorthand="on"
 
+# Memory
 
-##--------- Memory
 
 # Show memory pecentage in output.
 #
@@ -163,22 +248,11 @@ uptime_shorthand="on"
 # Example:
 # on:   '1801MiB / 7881MiB (22%)'
 # off:  '1801MiB / 7881MiB'
-memory_percent="off"
-
-# Change memory output unit.
-#
-# Default: 'mib'
-# Values:  'kib', 'mib', 'gib'
-# Flag:    --memory_unit
-#
-# Example:
-# kib  '1020928KiB / 7117824KiB'
-# mib  '1042MiB / 6951MiB'
-# gib: ' 0.98GiB / 6.79GiB'
-memory_unit="mib"
+memory_percent="on"
 
 
-##--------- Packages
+# Packages
+
 
 # Show/Hide Package Manager names.
 #
@@ -193,7 +267,8 @@ memory_unit="mib"
 package_managers="on"
 
 
-##--------- Shell
+# Shell
+
 
 # Show the path to $SHELL
 #
@@ -218,7 +293,8 @@ shell_path="off"
 shell_version="on"
 
 
-##--------- CPU
+# CPU
+
 
 # CPU speed type
 #
@@ -239,7 +315,7 @@ speed_type="bios_limit"
 # Example:
 # on:    'i7-6500U (4) @ 3.1GHz'
 # off:   'i7-6500U (4) @ 3.100GHz'
-speed_shorthand="off"
+speed_shorthad="on"
 
 # Enable/Disable CPU brand in output.
 #
@@ -257,12 +333,12 @@ cpu_brand="on"
 #
 # Default: 'on'
 # Values:  'on', 'off'
-# Flag:    --cpu_speed
+# Flag:    --cp_speed
 #
 # Example:
 # on:  'Intel i7-6500U (4) @ 3.1GHz'
 # off: 'Intel i7-6500U (4)'
-cpu_speed="on"
+cpu_speed="off"
 
 # CPU Cores
 # Display CPU cores in output
@@ -293,10 +369,11 @@ cpu_cores="logical"
 # C:   'Intel i7-6500U (4) @ 3.1GHz [27.2°C]'
 # F:   'Intel i7-6500U (4) @ 3.1GHz [82.0°F]'
 # off: 'Intel i7-6500U (4) @ 3.1GHz'
-cpu_temp="on"
+cpu_temp="off"
 
 
-##--------- GPU
+# GPU
+
 
 # Enable/Disable GPU Brand
 #
@@ -329,7 +406,8 @@ gpu_brand="on"
 gpu_type="all"
 
 
-##--------- Resolution
+# Resolution
+
 
 # Display refresh rate next to each monitor
 # Default: 'off'
@@ -340,10 +418,11 @@ gpu_type="all"
 # Example:
 # on:  '1920x1080 @ 60Hz'
 # off: '1920x1080'
-refresh_rate="off"
+refresh_rate="on"
 
 
-##--------- Gtk Theme / Icons / Font
+# Gtk Theme / Icons / Font
+
 
 # Shorten output of GTK Theme / Icons / Font
 #
@@ -354,7 +433,8 @@ refresh_rate="off"
 # Example:
 # on:  'Numix, Adwaita'
 # off: 'Numix [GTK2], Adwaita [GTK3]'
-gtk_shorthand="off"
+gtk_shorthand="on"
+
 
 # Enable/Disable gtk2 Theme / Icons / Font
 #
@@ -379,7 +459,8 @@ gtk2="on"
 gtk3="on"
 
 
-##--------- IP Address
+# IP Address
+
 
 # Website to ping for the public IP
 #
@@ -395,17 +476,9 @@ public_ip_host="http://ident.me"
 # Flag:    --ip_timeout
 public_ip_timeout=2
 
-# Desktop Environment
 
-# Show Desktop Environment version
-#
-# Default: 'on'
-# Values:  'on', 'off'
-# Flag:    --de_version
-de_version="on"
+# Disk
 
-
-##--------- Disk
 
 # Which disks to display.
 # The values can be any /dev/sdXX, mount point or directory.
@@ -429,7 +502,7 @@ disk_show=('/')
 # What to append to the Disk subtitle.
 #
 # Default: 'mount'
-# Values:  'mount', 'name', 'dir', 'none'
+# Values:  'mount', 'name', 'dir'
 # Flag:    --disk_subtitle
 #
 # Example:
@@ -443,26 +516,11 @@ disk_show=('/')
 # dir:    'Disk (/): 74G / 118G (66%)'
 #         'Disk (Local Disk): 74G / 118G (66%)'
 #         'Disk (Videos): 74G / 118G (66%)'
-#
-# none:   'Disk: 74G / 118G (66%)'
-#         'Disk: 74G / 118G (66%)'
-#         'Disk: 74G / 118G (66%)'
-disk_subtitle="mount"
-
-# Disk percent.
-# Show/Hide disk percent.
-#
-# Default: 'on'
-# Values:  'on', 'off'
-# Flag:    --disk_percent
-#
-# Example:
-# on:  'Disk (/): 74G / 118G (66%)'
-# off: 'Disk (/): 74G / 118G'
-disk_percent="on"
+#disk_subtitle="mount"
 
 
-##--------- Song
+# Song
+
 
 # Manually specify a music player.
 #
@@ -487,17 +545,13 @@ disk_percent="on"
 # gmusicbrowser
 # gogglesmm
 # guayadeque
-# io.elementary.music
 # iTunes
 # juk
 # lollypop
 # mocp
 # mopidy
 # mpd
-# muine
 # netease-cloud-music
-# olivia
-# playerctl
 # pogo
 # pragha
 # qmmp
@@ -507,13 +561,12 @@ disk_percent="on"
 # smplayer
 # spotify
 # strawberry
-# tauonmb
 # tomahawk
 # vlc
 # xmms2d
 # xnoise
 # yarock
-music_player="auto"
+music_player="vlc"
 
 # Format to display song information.
 #
@@ -523,7 +576,7 @@ music_player="auto"
 #
 # Example:
 # default: 'Song: Jet - Get Born - Sgt Major'
-song_format="%artist% - %album% - %title%"
+song_format="%artist% - %title%"
 
 # Print the Artist, Album and Title on separate lines
 #
@@ -546,7 +599,8 @@ song_shorthand="off"
 mpc_args=()
 
 
-##--------- Text Colors
+# Text Colors
+
 
 # Text Colors
 #
@@ -563,7 +617,8 @@ mpc_args=()
 colors=(distro)
 
 
-##--------- Text Options
+# Text Options
+
 
 # Toggle bold text
 #
@@ -584,7 +639,7 @@ underline_enabled="on"
 # Default:  '-'
 # Values:   'string'
 # Flag:     --underline_char
-underline_char="󰍴"
+underline_char="-"
 
 # Info Separator
 # Replace the default separator with the specified string.
@@ -595,10 +650,11 @@ underline_char="󰍴"
 # Example:
 # separator="->":   'Shell-> bash'
 # separator=" =":   'WM = dwm'
-separator="->"
+separator="  "
 
 
-##--------- Color Blocks
+# Color Blocks
+
 
 # Color block range
 # The range of colors to print.
@@ -610,13 +666,41 @@ separator="->"
 # Example:
 #
 # Display colors 0-7 in the blocks.  (8 colors)
-# neofetch --block_range 0 7
+# katifetch --block_range 0 7
 #
 # Display colors 0-15 in the blocks. (16 colors)
-# neofetch --block_range 0 15
-block_range=(0 15)
+# katifetch --block_range 0 15
+#block_range=(8 15)
+block_range=(1 7)
 
 # Toggle color blocks
+
+# Colors for custom colorblocks
+#colors
+#bold="(tput bold)"
+magenta="\033[1;35m"
+green="\033[1;32m"
+white="\033[1;37m"
+blue="\033[1;34m"
+red="\033[1;31m"
+black="\033[1;40;30m"
+yellow="\033[1;33m"
+cyan="\033[1;36m"
+reset="\033[0m"
+bgyellow="\033[1;43;33m"
+bgwhite="\033[1;47;37m"
+cl0="${reset}"
+cl1="${magenta}"
+cl2="${green}"
+cl3="${white}"
+cl4="${blue}"
+cl5="${red}"
+cl6="${yellow}"
+cl7="${cyan}"
+cl8="${black}"
+cl9="${bgyellow}"
+cl10="${bgwhite}"
+
 #
 # Default:  'on'
 # Values:   'on', 'off'
@@ -628,7 +712,7 @@ color_blocks="on"
 # Default:  '3'
 # Values:   'num'
 # Flag:     --block_width
-block_width=3
+block_width=4
 
 # Color block height in lines
 #
@@ -637,21 +721,9 @@ block_width=3
 # Flag:     --block_height
 block_height=1
 
-# Color Alignment
-#
-# Default: 'auto'
-# Values: 'auto', 'num'
-# Flag: --col_offset
-#
-# Number specifies how far from the left side of the terminal (in spaces) to
-# begin printing the columns, in case you want to e.g. center them under your
-# text.
-# Example:
-# col_offset="auto" - Default behavior of neofetch
-# col_offset=7      - Leave 7 spaces then print the colors
-col_offset="auto"
 
-##--------- Progress Bars
+# Progress Bars
+
 
 # Bar characters
 #
@@ -660,8 +732,8 @@ col_offset="auto"
 # Flag:     --bar_char
 #
 # Example:
-# neofetch --bar_char 'elapsed' 'total'
-# neofetch --bar_char '-' '='
+# katifetch --bar_char 'elapsed' 'total'
+# katifetch --bar_char '-' '='
 bar_char_elapsed="-"
 bar_char_total="="
 
@@ -688,10 +760,11 @@ bar_length=15
 # Flag:     --bar_colors
 #
 # Example:
-# neofetch --bar_colors 3 4
-# neofetch --bar_colors distro 5
+# katifetch --bar_colors 3 4
+# katifetch --bar_colors distro 5
 bar_color_elapsed="distro"
 bar_color_total="distro"
+
 
 # Info display
 # Display a bar with the info.
@@ -708,19 +781,20 @@ bar_color_total="distro"
 # infobar: 'info [---=======]'
 # barinfo: '[---=======] info'
 # off:     'info'
-cpu_display="off"
-memory_display="off"
-battery_display="off"
-disk_display="off"
+cpu_display="on"
+memory_display="on"
+battery_display="on"
+disk_display="on"
 
 
-##--------- Backend Settings
+# Backend Settings
+
 
 # Image backend.
 #
 # Default:  'ascii'
 # Values:   'ascii', 'caca', 'chafa', 'jp2a', 'iterm2', 'off',
-#           'pot', 'termpix', 'pixterm', 'tycat', 'w3m', 'kitty'
+#           'termpix', 'pixterm', 'tycat', 'w3m', 'kitty'
 # Flag:     --backend
 image_backend="ascii"
 
@@ -730,16 +804,15 @@ image_backend="ascii"
 #
 # Default:  'auto'
 # Values:   'auto', 'ascii', 'wallpaper', '/path/to/img', '/path/to/ascii', '/path/to/dir/'
-#           'command output (neofetch --ascii "$(fortune | cowsay -W 30)")'
+#           'command output (katifetch --ascii "$(fortune | cowsay -W 30)")'
 # Flag:     --source
 #
 # NOTE: 'auto' will pick the best image source for whatever image backend is used.
 #       In ascii mode, distro ascii art will be used and in an image mode, your
 #       wallpaper will be used.
-image_source="auto"
+#image_source="$HOME/.config/katifetch/archlogo.txt"
+# Ascii Options
 
-
-##--------- Ascii Options
 
 # Ascii distro
 # Which distro's ascii art to display.
@@ -747,46 +820,13 @@ image_source="auto"
 # Default: 'auto'
 # Values:  'auto', 'distro_name'
 # Flag:    --ascii_distro
-# NOTE: AIX, Alpine, Anarchy, Android, Antergos, antiX, "AOSC OS",
-#       "AOSC OS/Retro", Apricity, ArcoLinux, ArchBox, ARCHlabs,
-#       ArchStrike, XFerience, ArchMerge, Arch, Artix, Arya, Bedrock,
-#       Bitrig, BlackArch, BLAG, BlankOn, BlueLight, bonsai, BSD,
-#       BunsenLabs, Calculate, Carbs, CentOS, Chakra, ChaletOS,
-#       Chapeau, Chrom*, Cleanjaro, ClearOS, Clear_Linux, Clover,
-#       Condres, Container_Linux, CRUX, Cucumber, Debian, Deepin,
-#       DesaOS, Devuan, DracOS, DarkOs, DragonFly, Drauger, Elementary,
-#       EndeavourOS, Endless, EuroLinux, Exherbo, Fedora, Feren, FreeBSD,
-#       FreeMiNT, Frugalware, Funtoo, GalliumOS, Garuda, Gentoo, Pentoo,
-#       gNewSense, GNOME, GNU, GoboLinux, Grombyang, Guix, Haiku, Huayra,
-#       Hyperbola, janus, Kali, KaOS, KDE_neon, Kibojoe, Kogaion,
-#       Korora, KSLinux, Kubuntu, LEDE, LFS, Linux_Lite,
-#       LMDE, Lubuntu, Lunar, macos, Mageia, MagpieOS, Mandriva,
-#       Manjaro, Maui, Mer, Minix, LinuxMint, MX_Linux, Namib,
-#       Neptune, NetBSD, Netrunner, Nitrux, NixOS, Nurunner,
-#       NuTyX, OBRevenge, OpenBSD, openEuler, OpenIndiana, openmamba,
-#       OpenMandriva, OpenStage, OpenWrt, osmc, Oracle, OS Elbrus, PacBSD,
-#       Parabola, Pardus, Parrot, Parsix, TrueOS, PCLinuxOS, Peppermint,
-#       popos, Porteus, PostMarketOS, Proxmox, Puppy, PureOS, Qubes, Radix,
-#       Raspbian, Reborn_OS, Redstar, Redcore, Redhat, Refracted_Devuan,
-#       Regata, Rosa, sabotage, Sabayon, Sailfish, SalentOS, Scientific,
-#       Septor, SereneLinux, SharkLinux, Siduction, Slackware, SliTaz,
-#       SmartOS, Solus, Source_Mage, Sparky, Star, SteamOS, SunOS,
-#       openSUSE_Leap, openSUSE_Tumbleweed, openSUSE, SwagArch, Tails,
-#       Trisquel, Ubuntu-Budgie, Ubuntu-GNOME, Ubuntu-MATE, Ubuntu-Studio,
-#       Ubuntu, Venom, Void, Obarun, windows10, Windows7, Xubuntu, Zorin,
-#       and IRIX have ascii logos
-# NOTE: Arch, Ubuntu, Redhat, and Dragonfly have 'old' logo variants.
-#       Use '{distro name}_old' to use the old logos.
+#
+# NOTE: Arch and Ubuntu have 'old' logo variants.
+#       Change this to 'arch_old' or 'ubuntu_old' to use the old logos.
 # NOTE: Ubuntu has flavor variants.
-#       Change this to Lubuntu, Kubuntu, Xubuntu, Ubuntu-GNOME,
-#       Ubuntu-Studio, Ubuntu-Mate  or Ubuntu-Budgie to use the flavors.
-# NOTE: Arcolinux, Dragonfly, Fedora, Alpine, Arch, Ubuntu,
-#       CRUX, Debian, Gentoo, FreeBSD, Mac, NixOS, OpenBSD, android,
-#       Antrix, CentOS, Cleanjaro, ElementaryOS, GUIX, Hyperbola,
-#       Manjaro, MXLinux, NetBSD, Parabola, POP_OS, PureOS,
-#       Slackware, SunOS, LinuxLite, OpenSUSE, Raspbian,
-#       postmarketOS, and Void have a smaller logo variant.
-#       Use '{distro name}_small' to use the small variants.
+#       Change this to 'Lubuntu', 'Xubuntu', 'Ubuntu-GNOME' or 'Ubuntu-Budgie' to use the flavors.
+# NOTE: Arch, Crux and Gentoo have a smaller logo variant.
+#       Change this to 'arch_small', 'crux_small' or 'gentoo_small' to use the small logos.
 ascii_distro="auto"
 
 # Ascii Colors
@@ -798,7 +838,7 @@ ascii_distro="auto"
 # Example:
 # ascii_colors=(distro)      - Ascii is colored based on Distro colors.
 # ascii_colors=(4 6 1 8 8 6) - Ascii is colored using these colors.
-ascii_colors=(1 2 3 4 5 6 7 8)
+ascii_colors=(distro)
 
 # Bold ascii logo
 # Whether or not to bold the ascii logo.
@@ -809,10 +849,11 @@ ascii_colors=(1 2 3 4 5 6 7 8)
 ascii_bold="on"
 
 
-##--------- Image Options
+# Image Options
+
 
 # Image loop
-# Setting this to on will make neofetch redraw the image constantly until
+# Setting this to on will make katifetch redraw the image constantly until
 # Ctrl+C is pressed. This fixes display issues in some terminal emulators.
 #
 # Default:  'off'
@@ -822,18 +863,15 @@ image_loop="off"
 
 # Thumbnail directory
 #
-# Default: '~/.cache/thumbnails/neofetch'
+# Default: '~/.cache/thumbnails/katifetch'
 # Values:  'dir'
-thumbnail_dir="${XDG_CACHE_HOME:-${HOME}/.cache}/thumbnails/neofetch"
+thumbnail_dir="${XDG_CACHE_HOME:-${HOME}/.cache}/thumbnails/katifetch"
 
 # Crop mode
 #
 # Default:  'normal'
 # Values:   'normal', 'fit', 'fill'
 # Flag:     --crop_mode
-#
-# See this wiki page to learn about the fit and fill options.
-# https://github.com/dylanaraps/neofetch/wiki/What-is-Waifu-Crop%3F
 crop_mode="normal"
 
 # Crop offset
@@ -880,7 +918,7 @@ xoffset=0
 background_color=
 
 
-##--------- Misc Options
+# Misc Options
 
 # Stdout mode
 # Turn off all colors and disables image backend (ASCII/Image).
@@ -888,7 +926,6 @@ background_color=
 # Default: 'off'
 # Values: 'on', 'off'
 stdout="off"
-
 
 EOF
 
@@ -2547,8 +2584,8 @@ get_gpu() {
         ;;
 
         "Mac OS X"|"macOS")
-            if [[ -f "${cache_dir}/neofetch/gpu" ]]; then
-                source "${cache_dir}/neofetch/gpu"
+            if [[ -f "${cache_dir}/katifetch/gpu" ]]; then
+                source "${cache_dir}/katifetch/gpu"
 
             else
                 gpu="$(system_profiler SPDisplaysDataType |\
@@ -4332,7 +4369,7 @@ make_thumbnail() {
     esac
 
     # Create the thumbnail dir if it doesn't exist.
-    mkdir -p "${thumbnail_dir:=${XDG_CACHE_HOME:-${HOME}/.cache}/thumbnails/neofetch}"
+    mkdir -p "${thumbnail_dir:=${XDG_CACHE_HOME:-${HOME}/.cache}/thumbnails/katifetch}"
 
     if [[ ! -f "${thumbnail_dir}/${image_name}" ]]; then
         # Get image size so that we can do a better crop.
@@ -4407,7 +4444,7 @@ display_image() {
                 ueberzug layer --parser bash 0< <(
                     declare -Ap ADD=(\
                         [action]="add"\
-                        [identifier]="neofetch"\
+                        [identifier]="katifetch"\
                         [x]=$xoffset [y]=$yoffset\
                         [path]=$image\
                     )
@@ -4706,7 +4743,7 @@ err() {
 
 get_full_path() {
     # This function finds the absolute path from a relative one.
-    # For example "Pictures/Wallpapers" --> "/home/dylan/Pictures/Wallpapers"
+    # For example "Pictures/Wallpapers" --> "/home/katifetchuser/Pictures/Wallpapers"
 
     # If the file exists in the current directory, stop here.
     [[ -f "${PWD}/${1}" ]] && { printf '%s\n' "${PWD}/${1}"; return; }
@@ -4739,19 +4776,19 @@ get_user_config() {
         err "Config: Sourced user config. (${config_file})"
         return
 
-    elif [[ -f "${XDG_CONFIG_HOME}/neofetch/config.conf" ]]; then
-        source "${XDG_CONFIG_HOME}/neofetch/config.conf"
-        err "Config: Sourced user config.    (${XDG_CONFIG_HOME}/neofetch/config.conf)"
+    elif [[ -f "${XDG_CONFIG_HOME}/katifetch/config.conf" ]]; then
+        source "${XDG_CONFIG_HOME}/katifetch/config.conf"
+        err "Config: Sourced user config.    (${XDG_CONFIG_HOME}/katifetch/config.conf)"
 
-    elif [[ -f "${XDG_CONFIG_HOME}/neofetch/config" ]]; then
-        source "${XDG_CONFIG_HOME}/neofetch/config"
-        err "Config: Sourced user config.    (${XDG_CONFIG_HOME}/neofetch/config)"
+    elif [[ -f "${XDG_CONFIG_HOME}/katifetch/config" ]]; then
+        source "${XDG_CONFIG_HOME}/katifetch/config"
+        err "Config: Sourced user config.    (${XDG_CONFIG_HOME}/katifetch/config)"
 
     elif [[ -z "$no_config" ]]; then
-        config_file="${XDG_CONFIG_HOME}/neofetch/config.conf"
+        config_file="${XDG_CONFIG_HOME}/katifetch/config.conf"
 
         # The config file doesn't exist, create it.
-        mkdir -p "${XDG_CONFIG_HOME}/neofetch/"
+        mkdir -p "${XDG_CONFIG_HOME}/katifetch/"
         printf '%s\n' "$config" > "$config_file"
     fi
 }
@@ -4777,8 +4814,8 @@ bar() {
 
 cache() {
     if [[ "$2" ]]; then
-        mkdir -p "${cache_dir}/neofetch"
-        printf "%s" "${1/*-}=\"$2\"" > "${cache_dir}/neofetch/${1/*-}"
+        mkdir -p "${cache_dir}/katifetch"
+        printf "%s" "${1/*-}=\"$2\"" > "${cache_dir}/katifetch/${1/*-}"
     fi
 }
 
@@ -4856,8 +4893,6 @@ cache_uname() {
     kernel_machine="${uname[2]}"
 
     if [[ "$kernel_name" == "Darwin" ]]; then
-        # macOS can report incorrect versions unless this is 0.
-        # https://github.com/dylanaraps/neofetch/issues/1607
         export SYSTEM_VERSION_COMPAT=0
 
         IFS=$'\n' read -d "" -ra sw_vers <<< "$(awk -F'<|>' '/key|string/ {print $3}' \
@@ -4922,12 +4957,11 @@ decode_url() {
 # FINISH UP
 
 usage() { printf "%s" "\
-Usage: neofetch func_name --option \"value\" --option \"value\"
+Usage: katifetch func_name --option \"value\" --option \"value\"
 
-Neofetch is a CLI system information tool written in BASH. Neofetch
-displays information about your system next to an image, your OS logo,
-or any ASCII file of your choice.
-
+Katifetch is a command-line system information tool written in Bash.
+It displays detailed information about your system alongside an image,
+your OS logo, or any custom ASCII art of your choice.
 NOTE: Every launch flag has a config option.
 
 Options:
@@ -4936,17 +4970,17 @@ INFO:
     func_name                   Specify a function name (second part of info() from config) to
                                 quickly display only that function's information.
 
-                                Example: neofetch uptime --uptime_shorthand tiny
+                                Example: katifetch uptime --uptime_shorthand tiny
 
-                                Example: neofetch uptime disk wm memory
+                                Example: katifetch uptime disk wm memory
 
                                 This can be used in bars and scripts like so:
 
-                                memory=\"\$(neofetch memory)\"; memory=\"\${memory##*: }\"
+                                memory=\"\$(katifetch memory)\"; memory=\"\${memory##*: }\"
 
                                 For multiple outputs at once (each line of info in an array):
 
-                                IFS=\$'\\n' read -d \"\" -ra info < <(neofetch memory uptime wm)
+                                IFS=\$'\\n' read -d \"\" -ra info < <(katifetch memory uptime wm)
 
                                 info=(\"\${info[@]##*: }\")
 
@@ -4955,7 +4989,7 @@ INFO:
                                 'print_info()' function inside the config file.
                                 For example: 'info \"Memory\" memory' would be '--disable memory'
 
-                                NOTE: You can supply multiple args. eg. 'neofetch --disable cpu gpu'
+                                NOTE: You can supply multiple args. eg. 'katifetch --disable cpu gpu'
 
     --title_fqdn on/off         Hide/Show Fully Qualified Domain Name in title.
     --package_managers on/off   Hide/Show Package Manager names . (on, tiny, off)
@@ -5074,7 +5108,7 @@ IMAGE BACKEND:
 
     --ascii source              Shortcut to use 'ascii' backend.
 
-                                NEW: neofetch --ascii \"\$(fortune | cowsay -W 30)\"
+                                NEW: katifetch --ascii \"\$(fortune | cowsay -W 30)\"
 
     --caca source               Shortcut to use 'caca' backend.
     --catimg source             Shortcut to use 'catimg' backend.
@@ -5099,44 +5133,44 @@ ASCII:
     --ascii_colors x x x x x x  Colors to print the ascii art
     --ascii_distro distro       Which Distro's ascii art to print
 
-                                NOTE: AIX, Hash, Alpine, AlterLinux, Amazon, Anarchy, Android,
+                                NOTE: aeon | aeos | aeon-desktop, AIX, Hash, Alpine, AlterLinux, Amazon, Anarchy, Android,
                                 instantOS, Antergos, antiX, \"AOSC OS\", \"AOSC OS/Retro\",
                                 Apricity, ArchCraft, ArcoLinux, ArchBox, ARCHlabs, ArchStrike,
-                                XFerience, ArchMerge, Arch, Artix, Arya, Bedrock, Bitrig,
-                                BlackArch, BLAG, BlankOn, BlueLight, Bodhi, bonsai, BSD, BunsenLabs,
-                                Calculate, Carbs, CentOS, Chakra, ChaletOS, Chapeau, Chrom,
-                                Cleanjaro, ClearOS, Clear_Linux, Clover, Condres, Container_Linux,
+                                XFerience, ArchMerge, Arch, Archriot, Arkane Linux, Artix, Arya, Armbian Asahi, Aurora, Bedrock, Bitrig,
+                                Bazzite, BlackArch, BLAG, BlankOn, BlueLight, Bodhi, bonsai, BSD, BunsenLabs,
+                                Cachyos, Calculate, Canaima, Carbs, CentOS, Chakra, ChaletOS, Chapeau, Chimera, Chrom, CircleOS
+                                Cleanjaro, ClearOS, Clear_Linux, ClonOS Clover, Condres, Container_Linux, DAT_Linux,
                                 Crystal Linux, CRUX, Cucumber, dahlia, Debian, Deepin, DesaOS, Devuan,
-                                DracOS, DarkOs, Itc, DragonFly, Drauger, Elementary, EndeavourOS, Endless,
+                                DracOS, Droidian, DarkOs, Itc, DragonFly, Drauger, Dynebolic, Elementary, EndeavourOS, Endless,
                                 EuroLinux, Exherbo, Fedora, Feren, FreeBSD, FreeMiNT, Frugalware,
-                                Funtoo, GalliumOS, Garuda, Gentoo, Pentoo, gNewSense, GNOME, GNU,
-                                GoboLinux, Grombyang, Guix, Haiku, Huayra, Hyperbola, iglunix, janus, Kali,
+                                Funtoo, FydeOS, GabeeOS, GalliumOS, Garuda, Gentoo, GhostBSD, Paldo, Pentoo, gNewSense, GNOME, GNU,
+                                GLFOS, GoboLinux, Grombyang, Guix, Haiku, Huayra, Hyperbola, iglunix, janus, Kali,
                                 KaOS, KDE_neon, Kibojoe, Kogaion, Korora, KSLinux, Kubuntu, LEDE,
                                 LaxerOS, LibreELEC, LFS, Linux_Lite, LMDE, Lubuntu, Lunar, macos,
-                                Mageia, MagpieOS, Mandriva, Manjaro, TeArch, Maui, Mer, Minix, LinuxMint,
-                                Live_Raizo, MX_Linux, Namib, Neptune, NetBSD, Netrunner, Nitrux,
-                                NixOS, Nurunner, NuTyX, OBRevenge, OpenBSD, openEuler, OpenIndiana,
-                                openmamba, OpenMandriva, OpenStage, OpenWrt, osmc, Oracle,
-                                OS Elbrus, PacBSD, Parabola, Pardus, Parrot, Parsix, TrueOS,
+                                Mageia, MagpieOS, Mandriva, Manjaro, TeArch, Tromjaro, Maui, Mer, Miracle, Minix, LinuxMint,
+                                Live_Raizo, Mobian, MX_Linux, Namib, Neptune, NetBSD, Netrunner, Nitrux,
+                                NixOS, Nobara, Nurunner, NuTyX, OBRevenge, Omarchy, Omega, OpenBSD, openEuler, OpenIndiana,
+                                openmamba, OpenMandriva, OpenStage, OpenWrt, Openkylin, osmc, Oracle, Oreon,
+                                OS Elbrus, PacBSD, Parabola, Parch, Pardus, Parrot, Parsix, TrueOS,
                                 PCLinuxOS, Pengwin, Peppermint, Pisi, popos, Porteus, PostMarketOS,
                                 Proxmox, PuffOS, Puppy, PureOS, Qubes, Qubyt, Quibian, Radix, Raspbian, Reborn_OS,
-                                Redstar, Redcore, Redhat, Refracted_Devuan, Regata, Regolith, Rosa,
-                                sabotage, Sabayon, Sailfish, SalentOS, Scientific, Septor,
-                                SereneLinux, SharkLinux, Siduction, Slackware, SliTaz, SmartOS,
-                                Solus, Source_Mage, Sparky, Star, SteamOS, SunOS, openSUSE_Leap,
-                                t2, openSUSE_Tumbleweed, openSUSE, SwagArch, Tails, Trisquel,
+                                ReactOS, Redstar, Redcore, Redhat, Refracted_Devuan, Regata, Regolith, ReichOS, Rosa,
+                                sabotage, Sabayon, Sailfish, SalentOS, Salix Scientific, Septor,
+                                SereneLinux, SharkLinux, Siduction, Slackware, Slimbook, SliTaz, SmartOS,
+                                Solus, Source_Mage, Sparky, Star, SteamOS, SunOS, Synex, Systemrecuse | SystemRecuseCD | Recuse, openSUSE_Leap,
+                                t2, openSUSE_Tumbleweed, openSUSE, SwagArch, Tails, Temple OS, Trisquel, Tuxedo,
                                 Ubuntu-Cinnamon, Ubuntu-Budgie, Ubuntu-GNOME, Ubuntu-MATE,
-                                Ubuntu-Studio, Ubuntu, Univention, Venom, Void, VNux, LangitKetujuh, semc,
-                                Obarun, windows10, Windows7, Xubuntu, Zorin, and IRIX have ascii logos.
+                                Ubuntu-Studio, Ubuntu, UBports Ultramarine, Univention, VanillaOS, Venom, Void, VNux, VyOS, LangitKetujuh, semc,
+                                Obarun, windows10, Windows7, Winux, Xubuntu, Zephix, Zorin, and IRIX have ascii logos.
 
-                                NOTE: Arch, Ubuntu, Redhat, Fedora and Dragonfly have 'old' logo variants.
+                                NOTE: Arch, SteamOS Ubuntu, Redhat, Oreon, Fedora, Dragonfly And VanillaOS have 'old' logo variants.
 
                                 NOTE: Use '{distro name}_old' to use the old logos.
 
                                 NOTE: Ubuntu has flavor variants.
 
                                 NOTE: Change this to Lubuntu, Kubuntu, Xubuntu, Ubuntu-GNOME,
-                                Ubuntu-Studio, Ubuntu-Mate  or Ubuntu-Budgie to use the flavors.
+                                Ubuntu-Studio, Ubuntu-Mate, UBports Ubuntu-Budgie to use the flavors.
 
                                 NOTE: Arcolinux, Dragonfly, Fedora, Alpine, Arch, Ubuntu,
                                 CRUX, Debian, Gentoo, FreeBSD, Mac, NixOS, OpenBSD, android,
@@ -5146,6 +5180,10 @@ ASCII:
                                 postmarketOS, and Void have a smaller logo variant.
 
                                 NOTE: Use '{distro name}_small' to use the small variants.
+
+                                NOTE: Grub have special logo variant.
+
+                                NOTE: Use '{distro name}_special' to use the small variants.
 
     --ascii_bold on/off         Whether or not to bold the ascii logo.
     -L, --logo                  Hide the info text and only show the ascii logo.
@@ -5180,17 +5218,21 @@ OTHER:
     --config none               Launch the script without a config file
     --no_config                 Don't create the user config file.
     --print_config              Print the default config file to stdout.
-    --stdout                    Turn off all colors and disables any ASCII/image backend.
+    --stdout                    Turn off all colors and disables any ASCII/image 
+    --bad_apple                 Play Bad apple without the info of system
+backend.
     --help                      Print this text and exit
-    --version                   Show neofetch version
+    --version                   Show katifetch version
     -v                          Display error messages.
     -vv                         Display a verbose log for error reporting.
 
 DEVELOPER:
-    --gen-man                   Generate a manpage for Neofetch in your PWD. (Requires GNU help2man)
+    --gen-man                   Generate manpage
 
 
-Report bugs to https://github.com/dylanaraps/neofetch/issues
+Report bugs to https://github.com/ximimoments/katifetch/issues :3
+
+Discord Server BTW: https://discord.gg/seCtDmnrGR
 
 "
 exit 1
@@ -5339,8 +5381,8 @@ get_args() {
             "--gap") gap="$2" ;;
             "--clean")
                 [[ -d "$thumbnail_dir" ]] && rm -rf "$thumbnail_dir"
-                rm -rf "/Library/Caches/neofetch/"
-                rm -rf "/tmp/neofetch/"
+                rm -rf "/Library/Caches/katifetch/"
+                rm -rf "/tmp/katifetch/"
                 exit
             ;;
 
@@ -5383,14 +5425,15 @@ get_args() {
             "-vv") set -x; verbose="on" ;;
             "--help") usage ;;
             "--version")
-                printf '%s\n' "Neofetch $version"
+                printf '%s\n' "Katifetch $version"
                 exit 1
             ;;
-            "--gen-man")
-                help2man -n "A fast, highly customizable system info script" \
-                          -N ./neofetch -o neofetch.1
-                exit 1
-            ;;
+        "--gen-man")
+              help2man -n "A fast, highly customizable system info script" \
+              -N ./katifetch.sh -o katifetch.1
+              echo "Manpage generated: ./katifetch.1"
+            exit 0
+         ;;
 
             "--json")
                 json="on"
@@ -5486,6 +5529,48 @@ get_distro_ascii() {
     #
     # $ascii_distro is the same as $distro.
     case $(trim "$ascii_distro") in
+
+"aeon" | "aeos" | "aeon-desktop")
+    # Usa tu color verde ya existente (cl2)
+    set_colors 2 2
+    read -rd '' ascii_data <<'EOF'
+\033[32m
+\033[32m                      ***************                      
+\033[32m                 *************************                 
+\033[32m             *********************************             
+\033[32m           *************************************           
+\033[32m         *******\033[37m#@@@@@@@@@@@@@@@@@@@@@@@@@%\033[37m\033[32m*******
+\033[32m       *********\033[37m@@@@@@@@@@@@@@@@@@@@@@@@@@@\033[37m\033[32m*********       
+\033[32m      **********\033[37m@@@*********************@@@\033[37m\033[32m**********      
+\033[32m    ************\033[37m@@@*********************@@@\033[37m\033[32m************    
+\033[32m   *************\033[37m@@@*********************@@@\033[37m\033[32m*************   
+\033[32m  **************\033[37m@@@*****@@@*****@@@*****@@@\033[37m\033[32m**************  
+\033[32m  **************\033[37m@@@*****%@@@***@@@%*****@@@\033[37m\033[32m**************  
+\033[32m ****************\033[37m@@*******@@@@@@@*******@@\033[37m\033[32m**************** 
+\033[32m ****************\033[37m@@@*******************@@@\033[37m\033[32m**************** 
+\033[32m******************\033[37m@@@@***************@@@@\033[37m\033[32m******************
+\033[32m********************\033[37m@@@@***********@@@@\033[37m\033[32m********************
+\033[32m**********************\033[37m@@@@@@***@@@@@@\033[37m\033[32m**********************
+\033[32m**********************\033[37m@@@@@@***@@@@@@\033[37m\033[32m**********************
+\033[32m********************\033[37m@@@@***********@@@@\033[37m\033[32m********************
+\033[32m******************\033[37m@@@@***************@@@@\033[37m\033[32m******************
+\033[32m ****************\033[37m@@@*******************@@@\033[37m\033[32m**************** 
+\033[32m ****************\033[37m@@*******@@@@@@@*******@@\033[37m\033[32m**************** 
+\033[32m  **************\033[37m@@@*****%@@@***@@@%*****@@@\033[37m\033[32m**************  
+\033[32m  **************\033[37m@@@*****@@@*****@@@*****@@@\033[37m\033[32m**************  
+\033[32m   *************\033[37m@@@*********************@@@\033[37m\033[32m*************   
+\033[32m    ************\033[37m@@@*********************@@@\033[37m\033[32m************    
+\033[32m      **********\033[37m@@@*********************@@@\033[37m\033[32m**********      
+\033[32m       *********\033[37m@@@@@@@@@@@@@@@@@@@@@@@@@@@\033[37m\033[32m*********       
+\033[32m         *******\033[37m#@@@@@@@@@@@@@@@@@@@@@@@@@#\033[37m\033[32m*******         
+\033[32m           *************************************           
+\033[32m             *********************************             
+\033[32m                 *************************                 
+\033[32m                      ***************
+\033[0m
+EOF
+;;
+
         "AIX"*)
             set_colors 2 7
             read -rd '' ascii_data <<'EOF'
@@ -6127,6 +6212,110 @@ ${c2}        .oossssso-````/ossssss+`
 EOF
         ;;
 
+"Arkane"*)
+    # Color naranja
+    c1="${cl6}"  # naranja
+    c2="${cl6}"  # naranja
+    c3="${cl6}"  # naranja
+
+    read -rd '' ascii_data <<'EOF'
+${c1}                                                           
+                                    @@@                    
+                                 @@@@@@@@@    @            
+                               @@@@@@@@@@@@@@@             
+                             @@@@@@@@@@                    
+                         :#@@@@=@@@@@@                     
+               @@@@@@@@@@-*+@@@::+@@@@@                    
+                @@@@@@@@@@@@@@@#-+@@@@@@                   
+                          #*=**##@@@@@@@@@                 
+                         ++@:=-==+##@@@@@@@@               
+                      +-...........=*    @@@@              
+                       @:*#=::.::-:                        
+                        *..........                        
+                      #*.:.........-                       
+                       #+=...........-                     
+                       +++=.........                       
+                       *++=+-...:.:.                        
+                     *++#+==:.:.::=                        
+                   %++++++===:..:.                         
+                 ++++++***++==.*+                          
+                *+++++=++**+++++*                          
+              %%**++==++++%****#                           
+            @##*%#+*++++++#**#*                            
+            #*#*****#*****#%#%%                            
+            %#***++++====+=.......:...:                    
+             ##*++*+===++++-.....:..........               
+              ##*+====++=++-::.....:......::=              
+                %**=+==+++==::...............              
+                          *-:..:......:::....              
+                              :     +   ...:               
+                                      :.:                  
+${c1}                                                           
+EOF
+    ;;
+
+"Armbian | armbian"*)
+    set_colors 5
+    read -rd '' ascii_data <<EOF
+
+      % @ % % % % % % % % % % % %+#=*+-      
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#    
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%:
+*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+=**%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%** 
+.::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%:: 
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+   %%%%%%%%%%%%%%%%%%%#%%%%#%%%%%%%%%%%%%%   
+   %%%%\e[1;31m##${reset}%\e[1;31m#%#########%####%#%#%##%#%#%%%%%   
+   %%%%%\e[1;31m###${reset}%\e[1;31m#%%#%%#%#%#%%#%#%%###%#%%#%%%%   
+---%%%%\e[1;31m#${reset}%%\e[1;31m#%\e[1;31m#%%\e[1;31m#%%\e[1;31m#%\e[1;31m#%\e[1;31m#%%\e[1;31m#%\e[1;31m#%\e[1;31m#%%\e[1;31m#%\e[1;31m#%%\e[1;31m#%%%%-- 
+=**%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%** 
+#@@%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%@@:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%:
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+   +%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+      % @ % % % % % % % % % % % %+#=*+-      
+                                             
+EOF
+;;
+
+
+"Asahi"*)
+    set_colors 1
+    read -rd '' ascii_data <<EOF
+\e[1;33m                         --\e[1;32m **                       
+\e[1;33m                       ---=***                       
+\e[1;33m                        ---                          
+\e[1;33m                         -+                          
+\e[1;31m                     %%%%%+%%%@@                     
+\e[1;35m                 +${reset}\e[0;30m%%%%%%%%%%%%%%%%%%                 
+\e[1;35m                +++++++${reset}\e[0;30m%%%%%%%%%%%%%%                
+\e[1;35m               +++++++++++${reset}-\e[0;30m%%%%%%%%%%%               
+\e[1;35m              ++++++++++++${reset}- \e[0;30m%%%%%%%%%%%              
+\e[1;35m             +++++++++++++${reset}-  \e[0;30m%%%%%%%%%%%             
+\e[1;35m            ++++++++++++++${reset}-    \e[0;30m%%%%%%%%%%            
+\e[1;35m           +++++++++++++++${reset}-     \e[0;30m%%%%%%%%%%           
+\e[1;35m          ++++++++++++++++${reset}-  \e[1;34m.${reset}   \e[0;30m%%%%%%%%%%          
+\e[1;35m         +++++++++++++++++${reset}-  \e[1;34m.-${reset}   \e[0;30m.%%%%%%%%%         
+\e[1;35m        ++++++++++++++++++${reset}-  \e[1;34m.--${reset}   \e[0;30m%%%%%%%%%        
+\e[1;35m          ++++++++++++++++${reset}-  \e[1;34m.--${reset}     \e[0;30m%%%%%%          
+\e[1;35m             +++++++++++++${reset}-  \e[1;34m.-${reset}  %%   \e[0;30m*%             
+\e[1;35m               +++++++++++${reset}-     %%%% .               
+\e[1;35m                  ++++++++${reset}-    %%%%                  
+\e[1;35m                     +++++${reset}-  -%%                     
+\e[1;35m                       +++${reset}- %%                       
+\e[1;35m                          ${reset}-                                                                               
+EOF
+;;
+
+
         "artix_small"*)
             set_colors 6 6 7 1
             read -rd '' ascii_data <<'EOF'
@@ -6209,6 +6398,95 @@ ${c4}                   %%%%%
 ${c4}                    %%%
 EOF
         ;;
+
+"athenaos")
+    # Naranja (256-color)
+    cl_orange="\033[38;5;208m"
+    reset="\033[0m"
+
+    read -rd '' ascii_data <<EOF
+${cl_orange}            %#**+*#@               
+${cl_orange}            *======+%*+            
+${cl_orange}           *%+=***+=+@%*           
+${cl_orange}          *%@%*.  =#=#@%+          
+${cl_orange}          *@@-     :*+@%+          
+${cl_orange}          *+-:      #+@%+          
+${cl_orange}          *+  . .:  :@@%+          
+${cl_orange}          **::..*=+  @@%=          
+${cl_orange}          +%#:.:#=*  %@%=          
+${cl_orange}          +%=   :=.. #@%=          
+${cl_orange}          =#*     .:-#@#=          
+${cl_orange}          =*%. ..  :.:%+=          
+${cl_orange}           +%###    +.-+           
+${cl_orange}           =*%%#   .---=           
+${cl_orange}            =#%=   :.+=            
+${cl_orange}            -=+    :-=-            
+${cl_orange}              ==. .==              
+${cl_orange}               --:--               
+${cl_orange}                ---                
+${reset}
+EOF
+;;
+
+
+"Aurora"*)
+    # Colores: c1 = morado, c2 = marrón
+    set_colors fg 5 fg 3  # 5 = morado, 94 = marrón
+        read -rd '' ascii_data <<'EOF'
+${c1}                     ***#                       
+                    ****##                      
+                    ****##                      
+                    ****###                     
+                   **** ###                     
+                   ***  ####      ${c2}+++           
+${c1}                 ****   ###    ${c2}*++++${c2}           
+${c1}                  ***    ${c2}###*****++++${c2}           
+${c1}                  ***    ${c2}###*****++++${c2}           
+${c1}                +***     ${c2}##*****+++${c2}            
+${c1}                +**     ${c2}###*****${c2}               
+${c1}               ++**   ${c2}*####***${c2}                 
+                ${c1}++** ${c2}***####  *${c2}                 
+               ${c1}=++**${c2}****##${c2}  ${c1}***${c1}                 
+               ${c1}=++*${c2}*****${c2}    ${c1}****${c1}                
+             ${c1}-=++*${c2}****${c2}      ${c1}***${c1}                
+              ${c1}==+${c2}+***${c2}        ${c1}***${c1}                
+              ${c1}==+${c2}+**${c2}                            
+             ${c1}-==${c2}++${c2}                              
+            ${c1}:-==${c2}+${c2}                               
+            ${c1}:-==${c2}+${c2}                               
+            ${c1}:-${c2}==${c2}                                
+            ${c1}:${c2}-=${c2}                                 
+            ${c1} -${c2}=${c2}                                 
+EOF
+;;
+
+"Bazzite"*)
+    # If you can port the Linux version of Katifetch for Bazzite, 
+    # we'll upload it for you and as a reward we'll give you developer status on GitHub.
+    
+    set_colors 1
+    read -rd '' ascii_data <<EOF
+\e[1;34m    %%%%%%====%%%%%%%%%%            
+\e[1;34m  %%%%%%%%    %%%%%%%%%%%%%%        
+\e[1;36m %%%%%%%%%    %%%%%%%%%%%%%%%%       
+\e[1;35m %%%%%%%%%    %%%%%%%%%%%%%%%###     
+\e[1;35m %%%%%%%%%    %%%%%%%%%%%%%######    
+\e[1;35m ==                  =======######   
+\e[1;35m ==                  =========#####  
+\e[1;35m %%%%%%%%%    %%%%%%%####======##### 
+\e[1;35m %%%%%%%%%    %%%%%#######=====##### 
+\e[1;35m %%%%%%%%%    %%%#########=====##### 
+\e[1;35m %%%%%%%%%    %%##########=====##### 
+\e[1;35m %%%%%%%%%====###########=====###### 
+\e[1;35m  %%%%%%%%====#########======######  
+\e[1;35m   %%%%%%%=====#####========######   
+\e[1;35m    %%%%###===============#######    
+\e[1;35m     %#######==========#########     
+\e[1;35m       #######################       
+\e[1;35m         ###################         
+\e[1;35m             ###########             
+EOF
+;;
 
         "Bedrock"*)
             set_colors 8 7
@@ -6451,6 +6729,33 @@ ${c1}        `++
 EOF
         ;;
 
+"Cachyos"*)
+    # :3
+    set_colors fg 2 fg 7
+    read -rd '' ascii_data <<'EOF'                                               
+
+${c2}       #++++++++++++++++++++             
+        =+++*+++++++++++++*++              
+       ==+++=++*+++++++*++++       ==      
+      ===++++====++*+++++++                
+     ====+++++==++++++++++                 
+    =====+++++                             
+   =====+*+++                 ++++         
+  ==+++++*++                  =====        
+ ++++++++*+                    ---         
+========++                                 
+ ====++++++                          +++++ 
+  =+++++++++                        =======
+    +****++++                        ------
+     ++++++=++                             
+      +++++==++++++================        
+       ++++=++++++++++============         
+        ++++++++++++++++++=======          
+         ++++++++++++++++++++===           
+
+EOF
+         ;;
+
         "Calculate"*)
             set_colors 7 3
             read -rd '' ascii_data <<'EOF'
@@ -6476,6 +6781,37 @@ ${c1}                              ......
      ${c2}.,,,,++++,..  .,,,,,.....,+++,.,,${c1}
 EOF
         ;;
+
+"Canaima"*)
+    # Sin colores
+    c1=""  
+    c2=""  
+    c3=""  
+
+    read -rd '' ascii_data <<'EOF'
+                                            
+
+
+                                       ..............................                                                        
+                                     .....=++-.....+#%%%%%%%%%%%%+......                                                     
+                                   ...*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%....                                                   
+                                   ...%%............................%%%%...                                                  
+                                   ...%%..............................%%%...                                                 
+                                  ....%%..............................#%%...                                                 
+                                 ....%%...............................:%%...                                                 
+                              .....:%%.................................%%...                                                 
+    .............................%%%-..................................%%....                                                
+   ..+*#%%#*+:............:*%%%%%-.....................................-%%.............................                      
+    .....................................................................%%%%................................................
+             ...................                 ...........................:%%%%%%%%%%%%##*+=-:::::::::::::::::::::::::.....
+      .....             .....              ...              .....        ....................................................
+
+
+                                            
+EOF
+    ;;
+
+
     "Carbs"*)
         set_colors 4 5 4 4 4 4
         read -rd '' ascii_data <<'EOF'
@@ -6666,6 +7002,43 @@ ${c1}               .-/-.
 EOF
         ;;
 
+
+"Chimera")
+    # Chimera colors
+    c1="\e[38;2;139;62;255m"   # morado
+    c2="\e[38;2;224;53;53m"    # rojo/rosa
+    c3="\e[38;2;224;67;140m"   # magenta
+    c4="\e[38;2;255;110;207m"  # rosa claro
+
+read -rd '' ascii_data <<'EOF'
+${c1}   =================   ${c2}++++@
+${c1}   =================   ${c2}++++@
+${c1}   =================   ${c2}++++@
+${c1}   =================   ${c2}++++@
+${c1}   =============+      ${c2}++++@
+${c1}   ===========      *${c3}++++++@
+${c1}   =========+    ${c3}++++++++++@
+${c1}   ========*   ${c3}+++++++*
+${c1}   =======+   ${c3}+++++
+${c1}   =======   ${c3}*++++             ${c4}++++++++++++++
+${c3}             ++++%             ${c4}++++++++++++++
+${c3}             ++++%             ++++${c2}@@@@@@@@@@
+${c1}   -------   ${c3}*++++            ${c4}+++++
+${c1}   -------=   ${c3}+++++          ${c4}+++++   *+++++++
+${c1}   --------*   ${c3}+++++++ # #+++++++   %++++++++
+${c1}   ---------=    ${c3}+++++++++++++    *+++++++++
+${c1}   -----------     ${c3}#++++++++#     +++++++++++
+${c1}   -------------+              ${c3}*++++++++++++++
+${c1}   -----------------+*    #*${c3}+++++++++++++++++
+${c1}   -------------------    ${c3}+++++++++++++++++++
+${c1}   -------------------    ${c3}+++++++++++++++++++
+${c1}   -------------------    ${c3}+++++++++++++++++++
+${reset}
+EOF
+;;
+
+
+
         "Chrom"*)
             set_colors 2 1 3 4 7
             read -rd '' ascii_data <<'EOF'
@@ -6720,6 +7093,37 @@ ${c1}                  ::::::::x00000.
 ${c1}                       .;dl                       
 EOF
     ;;
+
+        "CircleOS"*)
+            set_colors 2 2 2 2
+            read -rd '' ascii_data <<'EOF'
+${c2}                                            
+                   ++++   ++++++            
+             =+++++++++   ++++++    ==:     
+           ++++++++++++   ++++++    ++:     
+         ++++++++++++++   ++++++            
+       ++++++++++=              +++++       
+      ++++++++=                 +++++       
+     ++++++++                        ++++   
+    ++++++++                         ++++   
+   -++++++=                          ====   
+   +++++++                                  
+   +++++++                                  
+   +++++++                                  
+   +++++++                                  
+   -++++++=                                 
+    ++++++++                                
+     ++++++++                   =++++       
+      ++++++++=                ++++++++:    
+       +++++++++++         -++++++++++      
+         ++++++++++++++++++++++++++++       
+           +++++++++++++++++++++++=         
+             =++++++++++++++++++            
+                   +++++++                  
+                                            
+EOF
+        ;;
+
 
         "cleanjaro_small"*)
             set_colors 7 7
@@ -6803,6 +7207,31 @@ ${c4}GG${c3}WWWWWWWWWWWWWWWW
           WWW
 EOF
         ;;
+
+"clonos")
+    read -rd '' ascii_data <<'EOF'
+             @%%   @::%            
+            %-@-@#=--=@:#**        
+           @:@@#@@#-:-%@%@-@       
+           @%-@@=+@  @@:@@-        
+           @:@@*#      @:@-@       
+          @+%@@:       @#:.@       
+          @:@@@:                   
+          @:@@@:                   
+          @%*@@=#       @*=%       
+           @=%@@:#     @*+*+       
+        @#=::=@@@@:-++--@=*        
+       %=*.-:#@#-=#%%#=:+          
+       @%-:**#--#@@@@@             
+                                   
+      @@                           
+@@@  @@@              @@  @@@ @    
+@     @@ @@  @@@@  @@@@    @@ @@@  
+@@    @@ @@  @@@@  @@ @    @@    @@
+ @@@@@@@@ @@@@ @@  @@  @@@@@ @@@@@@
+EOF
+;;
+
 
         "Clover"*)
             set_colors 2 6
@@ -6988,6 +7417,35 @@ ${c3}             !M$EEEEEEEEEEEP
                             .PMB
 EOF
         ;;
+
+                "DAT_Linux"*)
+                    set_colors 6    
+                    read -rd '' ascii_data <<'EOF'
+\e[1;36m                    -+++++                     
+            +++    ++++++++    +++-            
+           +++++   ++++++++=  +++++:           
+           :++++   -+++++++   :++++            
+                      =+:                      
+     ++++++-    ++++-     ++++=    +++++++     
+    ++++++++   ++++++-   ++++++=  ++++++++-    
+    ++++++++   ++++++    ++++++-  ++++++++-    
+     ++++++     -++-      :++=     ++++++      
+                                               
+   =++     +++++    ++++++    -++++=    -++    
+  +++++   +++++++  -+++++++   +++++++  +++++   
+  =++++   ++++++.   +++++++   ++++++   -++++   
+            -=:      -+++       --             
+      =+++                          -+++       
+    ++++++++   =+++++    :+++++   -+++++++     
+    ++++++++   ++++++=   +++++++  ++++++++=    
+    ++++++++   ++++++    =+++++   =+++++++     
+      ++++-                         ++++-      
+             +-     ++++++      +-             
+           +++++   ++++++++   +++++            
+           =++++   ++++++++-  =++++            
+                    ++++++=                    
+EOF
+                ;;
 
                 "dahlia"*)
                     set_colors 1 7 3
@@ -7257,6 +7715,63 @@ ${c1}                  -``-
 `.-/++++++++++++++++++++++++++++++++/-.`
 EOF
         ;;
+
+"Droidian")
+# I just Mobian but green
+    set_colors 2 7
+
+    read -rd '' ascii_data <<'EOF'
+${c2}                                             
+      @@@@@@@@@@@@@@@@@@
+    @@@@@@@@@@@@@@@@@@@@@
+    @@@@@@@@@@@@@@@@@@@@@@
+    @@@                @@@
+    @@@      ${c1}%%%%${c2}      @@@
+    @@@   ${c1}%%%%${c2}   ${c1}%%%%${c2}  @@@
+    @@@  ${c1}%%${c2}         ${c1}%%${c2} @@@
+    @@@ ${c1}%${c2}     ${c1}%${c2}     ${c1}%%${c2} @@@
+    @@@ ${c1}%${c2}    ${c1}%${c2}      ${c1}%%${c2} @@@
+    @@@ ${c1}%${c2}    ${c1}%  %${c2}   ${c1}%${c2}  @@@
+    @@@ ${c1}%${c2}      ${c1}%%%${c2}     @@@
+    @@@  ${c1}%${c2}             @@@
+    @@@   ${c1}%%${c2}           @@@
+    @@@     ${c1}%%${c2}         @@@
+    @@@                @@@
+    @@@@@@@@@@@@@@@@@@@@@@
+    @@@@@@@@@@@@@@@@@@@@@@
+    @@@@@@@@@@@@@@@@@@@@@@
+    @@@@@@@@@@@@@@@@@@@@@
+     @@@@@@@@@@@@@@@@@@@
+EOF
+;;
+
+"Dynebolic"*)
+    set_colors 6
+    read -rd '' ascii_data <<EOF
+\e[1;33m
+
+              #++++++++-     *++++++++               
+             +##########.   +##########              
+             +##########.   +##########              
+             +##########.   +##########              
+             +##########.   +##########              
+       %**##############.   +##############==        
+     ###################.   +##################:     
+   #####=.##############.   +#############.:#####:   
+  ######    :=##########.   +##########..   +#####:  
+ *######       ::#######.   +#######.       +######: 
+ #######          ::####.   +####.          +######: 
+ #######            ####.   +###:           +######. 
+ +######         #######.   +######-        +######. 
+ -######     ###########.   +#########-     +######  
+  -#####: ##############.   +############-  *####=   
+    :###################.   +###################.    
+      :=################.   =################..      
+                                                     
+
+
+EOF
+;;
 
         "elementary_small"*)
             set_colors 4 7 1
@@ -7580,6 +8095,58 @@ xXXXXXX, cXXXNNNXXXXNNXXXXXXXXNNNNKOOK; d0O .k
 EOF
         ;;
 
+"FydeOS"*)
+    set_colors 5
+    read -rd '' ascii_data <<EOF
+
+
+  @@@@              @@                               
+ @@                 @@            @@@   @@@   @@  @@ 
+@@@@@ \033[1;31m##${reset}  @@  @@@@@@@   @@@@@   @@       @@  @@     
+ @@   @@  @@  @@    @@  @@   @@  @@       @@    @@@@ 
+ @@    @@@@   @@    @@ @@        @@      @@@       @@
+ @@     @@@    @@@@@@@  @@@@@@@    @@@@@@@   @@@@@@@ 
+        @@                                           
+       @@                                            
+
+
+EOF
+;;
+
+
+"GabeeOS")
+    c1="\e[38;2;0;150;0m"       
+    c2="\e[38;2;0;255;100m"    
+
+read -rd '' ascii_data <<EOF
+
+${c1}               ****#  ***            
+             *************@          
+            ***@*******@             
+           ***@ @*#@@**@             
+           ****     ***@             
+            **********@@             
+         ****************            
+       *****@@@@@@@@@@*****          
+      ***#@@            %***@        
+       *@@  ${c1}                 ${c1} ***% ${c1}        ${c1}
+ ${c2}              ------       ${c2}***@ ${c1}      
+${c2}            -------- ${c1}%-@--@***#@ ${c2}     
+       .=:.. =-.-=:-=-@  -- ${c1}@***@      ${c2}
+        .@@@@========@@@@@@ ${c1}***#@     ${c2} 
+              @----*@@     ${c2} ${c1}***@      
+                          ***%@      
+                        ****@@       
+                     ******@@        
+              ***********@@          
+              *******@@@             ${c1}
+
+
+EOF
+;;
+
+
+
         "GalliumOS"*)
             set_colors 4 7 1
             read -rd '' ascii_data <<'EOF'
@@ -7669,6 +8236,105 @@ yM${c2}MNNNNNNNmmmmmNNMmhs+/${c1}-`
 EOF
         ;;
 
+        "Ghostbsd"*)
+            set_colors 6
+            read -rd '' ascii_data <<'EOF'
+\033[1;36m
+\033[1;36m                                ***\e[0;36m*********         
+\033[1;36m                             *******\e[0;36m**    #***        
+\033[1;36m                          *******   \e[0;36m     #***#        
+\033[1;36m                       *+*****      \e[0;36m   #****          
+\033[1;36m                     *+++**      *  \e[0;36m******#           
+\033[1;36m                   *++++*      *****\e[0;36m****              
+\033[1;36m                  +++++         ****\e[0;36m****              
+\033[1;36m                +++++             **\e[0;36m***               
+\033[1;36m               ++++*            ****\e[0;36m*#                
+\033[1;36m             #++++            ******                  
+\033[1;36m             ++++          *******                    
+\033[1;36m            ++++         ********                     
+\033[1;36m            +++*      *++** ***  **                   
+\033[1;36m            +++*  *+++++* ********                    
+\033[1;36m            ++++++++++* ********                      
+\033[1;36m             *++++*    ++*****                        
+\033[1;36m                     ++++**                           
+\033[1;36m                   +++++*                             
+\033[1;36m                 +++++*                               
+\033[1;36m               +++++*                                 
+\033[1;36m             ++++++                                   
+\033[1;36m            +++++                                     
+\033[1;36m             *#                                       
+EOF
+        ;;
+
+        "IdealOS"*)
+            set_colors 2 2 2 2
+            read -rd '' ascii_data <<'EOF'
+${c2}
+..............   ...............   ::::::::::::::
+..............   ...............   ::::::::::::::
+..............   ...............   ::::::::::::::
+..............   ...............   ::::::::::::::
+..............   ...............   ::::::::::::::
+..............   ...............   ::::::::::::::
+..............   ...............   ::::::::::::::
+..............   ...............   ::::::::::::::
+..............   ...............   ::::::::::::::
+..............   ...............   ::::::::::::::
+..............   ...............   ::::::::::::::
+..............   ...............   ::::::::::::::
+..............   ...............   ::::::::::::::
+..............   ...............   ::::::::::::::
+..............   ...............   ::::::::::::::
+..............   ...............   ::::::::::::::
+..............   ...............   ::::::::::::::
+..............   ...............   ::::::::::::::
+..............   ...............   ::::::::::::::
+..............   ...............   ::::::::::::::
+..............   ...............   ::::::::::::::
+..............   ...............   ::::::::::::::
+..............   ...............   ::::::::::::::
+..............   ...............   ::::::::::::::
+..............   ...............   ::::::::::::::
+..............   ...............   ::::::::::::::
+..............   ...............   ::::::::::::::
+..............   ...............   ::::::::::::::
+
+EOF
+        ;;
+
+
+"Paldo"*)
+    # Colores para Paldo
+    c1="${cl3}"  # blanco
+    c2="${cl2}"  # verde
+    c3="${cl6}"  # marrón (para cajas o detalles)
+
+    read -rd '' ascii_data <<'EOF'
+${c1}                           @%##%@@                         
+${c1}                          @%%%%%%%%*+====++                
+${c2}                 %****#+#@@@%%%@@%%@${c3}=====++++*#            
+${c2}          #*+==+++======+*=*=@-*=#@@===+++===-+            
+${c2}         *++++=+========+*#+-::-:%@@+=======--+######      
+${c2}         *+++++++==*++*==+*=---=+%@@%====*===++======+++%  
+${c2}         *+++++=====+====#@=+*+=::@@@%*+++=+*========++++*=
+${c2}        %*++*+++====+===@%:.::....-@@@@++++++=+++==*+====-=
+${c2} #++==++=======++++===*@@-:.-:.:---%@@@@*+++============--=
+${c2}*++++++========+++++==@@=.........:-+@@%@+=============---=
+${c2}*++++++==+*=+*=====-=@@+...::.......:@@%%%============----=
+${c2}++++++=====+======--%@@.:::::::::::::@@%%%+=====-=====----=
+${c2}++++=======+=====--=@@@.:::::::::::::@@###+===---====----+*
+${c2}+++========+====---=--=%=::::::::::--@###+= ++---====+     
+${c2}+========--+===-=-------#%*:::::::-=-==+=--                
+${c3} *+=====---+==--==-------**-------*%---------              
+${c3}       +---+==* =---------##===%@@@#-------+               
+${c1}                 #*+++===+@@@@@@@@@@====#                  
+${c1}                @@@@@@@@@@@@@@@@@@@@@@@@@@@@               
+${c1}                  @@@@@@@@@@@@@@@@@@@@@@@@@@@              
+${c1}                      @@@@@@@@@@@@@@@@@@@@                 
+EOF
+    ;;
+
+
         "Pentoo"*)
             set_colors 5 7
             read -rd '' ascii_data <<'EOF'
@@ -7713,6 +8379,38 @@ ${c1}             ,,        ,d88P
    *^888^*            *Y888P**
 EOF
         ;;
+
+"GLFOS"*)
+    set_colors 4
+    read -rd '' ascii_data <<EOF
+\033[1;34m
+                ##                
+               ####               
+              ######              
+     @@@@@    ######    @@@@@     
+      @@@@@@ ######## @@@@@@      
+      @@@@@@  ######  @@@@@@      
+         @@@@  ####  @@@@         
+      ###       ##       ###      
+  ###########        ###########  
+ #############      ##############
+    #######            #######    
+            @   ##   @            
+       @@@@@@  ####  @@@@@@       
+      @@@@@@  ######  @@@@@@      
+      @@@@@  ########  @@@@@      
+     @@       ######       @@     
+               ####               
+                ##                
+                                  
+                                  
+ #####  ##   ####     #####   ####
+##      ##   ##      ##   ## ###  
+##   ## ##   ##      ##   ##    ##
+ #####  #### ##       #####  #####
+
+EOF
+;;
 
         "gNewSense"*)
             set_colors 4 5 7 6
@@ -7816,6 +8514,21 @@ eee        ${c2}//  \\ooo/  \\\        ${c1}eee
     eeeee   ${c3}Grombyang OS ${c1}  eeee
       eeeeeeeeeeeeeeeeeeeeeee
          eeeeeeeeeeeeeeeee
+EOF
+        ;;
+
+        "Grub_special"*)
+            set_colors
+            read -rd '' ascii_data <<'EOF'
+${c1}
+  .g8"""bgd                     *MM          
+.dP'     `M                      MM          
+dM'       ` `7Mb,od8 `7MM  `7MM  MM,dMMb.    
+MM            MM' "'   MM    MM  MM    `Mb   
+MM.    `7MMF' MM       MM    MM  MM     M8   
+`Mb.     MM   MM       MM    MM  MM.   ,M9   
+  `"bmmmdPY .JMML.     `Mbod"YML.P^YbmdP'    
+
 EOF
         ;;
 
@@ -8003,10 +8716,10 @@ ${c1}            cooo:     ${c2}coooooooooooooooooool
 EOF
         ;;
 
-        "Kaisen"*)
+        "Kaisen | Kaizen_Old"*)
             set_colors 1 7 3
             read -rd '' ascii_data <<'EOF'
-${c1}                          `
+\e[0;31m                         `
                   `:+oyyho.
              `+:`sdddddd/
         `+` :ho oyo++ohds-`
@@ -8026,6 +8739,8 @@ odhdddddddo- `ddddh+-``....-+hdddddds.
                 `:+ooooooooooooo:
 EOF
         ;;
+
+
 
         "Kali"*)
             set_colors 4 8
@@ -8073,6 +8788,36 @@ KKKKKKS. .SSAA..
        .K      ..SSSASSSS.. ..SSA.
                  .SSS.AAKAKSSKA.
                     .SSS....S..
+EOF
+        ;;
+
+        "Kaizen"*)
+            set_colors 1
+            read -rd '' ascii_data <<'EOF'    
+\e[0;31m                           %             %        
+                         %             %%%%       
+                        %         %%% %%%%%%%%%   
+                      %%      %%%%%% %%% %%%%%%   
+                     %     %%%%# %%%%%%% %%%%%%%%#
+                    %    %%%%%%%%% %%%#%          
+           %%%%%%%%#%%%%%%%%%%%%%% %%%            
+       %%%%%%%%  % #%%%%%%%%%%%%%% %              
+    %%%%%%%%%  %% %%%%%%%%%%%%%%%%           %%   
+   %%%%%%%%   %  %%%%%%%%%%%%%%%          %%      
+ %%%%%%%%%   %#  %%%%%%%%%%%%%# %     %%#         
+%%%%%%%%#      %%%%%%%%%%%%%% %%%  %%             
+  %%%%         %%%%% %%%%%%   % %%                
+               %%% %%        % %%%                
+             %%%   %% #  %#  %%%%%                
+          %#  %#      %      %%%%%%               
+              %            %%%%%%%%               
+                        %%%%%%%%%%%               
+                       %%%%%%%%%%%                
+                     %%%%%%%%%%%%                 
+                   %%%%%%%%%%%%%                  
+                   %%%%%%%%%%%                    
+                     #%%%%%%                      
+                        %%                        
 EOF
         ;;
 
@@ -8254,7 +8999,7 @@ ${c2}
 EOF
         ;;
 
-        "LibreELEC"*)
+        "LibreELEC_old"*)
             set_colors 2 3 7 14 13
             read -rd '' ascii_data <<'EOF'
 ${c1}          :+ooo/.      ${c2}./ooo+:
@@ -8285,7 +9030,8 @@ EOF
             read -rd '' ascii_data <<'EOF'
 ${c2}        #####
 ${c2}       #######
-${c2}       ##${c1}O${c2}#${c1}O${c2}##
+            ##O#O##
+            #######
 ${c2}       #${c3}#####${c2}#
 ${c2}     ##${c1}##${c3}###${c1}##${c2}##
 ${c2}    #${c1}##########${c2}##
@@ -8669,6 +9415,45 @@ ${c2}   -sdhyo+:-`                -/syymm:
 EOF
         ;;
 
+"LibreELEC"*)
+    set_colors 1
+    read -rd '' ascii_data <<EOF
+
+                                                        
+\e[1;32m                  ++                ${reset}\e[1;33m=-${reset}                  
+\e[1;32m                ++++++            ${reset}\e[1;33m------${reset}                
+\e[1;32m              ++++++++++        ${reset}\e[1;33m----------${reset}              
+\e[1;32m            ++++++++++++++    ${reset}\e[1;33m--------------${reset}            
+\e[1;32m          ++++++++++++++++++${reset}\e[1;33m-----------------=${reset}         
+\e[1;32m         +++++++++++++++++#${reset}  \e[1;33m*-----------------=${reset}        
+\e[1;32m       +++++++++++++++++*${reset}      \e[1;33m=-----------------${reset}      
+\e[1;32m     ++++++++++++++++++${reset}    ..    \e[1;33m=-----------------${reset}     
+\e[1;32m   ++++++++++++++++++${reset}    ......    \e[1;33m------------------${reset}  
+\e[1;32m   ++++++++++++++++@${reset}   ..........   \e[1;33m@----------------${reset}   
+\e[1;32m   @+++++++++++++@${reset}   ..............   \e[1;33m@-------------@${reset}   
+\e[1;32m     @+++++++++@${reset}   ..................   \e[1;33m@---------@${reset}     
+\e[1;32m       #+++++%${reset}   :.....................   \e[1;33m#-----*${reset}       
+\e[1;32m         ++*${reset}    ........................    \e[1;33m+-=${reset}         
+\e[1;36m         +++${reset}    ........................    \e[1;31m*++${reset}         
+\e[1;36m       ++++++${reset}    -....................-    \e[1;31m+++++*${reset}       
+\e[1;36m      +++++++++${reset}    :................:    \e[1;31m+++++++++${reset}      
+\e[1;36m    +++++++++++++${reset}    ..............    \e[1;31m+++++++++++++${reset}    
+\e[1;36m   ++++++++++++++++${reset}    ..........    \e[1;31m++++++++++++++++${reset}   
+\e[1;36m   ++++++++++++++++++${reset}   @......@   \e[1;31m++++++++++++++++++${reset}   
+\e[1;36m    @++++++++++++++++++${reset}   @..@   \e[1;31m++++++++++++++++++@${reset}    
+\e[1;36m      @++++++++++++++++++${reset}      \e[1;31m++++++++++++++++++%${reset}      
+\e[1;36m        %++++++++++++++++++${reset}  \e[1;31m*+++++++++++++++++%${reset}        
+\e[1;36m          *+++++++++++++++++${reset}\e[1;31m+++++++++++++++++*${reset}          
+\e[1;36m            ++++++++++++++@${reset}  \e[1;31m@+++++++++++++*${reset}            
+\e[1;36m              ++++++++++@${reset}      \e[1;31m@++++++++++${reset}              
+\e[1;36m                ++++++@${reset}          \e[1;31m@++++++@${reset}               
+\e[1;36m                 @#*@${reset}              \e[1;31m@*#@${reset}                 
+                                                        
+
+EOF
+;;
+
+
         "linuxmint_small"*)
             set_colors 2 7
             read -rd '' ascii_data <<'EOF'
@@ -8754,6 +9539,72 @@ mMMMs  dMMMo sMMMMMMd yMMMd  sMMMm
                `..`
 EOF
         ;;
+
+"MIRACLE"*)
+    set_colors 2
+    read -rd '' ascii_data <<EOF
+\e[1;32m                          %                          
+                       ****                          
+                      *****                          
+               *     ******      **                  
+             ***    *******     #***                 
+           *****    *******     ******               
+          ******    *******    ********              
+         %******    *******    *********             
+         %*******   *******   **********             
+          *******    ******   ********               
+      *   ********   ******  *******     ***         
+     ***   ********   *****  ******    *******       
+     ****   ********  *****  *****   **********      
+     *****   ********  ****  ****   *************    
+     ******    *******  ***  ***  ****************   
+     ********   ******* *** %**  *************%      
+      ********@   ******#** **  **********           
+       *********#   ****#** ** ********              
+         *********#  ****** * ******                 
+           #********  ***** * ****                   
+              ******** ****  ****                    
+                %****** ***  **#                     
+                   ***** **  *#                      
+                     ****** **                       
+                       **** *                        
+                        *** #                        
+                         **                          
+                          *                      
+EOF
+;;
+
+
+"Mobian")
+    # Usa exactamente los colores del logo Debian
+    set_colors 1 7 3
+
+    read -rd '' ascii_data <<'EOF'
+${c2}                                             
+      @@@@@@@@@@@@@@@@@@
+    @@@@@@@@@@@@@@@@@@@@@
+    @@@@@@@@@@@@@@@@@@@@@@
+    @@@                @@@
+    @@@      ${c1}%%%%${c2}      @@@
+    @@@   ${c1}%%%%${c2}   ${c1}%%%%${c2}  @@@
+    @@@  ${c1}%%${c2}         ${c1}%%${c2} @@@
+    @@@ ${c1}%${c2}     ${c1}%${c2}     ${c1}%%${c2} @@@
+    @@@ ${c1}%${c2}    ${c1}%${c2}      ${c1}%%${c2} @@@
+    @@@ ${c1}%${c2}    ${c1}%  %${c2}   ${c1}%${c2}  @@@
+    @@@ ${c1}%${c2}      ${c1}%%%${c2}     @@@
+    @@@  ${c1}%${c2}             @@@
+    @@@   ${c1}%%${c2}           @@@
+    @@@     ${c1}%%${c2}         @@@
+    @@@                @@@
+    @@@@@@@@@@@@@@@@@@@@@@
+    @@@@@@@@@@@@@@@@@@@@@@
+    @@@@@@@@@@@@@@@@@@@@@@
+    @@@@@@@@@@@@@@@@@@@@@
+     @@@@@@@@@@@@@@@@@@@
+EOF
+;;
+
+
 
         "mx_small"*)
             set_colors 4 6 7
@@ -8990,6 +9841,42 @@ ${c1}         ▝▀▀▀    ▀▀▀▀▘       ${c2}▀▀▀▘
 EOF
         ;;
 
+"Nobara"*)
+    c1="${cl3}"  
+    c2="${cl3}"  
+    c3="${cl3}"  
+
+    read -rd '' ascii_data <<'EOF'
+${c1}                                                
+${c1}                                                
+${c1}        .:*=.       ..=*#+-.                    
+${c1}      @@@@@@@@@.@@@@@@@@@@@@@@@@%               
+${c1}     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@            
+${c1}     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.         
+${c1}     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@        
+${c1}     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@       
+${c1}     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.     
+${c1}     @@@@@@@@@@@@@@@=       +@@@@@@@@@@@@@@     
+${c1}     @@@@@@@@@@@@@.           -@@@@@@@@@@@@#    
+${c1}     @@@@@@@@@@@@      @@+     .@@@@@@@@@@@@    
+${c1}     @@@@@@@@@@@@    @@@@@@@     -@@@@@@@@@@    
+${c1}     @@@@@@@@@@@*   @@@@@@@@       :%@@@@@@@    
+${c1}     @@@@@@@@@@@+   .@@@@@@@    @@@@@@@@@@@@    
+${c1}    .@@@@@@@@@@@%     :@@#      @@@@@@@@@@@@    
+${c1}     @@@@@@@@@@@@.              @@@@@@@@@@@@    
+${c1}     .@@@@@@@@@@@@@@@@=          @@@@@@@@@@@@    
+${c1}     .@@@@@@@@@@@@@@@@@@@@       @@@@@@@@@@@@    
+${c1}     .@@@@@@@@@@@@@@@@@@@@@      @@@@@@@@@@@@    
+${c1}     .@@@@@@@@@@@@@@@@@@@@@:     @@@@@@@@@@@@    
+${c1}     @@@@@@@@@@@@=     =@@:     +@@@@@@@@@@@    
+${c1}     .@@@@@@@@@*         +:      %@@@@@@@@@     
+${c1}       .@@@@@+            :        *@@@@@.      
+${c1}                                                
+${c1}                                                
+EOF
+    ;;
+
+
         "Nurunner"*)
             set_colors 4
             read -rd '' ascii_data <<'EOF'
@@ -9044,6 +9931,35 @@ ${c1}                                      .
 EOF
         ;;
 
+        "Omarchy"*)
+            set_colors 2
+            read -rd '' ascii_data <<'EOF'
+\e[38;5;150m
+████████████████████████████████████████
+████████████████████████████████████████
+███               ████               ███
+███   ████████████████       █████   ███
+███   ████████████████       █████   ███
+███   ███                      ███   ███
+███   ███                      ███   ███
+███   ███                      ███   ███
+███   ███                      ███   ███
+███   ███                      ███   ███
+█████████                      ███   ███
+█████████                      ███   ███
+███   ███                      ███   ███
+███   ███                      ███   ███
+███   ███                      ███   ███
+███   ███                      ███   ███
+███   ███                      ███   ███
+███   ████████████████████████████   ███
+███   ████████████████████████████   ███
+███               ████               ███                      
+██████████████████████  ████████████████
+██████████████████████  ████████████████
+EOF
+        ;;
+
         "OBRevenge"*)
             set_colors 1 7 3
             read -rd '' ascii_data <<'EOF'
@@ -9067,6 +9983,35 @@ Q@@@@@ggg@@f@   @@@@@@L
        ^TMMMMTll
 EOF
         ;;
+
+"Omega"*)
+    set_colors 7
+    read -rd '' ascii_data <<EOF
+\e[1;36m                            --==-                         
+                          -====-                          
+                        -=======                          
+                      --========-                         
+                     -===========-                        
+                    -==============                       
+                  -=================-                     
+                 -=====================                   
+                ========================                  
+               ===========================                
+               ==========--     -==========               
+              -=========           =========              
+              -=======-            -=======-                                       
+             ==========             =========             
+             ==========            -=========             
+             --========-           -========-             
+              -==========        -=========-              
+               -===========================               
+                ==========================                
+                 -======================-                 
+                   -==================-                   
+                      -===========--                      
+EOF
+;;
+
 
         "openbsd_small")
             set_colors 3 7 6 1 8
@@ -9160,6 +10105,45 @@ h+`      `.-:+oyyyo/-`
 `/ossssysso+/-.`
 EOF
         ;;
+"openkylin")
+    set_colors 4 6
+    read -rd '' ascii_data <<EOF
+${cl4}                                                                        
+${cl4}                                  ${cl6}--- ----${cl4} 
+${cl4}      ++    ++++     +++          ${cl6}------${cl4}  ++  ++ ++    ++              
+${cl4}    ++  ++  ++ +++ +++ +++ ++++++ ${cl6}======${cl4}  ++  ++ ++    ++ ++++++       
+${cl4}    *    ** ** *** ******* **  ** ${cl6}=== ===${cl4}  ***** **    ** **  **       
+${cl4}    ******  ***     *****  **  ** ${cl6}+++  +++${cl4}  **   ***** ** **  **       
+${cl4}                                                                        
+
+EOF
+;;
+                                                                     
+                                                                     
+"openmandriva" | "openmandriva-lx")
+    set_colors 4 6
+    read -rd '' ascii_data <<'EOF'
+\033[36m                                   
+                                                              
+           ++++++++                
+         ++++++   +++++++          
+       +++++++  +++      +++       
+      +++++++ +++          ++      
+     +++++++  **            **     
+     *******  **            **     
+     *******  **            **     
+     ******** ***          **      
+     ********   ###      ###       
+      *********   ########  *      
+       ***********        **       
+         #################         
+           #############           
+                                   
+                                   
+                                   
+EOF
+;;
+                                                
 
         "openmamba"*)
             set_colors 7 2
@@ -9257,26 +10241,36 @@ EOF
         "Open Source Media Center"* | "osmc")
             set_colors 4 7 1
             read -rd '' ascii_data <<'EOF'
-${c1}            -+shdmNNNNmdhs+-
-        .+hMNho/:..``..:/ohNMh+.
-      :hMdo.                .odMh:
-    -dMy-                      -yMd-
-   sMd-                          -dMs
-  hMy       +.            .+       yMh
- yMy        dMs.        .sMd        yMy
-:Mm         dMNMs`    `sMNMd        `mM:
-yM+         dM//mNs``sNm//Md         +My
-mM-         dM:  +NNNN+  :Md         -Mm
-mM-         dM: `oNN+    :Md         -Mm
-yM+         dM/+NNo`     :Md         +My
-:Mm`        dMMNs`       :Md        `mM:
- yMy        dMs`         -ms        yMy
-  hMy       +.                     yMh
-   sMd-                          -dMs
-    -dMy-                      -yMd-
-      :hMdo.                .odMh:
-        .+hMNho/:..``..:/ohNMh+.
-            -+shdmNNNNmdhs+-
+${c1}
+
+                 ███████████████                 
+             ██████           ██████             
+          ████                     ████          
+        ███                           ███        
+      ███                               ███      
+    ███                                   ███    
+   ███                                     ███   
+  ███        ███                 ███        ███  
+ ███         █████             █████         ███ 
+ ██          ██ ████         ████ ██          ██ 
+███          ██   ███       ███   ██          ███
+██           ██     ███   ███     ██           ██
+██           ██       █████       ██           ██
+██           ██       ███         ██           ██
+██           ██     ███           ██           ██
+███          ██   ███             ██          ███
+ ██          ██ ████              ██          ██ 
+ ███         █████                ██         ███ 
+  ███        ███                  ██        ███  
+   ███                                     ███   
+    ███                                   ███    
+      ███                               ███      
+        ███                           ███        
+          ████                     ████          
+             ██████           ██████             
+                 ███████████████                 
+
+
 EOF
         ;;
 
@@ -9297,6 +10291,70 @@ ${c1}
      `.:/+ooooooooooooooo+/:.`
 EOF
         ;;
+
+"Oreon"*)
+    # Define los colores
+    c1="${cl2}"  # verde lima
+    c2="${cl4}"  # azul oscuro
+    c3="${cl2}"  # verde lima
+
+    read -rd '' ascii_data <<'EOF'
+${c1}       =====++++++++*******##########       ${c1}
+${c1}    =======++++++++*******#############${c2}%%    ${c1}
+${c1}   =======+++++++********############${c2}%%%%%%  ${c1}
+${c1}  ======+++++++*******#############${c2}%%%%%%%%% ${c1}
+${c1}  ====+++++++****              %#${c2}%%%%%%%%%%% ${c1}
+${c1}  ==+++++++****      ######     ${c2}  %%%%%%%%%%${c2} 
+${c1}  ++++++++***     ###########${c2}%%    %%%%%%%@@${c2} 
+${c1}  ++++++***     ###########${c2}%%%%%%  ${c2}  %%%@@@@ 
+${c1}  ++++****     ##########${c2}%%%%%%%%% ${c2}  @%@@@@@ 
+${c1}  ++****      ##########${c2}%%%%%%%%%%   ${c2} @@@@@@ 
+${c1}  ****        ########${c2}%%%%%%%%%%%%@  ${c2} @@@@@@ 
+${c1}  *****       ######${c2}%%%%%%%%%%%%%@@  ${c2} @@@@@@ 
+${c1}  ****###     ####${c2}%%%%%%%%%%%%%@@@   ${c2} @@@@@@ 
+${c1}  **######     #${c2}%%%%%%%%%%%%%@@@@  ${c2}  @@@@@@@ 
+${c1}  ##########    #${c2}%%%%%%%%%%@@@@@ ${c2}   @@@@@@@@ 
+${c1}  #########${c2}%%%%                ${c2}  @@@@@@@@@@@ 
+${c1}  #######${c2}%%%%%%%%%%      ${c2}    @@@@@@@@@@@@@@@ 
+${c1}  #####${c2}%%%%%%%%%%%%%${c2}@@@@@@@@@@@@@@@@@@@@@@@@ 
+${c1}  ###${c2}%%%%%%%%%%%%%${c2}@@@@@@@@@@@@@@@@@@@@@@@@@  
+${c1}    ${c2}%%%%%%%%%%%%${c2}@@@@@@@@@@@@@@@@@@@@@@@@@@   
+${c1}      ${c2}%%%%%%%%${c2}@@@@@@@@@@@@@@@@@@@@@@@@@@     
+EOF
+    ;;
+"Oreon_old"*)
+    # Todo azul
+    c1="${cl4}"  # azul oscuro
+    c2="${cl4}"  # azul oscuro
+    c3="${cl4}"  # azul oscuro
+
+    read -rd '' ascii_data <<'EOF'
+${c1}                                            
+${c1}                                            
+${c1}                                            
+${c1}                                            
+${c1}           .:******************:.           
+${c1}          .:********************:.          
+${c1}          =******-..    ..-******=.         
+${c1}        .+****+..          ..+****+         
+${c1}       .*****.               ..*****.       
+${c1}     ..*****.                  .*****.      
+${c1}     .*****..                   .*****      
+${c1}    .******                     .******.    
+${c1}    .******                     .******.    
+${c1}      *****..                   .*****..    
+${c1}      .*****.                  .*****.      
+${c1}       .*****.               ..*****.       
+${c1}        .+****+.            .+****+         
+${c1}          =******-       .-******=.         
+${c1}          .:********************-.          
+${c1}           .:******************:.           
+${c1}             ..................             
+${c1}                                            
+${c1}                                            
+${c1}                                            
+EOF
+    ;;
 
         "OS Elbrus"*)
             set_colors 4 7 3
@@ -9381,6 +10439,44 @@ ${c1}                          `.-.    `.
                       -.
 EOF
         ;;
+
+"Parch"*)
+    c1="${cl2}"  # verde
+    c2="${cl4}"  # azul
+    c3="${cl2}"  # verde
+
+    read -rd '' ascii_data <<'EOF'
+${c1}                        +======                 
+${c1}                      ++++==                    
+${c1}                    +++++++                     
+${c1}                   ++++++++                     
+${c1}                   *++++++                      
+${c1}                  ++*++++++                     
+${c1}                 *****+++++                     
+${c1}                 ***+++++++                     
+${c2}                ****++++++++                    
+${c2}                ****+++++++**                   
+${c2}                *****+++++***                   
+${c2}                *****++++*****                  
+${c2}                *****++++*****                  
+${c2}                *****++++******                 
+${c2}                *****+++++*****                 
+${c2}                ****++++++***                   
+${c2}                ***++******+=+++                
+${c1}                **#######*==++++                
+${c1}                  %#####+==+++++                
+${c1}                 %%####====+++++                
+${c1}                 %%##*====++++++                
+${c1}                  ##+====+++++++                
+${c1}                   ======+++++++                
+${c1}                   =====++++++*                 
+${c1}                    ===+++++++                  
+${c1}                      +++++++                   
+EOF
+    ;;
+
+
+
 
         "Pardus"*)
             set_colors 3 7 6 1 8
@@ -9729,6 +10825,48 @@ ${c1}                 /\\
 EOF
         ;;
 
+"PredatorOS"*)
+    set_colors 1
+    read -rd '' ascii_data <<EOF
+\e[0;33m
+
+                                                          
+                  *---::=      ::::--                     
+               ==----::::.:  ..::::-----                  
+             ====-=   =::::..::::=   --====               
+          *+===*  ----:::::..::::::---  -===+             
+         +++=+ +=-----:::::..::::::-----  ==+++           
+        ++++= ===-----:::::..::::::----==+ =+++*          
+        ++++  ===-----:::::..::::::----=== #++++          
+        *+++ +===-----:::::..::::::----=== ++++           
+      +* +++= ===-----:::::..::::::----=== =++  +*        
+     +**+    * ==----::::::..::::::----== +    +++        
+    ***+       ==----::::::..::::::----=        ++*       
+    ***  #      =-----:::::..::::::----=         +**      
+   ***   ++     =-----:::::..::::::-----     ++   **#     
+   **   +++ =   ------:::::..::::::----+    #+++  ***     
+  **   +++   =   -----:::::..::::::----  ++   +++  +*#    
+  **  +++    #=    ---:::::..::::::-+    =     +++  **    
+ #*  **+   +  ==      :::::..::::=     +=+ ++   ++   *    
+ **  **   ++  ===--       ----      ---==  =++  #+*  *#   
+ *%  *+  ++=    =-----::*::..:: :::----*    ++   +*  **   
+ *  #*   ++   ===-*  ::+:::..:: :::  --===  +++  **  **   
+ *  **  ++=   ===-----= :::..::-- :----===   ++   *  **   
+ *  **  ++     ==----:: :::..::: ::----=     +++  *   *   
+ *  #*  ++       -----: :::..::: ::----       +*  *       
+     *  ++        +---=-:::..::: ::--         ++  *       
+     *  ++          -- .:::..:::*:::          +   *       
+     +   +             ::::..::::             +           
+         +                                    +  *        
+         +                                   +            
+                                             +            
+                                                          
+
+
+EOF
+;;
+
+
         "PuffOS"*)
             set_colors 3
             read -rd '' ascii_data <<'EOF'
@@ -9899,6 +11037,39 @@ ${c1}            `.--::::::::--.`
       `.--:::::-.
 EOF
         ;;
+
+"ReactOS"*)
+    set_colors 
+    read -rd '' ascii_data <<EOF
+
+
+                                                                           
+                         ::.                 .:                            
+                       .. .. . .*      *...  . ...*                        
+                    ..        =   ..... .=.    ..  -*                      
+                   ...    ...:++*########+= .     .*.+                     
+                   . -. .  *-..:=*#%##******=.     . *                     
+         .         +. .. #*+=::-+*####**+=-+*+: . *..                      
+   -######.         ..=.****************=-===--#.. .:+++++++.  . +++++.    
+   -# .. .#.  . ... :..+:=-:::-::-==--::::::..:#...++. .    ++..:+   .+    
+   -#   ..#+ .#=.. +#..=-#+::.###.:.#+:::##...:#..=+         =+  +..       
+   -#.--+##..#.. . ..#.:#-.:::..#..#.::--:....-#.-+:         .+  . =++     
+   -#. +#   :#--------:#*:-+....# .#..:::.....:#.:=+         =+    . .+    
+   -#   -#. .#.    :=#-:#....-.##  #:..::.*#..-#:-.++.  .. .++ .+-  ..+ .  
+   -#    .#. .-#####:-.=:+#####.# ..:#####::.:-#-:.  +++++++.    +++++.    
+    .            .. *..-=-:..:...:.....-:-.+===+=. ...+              .     
+                 +...  ..=-:...-...*..::.+++++++.   -                      
+                 :.=    ..--::...*..:::.==++**..    .  :                   
+                 *        .....*::---.====.=..      ...                    
+                   =.. ...-*.....*==++=+... :*.......*                     
+                       .  ..+=    .. .    .*.......*                       
+                                                                           
+                                                                           
+
+    
+EOF
+        ;;
+
 
         "Radix"*)
             set_colors 1 2
@@ -10159,6 +11330,35 @@ ${c1}
 EOF
         ;;
 
+"ReichOS"*)
+    set_colors 1
+    read -rd '' ascii_data <<EOF
+${cl0}               @@@@%%##**++========+++ 
+${cl0}              @@@@@@%%#**++===----===  
+${cl0}             @@@@@@@%%%#**+===-----=   
+${cl0}             @@@@@@@@%%##*++===----    
+${cl0}            @@@@@@@@@@%%##*++===---    
+${cl0}           @@@@@@@@@@@@%%#**++====     
+${cl0}          @@@@@@@@@@@@@@%%#**++==      
+${cl7}          .......                      
+${cl7}         ::.......             +       
+${cl7}        @-::.......           :        
+${cl7}       @=--:::.......                  
+${cl7}       +==--:::.......                 
+${cl7}      ++++==-:::.......     %          
+${cl7}     @**+++==--::.......   .           
+${cl0}    @@@@@@@@@@@@@@@@@@@@@@@            
+${cl0}    @@@@@@@@@@@@@@@@@@@@@@             
+${cl0}   @@@@@@@@@@@@@@@@@@@@@@@             
+${cl0}  @@@@@@@@@@@@@@@@@@@@@@@              
+${cl0} @@@@@@@@@@@@@@@@@@@@@@@               
+${cl0} @@@@@@@@@@@@@@@@@@@@@@@               
+${cl0}@@@@@@@@@@@@@@@@@@@@@@@                
+${reset}
+EOF
+;;
+
+
         "rocky_small"*)
             set_colors 2
                 read -rd '' ascii_data <<'EOF'
@@ -10313,6 +11513,33 @@ ${c2}             `:smMM${c4}yy${c3}MMNy/`
                  ${c2}.- ${c4}`${c3}:.
 EOF
         ;;
+
+"Salix"*)
+    set_colors 2
+    read -rd '' ascii_data <<EOF
+\e[1;32m                          -=*##################
+                  -###########################
+               ###############################
+             #################################
+           ###################################
+          *************************************
+
+        +######################################
+        #######################################
+       +#######################################
+       #######################################
+       #######################################
+      -######################################
+
+
+      ####################################
+      ##################################-
+      ################################
+      ############################*
+      ######################*
+EOF
+;;
+
 
         "Scientific"*)
             set_colors 4 7 1
@@ -10646,7 +11873,7 @@ ${c1}                   ./
 EOF
         ;;
 
-        "SteamOS"*)
+        "SteamOS_old"*)
             set_colors 5 7
             read -rd '' ascii_data <<'EOF'
 ${c1}              .,,,,.
@@ -10669,6 +11896,41 @@ ${c2},',.         ';  ,+##############'
               ''''''
 EOF
         ;;
+
+        "SteamOS"*)
+            set_colors 4
+            read -rd '' ascii_data <<'EOF'
+
+‎                 @@@@@@@                       
+                 @@@@@@@@@@@@                  
+                 @@@@@@@@@@@@@@                
+                 @@@@@@@@@@@@@@@@@             
+                 @@@@@@@@@@@@@@@@@@            
+                        @@@@@@@@@@@@@          
+\e[1;36m            ++++\e[1;35m++++      \e[0m@@@@@@@@@@@         
+\e[1;36m          ++++++\e[1;35m++++++++     \e[0m@@@@@@@@@@        
+\e[1;36m        ++++++++\e[1;35m++++++++++    \e[0m@@@@@@@@@@       
+\e[1;36m       +++++++++\e[1;35m+++++++++++    \e[0m@@@@@@@@@       
+\e[1;36m      ++++++++++\e[1;35m++++++++++++   \e[0m@@@@@@@@@       
+\e[1;36m     +++++++++++\e[1;35m+++++++++++++   \e[0m@@@@@@@@@      
+\e[1;36m     +++++++++++\e[1;35m+++++++++++++   \e[0m@@@@@@@@@      
+\e[1;36m     +++++++++++\e[1;35m+++++++++++++   \e[0m@@@@@@@@@      
+\e[1;36m      ++++++++++\e[1;35m++++++++++++   \e[0m@@@@@@@@@       
+\e[1;36m       +++++++++\e[1;35m+++++++++++    \e[0m@@@@@@@@@       
+\e[1;36m        ++++++++\e[1;35m++++++++++    \e[0m@@@@@@@@@@       
+\e[1;36m          ++++++\e[1;35m++++++++     \e[0m@@@@@@@@@@        
+\e[1;36m             +++\e[1;35m+++++      \e[0m@@@@@@@@@@@         
+                        @@@@@@@@@@@@@          
+                 @@@@@@@@@@@@@@@@@@            
+                 @@@@@@@@@@@@@@@@@             
+                 @@@@@@@@@@@@@@                
+                 @@@@@@@@@@@@                  
+                 @@@@@@@@                      
+
+
+EOF
+        ;;
+
 
         "sunos_small" | "solaris_small")
             set_colors 3 7
@@ -10694,6 +11956,107 @@ ${c1}                 `-     `
     -/+`                      :.
 EOF
         ;;
+
+"Synex"*)
+    # Todo negro (sin color)
+    c1="${cl0}"  # reset / color por defecto
+    c2="${cl0}"
+    c3="${cl0}"
+
+    read -rd '' ascii_data <<'EOF'
+${c1}                                     
+@@@@@@@@@@@               @@@@@@@@@@@
+  @@@@@@@@@@@           @@@@@@@@@@@  
+   @@@@@@@@@@@         @@@@@@@@@@@   
+     @@@@@@@@@@@     @@@@@@@@@@@     
+      @@@@@@@@@@@   @@@@@@@@@@@      
+        @@@@@@@   @@@@@@@@@@@        
+         @@@@@   @@@@@@@@@@@         
+           @   @@@@@@@@@@@           
+              @@@@@@@@@@@            
+            @@@@@@@@@@@              
+           @@@@@@@@@@@   @           
+         @@@@@@@@@@@   @@@@@         
+        @@@@@@@@@@@   @@@@@@@        
+      @@@@@@@@@@@   @@@@@@@@@@@      
+     @@@@@@@@@@@     @@@@@@@@@@@     
+   @@@@@@@@@@@         @@@@@@@@@@@   
+  @@@@@@@@@@@           @@@@@@@@@@@  
+@@@@@@@@@@@               @@@@@@@@@@@
+${c1}                                     
+EOF
+    ;;
+
+"Systemrecuse" | "SystemRecuseCD" | "Recuse"*)
+    set_colors 
+    read -rd '' ascii_data <<'EOF'
+
+
+                  ++=-...:=+++                   
+              ++::-::::::::....=+                
+            +-:-----::::::........+              
+           +:-------::::::.........:+            
+         +::::-----::::..............+           
+         -:::::::::::.........:::::...+          
+        +.::::::::....+++:..::::::::..+          
+        =......:....+     +:::::::::::.+         
+        :...........       +.:::::::::.+         
+        =...........+     +.:::::-::::.+         
+        +..........::.=++:.:::-.:#:-...=:#.      
+         =.......::.:::::::::---:=**===*+-=.     
+         +:........:::::::-----=..:::+  ...+     
+           +........:::::::----=..:-+   ...+     
+         @@@+-........:::::::---+*+:+++:+**      
+         @@@@@%+.......:::::::-..#*....-*#::     
+             @@@@@*+++-:-=+++@@@-.@@@@@ =:-      
+   @@@@              @                           
+  @     @   @@ @@@@ @@@@  @@@   @ @@  @@@        
+   @@   @   @ @@     @   @   @  @   @@  @@       
+      @@ @ @    @@   @   @@@@@@ @   @   @@       
+      @@ @ @      @  @   @      @   @   @@       
+   @@@    @    @@@    @@   @@   @   @    @       
+         @  %  %  %  %   %       %    %   %  %   
+            %%% %  %%% %   %  %%  %  %    %   %  
+            %  %%  %  % %  %  % % %   %   %  %   
+
+EOF
+    ;;
+
+"Slimbook"*)
+    set_colors 
+    read -rd '' ascii_data <<'EOF'
+\e[0;34m
+
+                   %%%#####%%%                   
+             %%#=  =*#######*+  .*%%             
+          %#= +#%%%%%%%%%%%%%%%%%%*  #%          
+        %+ *%%%%%%%%%%%%%%%%%%%%%%%%%# =%        
+      %+ #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%:-%      
+     # *%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%# *%    
+   %+.%%%%%%%%%%%%%%%#                %%%%%%+-%   
+  %+=                                  %%%%%+ %  
+  *-%%%%%%=    -%%%%        %%%          %%%%+=% 
+ # #%%%%%%%%%%%*    %%                    %%%% * 
+ +=%%%%%%%%%%%%%%%%                       %%%%* %
+% #%%%%%%%%%%%%%%%%%%                      %%%% #
+% #%%%%%%%%%%%%%%%%%%%%                     %%% #
+% #%%%%%%%%%%%%%%%%%%%%%                    %%% #
+% *%%%%%%%%%%%%%%%%%%%   %%%%%%%%%          %%# #
+ +=%%%%%%%%%%%%%%%%%   %%%%%%%%%%%%%         %* %
+ % #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% # 
+  *:%   % %% %%%% %%# %    %    %%    % %%  %==% 
+  %+-   % %% %%%  % % %   % %%%%  %%%%  % %%+ %  
+   %* %   %% %  %  %% % %  % %= %% %% %  %  =%   
+     # *%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%# *%    
+      %* *%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#.=%      
+        %* +%%%%%%%%%%%%%%%%%%%%%%%%%* +%        
+          %%+ =#%%%%%%%%%%%%%%%%%#+ .#%          
+              %#+  -+**###**+-  =#%              
+                    %%%%%%%%%%                   
+
+
+EOF
+    ;;
 
         "openSUSE Leap"* | "openSUSE_Leap"*)
             set_colors 2 7
@@ -10832,6 +12195,41 @@ Nsyh+-..+y+-   yMMMMd   :mMM+
 EOF
         ;;
 
+"TempleOS")
+    c1="${cl7}"  # blanco puro
+    c2="${cl3}"  # amarillo brillante
+    c3="${cl4}"  # azul (detalles)
+
+    read -rd '' ascii_data <<'EOF'
+                                         + 
+                                       #.%
+                                       @*
+                                    = *
+                                   @:. 
+                                   @@.
+                     *@::::::@   @@@
+                @:::::::::::::::::@=
+            @                 * :     @
+            %                @*.
+                           #@+      + *
+           @  @           @ =@         #
+           @  =          @--#       @--#
+               @        @-.@       @
+            %:         %@.=          ::*
+                     *.%
+                    +.-=
+                   %-:@
+                 %@#.#
+                @:@:
+           =  +.=-*
+             =#::%-.
+           .@:::*
+            %.:
+          *-.=
+          :.
+EOF
+;;
+
         "Trisquel"*)
             set_colors 4 6
             read -rd '' ascii_data <<'EOF'
@@ -10855,6 +12253,58 @@ ${c1}  ▀█████████    ███████${c2}███▀�
                      ▀▀█████▀▀
 EOF
         ;;
+
+"Tromjaro"*)
+    set_colors 1
+    read -rd '' ascii_data <<EOF
+
+               %%%%%%%%%%%@@            
+           %%%%%%%%%%%%%%%%%%%@@        
+        %%%%%%%%%%%%%%%%%%%%%%%%@@      
+      %%%%%%%%%%%%%.%%%%%%%%%%%%%%@@    
+     %%%%%%%%%.*%%%..%%=.*%%%%%%%%%%@   
+    %%%%%%%%%%*.%%..%%%..%%%.%%%%%%%%@  
+   %%%%%%%%%%%:.%%..%%..%%%..%%%%%%%%@@ 
+   %%%%%%%%%%%%.+%..%#.%%..=%%%%%%%%%%@@
+  %%%%%%%%%%%%%%%%%%%.%%..%%%%%%%%%%%%@@
+  %%%%%%%%%%%%+.-%..-%%%%%%%%%%%%%%%%%@@
+  %%%%%%%%%%%%+..*-.=....%%%%%%%%%%%%%@@
+   %%%%%%%%%%%%%....#...%%%%%%%%%%%%%%@@
+   %%%%%%%%%%%.......%%%%%%%...%%%%%%@@ 
+    %%%%%%%%%%%%.%.##.%%%.%%:.%%%%%%%@@ 
+     %%%%%%%%%%%#=+..%%%%%%%%%%%%%%%@@  
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%@@    
+        %%%%%%%%%%%%%%%%%%%%%%%%@@@     
+           %%%%%%%%%%%%%%%%%%%@@        
+              @%%%%%%%%%%%@@@                                           
+EOF
+;;
+
+
+"Tuxedo"*)
+    set_colors 8
+    read -rd '' ascii_data <<EOF
+
+           @@@@@@@@@@@@           
+       @@@@@@@@@@@@@@@@@@@@       
+     @@@@@@@@@@@@@@@@@@@@@@@@     
+   @@@@@@@@@@@@@@@@@@@@@@@@@@@@   
+  ......................@@@@@@@@  
+ @@@@@@@@@@@@@@@@@@@+..@@@@@@@@@@ 
+ @@@@@@@@@@@@...-@@..*@@@@@@@@@@@ 
+@@@@@@@@@@@@@@......@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@+...@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@-....@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@..@@...@@@@@@@@@@@@@
+ @@@@@@@@@@@@..@@@@...@@@@@@@@@@@ 
+ @@@@@@@@@@-..@@@@@@@@@@@@@@@@@@@ 
+  @@@@@@@@......................  
+   @@@@@@@@@@@@@@@@@@@@@@@@@@@@   
+     @@@@@@@@@@@@@@@@@@@@@@@@     
+       @@@@@@@@@@@@@@@@@@@@       
+           @@@@@@@@@@@@           
+EOF
+;;
 
         "Ubuntu Cinnamon"* | "Ubuntu-Cinnamon"*)
             set_colors 1 7
@@ -11045,6 +12495,33 @@ oss${c2}yNMMMNyMMh${c1}sssssssssssssshmmmh${c1}ssssssso
 EOF
         ;;
 
+"UBports"*)
+    set_colors 5 3 8
+    read -rd '' ascii_data <<EOF
+\033[1;31m
+                ++++++++++++++***************               
+           +++++++++++++++++++*******************           
+         +++++++++++++++++++++*********************         
+       +++++++++++++\e[1;30m*@@@@@@@@@@@@@@@@@@#${reset}*************       
+      +++++++++\e[1;30m@@@@@%%%%%%%%%%@@@@@@@@@@@@@@@${reset}*********      
+     ++++++++\e[1;30m@@%%%%%%%%%%%%%%%@@@@@@@@@@@@@@@@@${reset}********     
+\033[1;31m +++++++++++${reset}\e[1;30m@%%%%%%%%%%%%%%%%%@@@@@@@@@@@@@@@@@@#${reset}********** 
+\033[1;31m+++++++++++\e[1;30m%%%%%%%\033[1;37m....${reset}\e[1;30m%%%%%%%%${reset}\e[1;30m@@@@@@@@\033[1;37m....${reset}@@@@@@@***********
+\033[1;31m+++++++++++%%%%%%\033[1;37m......${reset}\033[1;31m%%%%%%%@@@@@@@\033[1;37m......${reset}\033[1;31m@@@@@@#**********
+\033[1;31m+++++++++++%%%%%%\033[1;37m......${reset}\033[1;31m%%%%%%%@@@@@@@\033[1;37m......${reset}\033[1;31m@@@@@@#**********
+\033[1;31m +++ ++++++%%%%%%%%\033[1;37m++${reset}\033[1;31m%%%%%%%%%@@@@@@@@@\033[1;37m#=${reset}\033[1;31m@@@@@@@@********** 
+     +++++++%%%%%%%%%%%%%%%.......@@@@@@@@@@@@@@*******     
+      +++++++%%%%%%%%%%%%%%%*..:@@@@@@@@@@@@@@@********     
+      +++++++++*%%%%%%%%%%%%%%@@@@@@@@@@@@@@%*********      
+        +++++++++++++++##%%%%%@@@@@%#****************       
+         +++++++++++++++++++++*********************         
+            ++++++++++++++++++******************+           
+                ++++++++++++++*************+                
+                                                            
+EOF
+;;
+
+
         "Univention"*)
             set_colors 1 7
             read -rd '' ascii_data <<'EOF'
@@ -11070,6 +12547,72 @@ ${c1}         ./osssssssssssssssssssssso+-
    -+ossssssssssssssssssssss+:`
 EOF
         ;;
+
+"VanillaOS" | "Vanilla" | "vanillaos" | "vanilla"*)
+    set_colors 6 9
+    read -rd '' ascii_data <<EOF
+\e[1;33m
+                          ...                           
+                         ......                         
+                        .......:                        
+                        :...::::                        
+                       ::::::::::                       
+                       ::::::::::                       
+                       ::::::::::                       
+                 :::   :::::::::-   :..                 
+               .:::::--::::------:::::....              
+             ...::::::--::------:::::::....             
+            ....:::::----:-----::::::::....             
+             ...:::::----------::::::::....             
+             ...:::::---------:::--::::::..             
+             ..:::::---------::-----::::::              
+              .:::::----------------::::::              
+               ::::::-------:--------::::               
+                ::::::::-------------:::                
+                 ::::::-------:::------                 
+                   -------------::::                    
+                  ---------:-----:::::                  
+                 :::-------:------::::                  
+                 ::::-----::------:::::                 
+                ::::::---:::------:::::                 
+                ::::::::::::-----:::::::                
+                ::::::::::: ----::::::..                
+                ...::::::::  -:::::::...                
+                ....::::::    ::::::....                
+                .....::::      :::::....                
+                ......::        :::....                 
+
+EOF
+;;
+
+"VanillaOS_old" | "Vanilla_old" | "vanillaos_old" | "vanilla_old"*)
+    set_colors 6 9
+    read -rd '' ascii_data <<EOF
+\e[1;33m                                                        
+                          ---                           
+                        ------                          
+                       ---::----                        
+                      ----::-----                       
+                     -----::------                      
+                    -----:::------                      
+        ----------  -----:::------  --------------      
+     ---------------------::---------------:::---       
+      ---::::-------------::-----------::::::---        
+       ----:::::----------::--------:::::-------        
+        ------::::::---::::.::::-:::::---------         
+         ---------::::::::...::.:::-----------          
+           ----------:::.......:::----------            
+             --------:::.......::-------                
+              --------:..:......---------               
+            ---------::::::.::::::---------             
+           --------::::---- -----:::--------            
+          ------:::::------  ------::::------           
+         ----:::::-------     -------::::-----          
+         --::::---------       --------::::---          
+        --------------           -------------          
+          -------                       --  ---         
+EOF
+;;
 
         "Venom"*)
             set_colors 8 4
@@ -11156,6 +12699,48 @@ ${c1} 'ljmwn${c2}~tk8${c5}MWWWWM8O${c2}X${c1}r${c2}+]nC${c1}[
 EOF
 
         ;;
+
+"VyOS"*)
+    set_colors 1
+    read -rd '' ascii_data <<EOF
+\x1b[38;5;208m
+-------------------------------------       ----------------
+-------------------------------------       ----------------
+-------------------------------------       ----------------
+-------------------------------------       ----------------
+-------                                              -------
+-------                                              -------
+-------                                              -------
+-------      --------                  --------      -------
+-------       -------                  -------       -------
+               -------                -------        -------
+               --------              --------        -------
+                --------             -------         -------
+                 -------            -------          -------
+-------           -------          --------          -------
+-------           --------        --------           ------=
+-------            -------        -------            ----===
+-------             -------      -------             --=====
+-------             --------    --------             -======
+-------              --------  =-------              =======
+-------               -------  -------               =======
+-------                ---------------               =======
+-------                --------------                       
+-------                 ------------                        
+-------                  ----------                         
+-------                  ----------                  =======
+-------                   --------                   =======
+-------                                              =======
+-------                                              =======
+-------                                              =======
+----------------       ---------============================
+----------------       -------==============================
+----------------       -----================================
+----------------       ---==================================
+
+EOF
+;;
+
 
         "LangitKetujuh"*)
             set_colors 7 4
@@ -11290,6 +12875,92 @@ ${c3}             `${c4} :EEEEtttt::::z7
 EOF
         ;;
 
+"Winux")
+    set_colors 7 6
+    read -rd '' ascii_data <<'EOF'
+\033[1;36m
+
+  ++++++++++++       ++++++++++++  
+  ++++++++++++++   ++++++++++++++  
+  +++++++++++++++ +++++++++++++++  
+  +++++++++++++++++++++++++++++++  
+  +++++++++++++++++++++++++++++++  
+  +++++++++++++++ +++++++++++++++  
+   +++++++++++++   +++++++++++++   
+    +++++++++++     +++++++++++    
+        ++++           ++++        
+    +++++++++++     +++++++++++    
+   +++++++++++++   +++++++++++++   
+  +++++++++++++++ +++++++++++++++  
+  +++++++++++++++++++++++++++++++  
+  +++++++++++++++++++++++++++++++  
+  +++++++++++++++ +++++++++++++++  
+  ++++++++++++++   ++++++++++++++  
+  ++++++++++++       ++++++++++++  
+                                                                 
+EOF
+;;
+
+"Ultramarine"*)
+    set_colors 4
+    read -rd '' ascii_data <<EOF
+
+\e[1;34m                 @@@@@@@@@@@                 
+\e[1;34m            @@@@@@@@@@@@@@@@@@@@@            
+\e[1;34m         @@@@@@@@@@@@@@@@@@@@@@@@@@@         
+\e[1;34m       @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@       
+\e[1;34m      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@      
+\e[1;34m    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@    
+\e[1;34m   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   
+\e[1;34m   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   
+\e[1;34m  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  
+\e[1;34m @@@@@@@@@@@@@@@%${reset}████\e[1;34m:@@@@@@@@@@@@@@@@@@@@@@ 
+\e[1;34m @@@@@@@@@@@@@@@@${reset}████████\e[1;34m@@@@@@@@@@@@@@@@@@@ 
+\e[1;34m @@@@@@@@@@@@@@@@@${reset}███████\e[1;34m@@@@@@@@@@@@@@@@@@ 
+\e[1;34m @@@@@@@@@@@@@@@@@${reset}███████████\e[1;34m=@@@@@@@@@@@@@@@ 
+\e[1;34m @@@@@@@@@@@@@@@%${reset}█████████████\e[1;34m-@@@@@@@@@@@@@ 
+\e[1;34m @@@@@@@@@@@@+${reset}███████████████████\e[1;34m+@@@@@@@@@@ 
+\e[1;34m  @@*:${reset}████████████████████████████████\e[1;34m+@@@@  
+\e[1;34m   @@${reset}███████████████████████████████████\e[1;34m@@   
+\e[1;34m   @@@${reset}████████████████████████████████\e[1;34m@@@   
+\e[1;34m    @@@${reset}██████████████████████████████\e[1;34m@@@    
+\e[1;34m      @@%${reset}██████████████████████████\e[1;34m%@@      
+\e[1;34m       @@@%${reset}█████████████████████\e[1;34m%@@@       
+\e[1;34m         @@@@+${reset}█████████████████\e[1;34m+@@@@         
+\e[1;34m            @@@@@@=${reset}███████\e[1;34m=@@@@@@            
+\e[1;34m                 @@@@@@@@@@@                 
+
+EOF
+;;
+
+
+"Vicent"* | "VicentOS"* | "Vicentos"* | "vicent"* | "vicentos"* | "VICENT"* | "VICENTOS*"*)
+    set_colors 2
+    read -rd '' ascii_data <<EOF
+‎ ‎ ‎ ‎ ‎ ‎ ‎                                        \e[92m..::---${reset}              
+                                           \e[92m.-++++++*-${reset}
+                                          \e[92m-+++++***+.${reset}
+                                         \e[92m-++++*****-${reset}
+                                        \e[92m.=++*****+-.${reset}
+                     .#@@@%             \e[92m:@@@@%++=.${reset}
+                   .+@@@@@@#            #@@@@@@=.
+                  .#@@*.%@@@=          *@@@*:%@@*
+                  #@@*  .%@@%:        =@@@%. .#@@+
+                 =@@#    -@@@#       :%@@@.   :%@%-
+                .*@@-    .*@@@=      *@@@=.    +@@=.
+                .#@@-     .@@@@:    -@@@#.     =@@+.
+                .*@@-      -@@@#.  :@@@@:      =@@+.
+                 +@@+       +@@@+..*@@@=      .#@@-
+                 .@@@:      :%@@@:=@@@*.      =@@#.
+                  .@@@-      =@@@%@@@%:      =@@@.
+                   -%@@+      *@@@@@@=     .*@@#.
+                    .#@@@+.    #@@@@#   ..#@@@+.
+                      .*@@@@*=:-@@@%.-+#@@@@+.
+                         :#@@@@@@@@@@@@@@*.
+                            .:-==+==--:.
+EOF
+;;
+
         "Xubuntu"*)
             set_colors 4 7 1
             read -rd '' ascii_data <<'EOF'
@@ -11339,6 +13010,40 @@ oMMMMmMMMMNds:.+MMMmmMMN/.-odNMMMMmMMMM+
              .odNm+  /dNms.
 EOF
                 ;;
+
+"Zephix"*)
+    # Color verde puro
+    c1="${cl2}"  # verde
+    c2="${cl2}"  # verde
+    c3="${cl2}"  # verde
+
+    read -rd '' ascii_data <<'EOF'
+${c1}                                            
+
+                   . :=+++++++++++++++++-   
+               .:++++++++++++++++++++++-    
+            .=++++++++++++++++++++++++-     
+          .+++++++++++++++++====+++++:      
+        .+++++++++=: .                      
+      .++++++++.                            
+     .++++++-.      ....:-===--:...         
+    .+++++:      -+++++++++++++++=          
+   .+++++.   .=+++++++++++++++++=.          
+   .+++=   .=+++++++++++++++++++.           
+   =++=   .+++++++.                         
+   =++-  .++++=.                            
+   :++:  -+++.    .=+++++++++:              
+   .++- .=++   .++++++===+++.               
+    .++. -+-  .++=.                         
+     .+= .+=  =+.                           
+       -+..+. .=                            
+         .=..-...                           
+                                            
+                                            
+                                            
+EOF
+    ;;
+
         "Zorin"*)
             set_colors 4 6
             read -rd '' ascii_data <<'EOF'
@@ -11361,6 +13066,8 @@ ssssssssssssso/-`      `-/osssssssssssss
         `osssssssssssssssssssso`
 EOF
         ;;
+
+
 
         *)
             case $kernel_name in
@@ -11565,9 +13272,9 @@ main() {
     [[ $image_backend == *w3m* ]] && display_image
     [[ $image_backend == *ueberzug* ]] && display_image
 
-    # Add neofetch info to verbose output.
-    err "Neofetch command: $0 $*"
-    err "Neofetch version: $version"
+    # Add katifetch info to verbose output.
+    err "Katifetch command: $0 $*"
+    err "Katifetch version: $version"
 
     [[ $verbose == on ]] && printf '%b\033[m' "$err" >&2
 
