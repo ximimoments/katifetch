@@ -26,10 +26,16 @@
 ## 📸 Screenshots
 
 See more screenshots from different operating systems here:  
-👉 [More screenshots available in this repository](https://github.com/ximimoments/katifetchscreenshots/blob/main/readme.md)
+👉 [More screenshots available in this repository]([https://github.com/ximimoments/katifetchscreenshots/blob/main/readme.md](https://github.com/ximimoments/katifetch-for-unreleased-editions/tree/main))
 ![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/esd.png)
 
 #
+## Unreleases editions
+
+See more Unreleases edition from different operating systems here:
+👉 [More screenshots available in this repository](https://github.com/ximimoments/katifetchscreenshots/blob/main/readme.md)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e04c4735-4c6a-410f-a9d5-c941493a8177" />
+
 
 ## ✅ Platform Compatibility
 
