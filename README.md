@@ -33,7 +33,7 @@ See more screenshots from different operating systems here:
 ## Unreleases editions
 
 See more Unreleases edition from different operating systems here:
-👉 [More screenshots available in this repository](https://github.com/ximimoments/katifetch-for-unreleased-editions/tree/main)
+👉 [More Unreleases editions available in this repository](https://github.com/ximimoments/katifetch-for-unreleased-editions/tree/main)
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e04c4735-4c6a-410f-a9d5-c941493a8177" />
 
 
