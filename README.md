@@ -894,7 +894,8 @@ Explore the full history, features, compatibility list, and more about Katifetch
 - ✉️ Email (Global) : [katifetchs@gmail.com](mailto:katifetchs@gmail.com)
 - ✉️ Email (Spanish) : [katifetch@outlook.es](mailto:katifetch@outlook.es)
 - 🐙 GitHub: [@ximimoments](https://github.com/ximimoments)  
-- 🎮 Discord: `katifetch`  
+- 🎮 Discord: `katifetch`
+- 🎮 Discord Main Account: `valentinothelinuxandwindowsuser`
 - 🎵 TikTok: [@katifetch](https://www.tiktok.com/@katifetch)
 
 ---
