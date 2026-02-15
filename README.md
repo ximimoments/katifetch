@@ -353,6 +353,8 @@ Katifetch works with:
 
 - macOS (via Homebrew)
 - Linux (via Homebrew or manual install)
+- WSL (via Homebrew or manual install)
+- macOS on VM (via Homebrew)
 
 Homebrew project: https://brew.sh
 
