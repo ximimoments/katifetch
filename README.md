@@ -317,6 +317,47 @@ And enjoy using Katifetch on macOS!
 
 #
 
+# Katifetch For Homebrew 🍺
+Katifetch is available through its official Homebrew tap.
+
+## 📦 Install
+
+First, add the tap:
+```bash
+brew tap ximimoments/katifetch
+
+Then install Katifetch:
+
+brew install katifetch
+```
+
+## 🔄 Update
+```bash
+brew update
+brew upgrade katifetch
+```
+
+## 🧼 Uninstall
+```bash
+brew uninstall katifetch
+
+
+To remove the tap:
+
+brew untap ximimoments/katifetch
+```
+
+## 🌍 Supported Platforms
+
+Katifetch works with:
+
+- macOS (via Homebrew)
+- Linux (via Homebrew or manual install)
+
+Homebrew project: https://brew.sh
+
+#
+
 # Katifetch for Android
 
 <img src="https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/Androidtermuxkatifetch.jpg" width="300" />
