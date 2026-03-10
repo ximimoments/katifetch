@@ -269,13 +269,38 @@ To update Katifetch, run:
 update.bat
 ```
 
-🧼 Uninstall (Windows 10)
+## 🧼 Uninstall (Windows 10)
 
 To uninstall Katifetch, run:
 
 ```cmd
 uninstall.bat
 ```
+## And enjoy using Katifetch on Windows 10 edition!
+
+# Katifetch For Chocolatey (https://community.chocolatey.org/packages/katifetch)
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e93b30f3-6563-45eb-99eb-2bb397cdfa6b" />
+
+
+##  📦 Installation (Chocolatey repo)
+
+```cmd
+choco install katifetch
+```
+
+## 🔄 Update (Chocolatey repo)
+
+```cmd
+choco upgrade katifetch
+```
+
+## 🧼 Uninstall (Windows 10)
+
+```cmd
+choco uninstall katifetch
+```
+## And enjoy using Katifetch on Chocolatey (Windows repos)!
 
 # Katifetch for macOS
 
