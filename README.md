@@ -295,12 +295,43 @@ choco install katifetch
 choco upgrade katifetch
 ```
 
-## 🧼 Uninstall (Windows 10)
+## 🧼 Uninstall (Chocolatey repo)
 
 ```cmd
 choco uninstall katifetch
 ```
 ## And enjoy using Katifetch on Chocolatey (Windows repos)!
+
+# Katifetch For Haiku/BeOS
+
+## Normal
+[![screenshot5.png](https://i.postimg.cc/Y0xqmtT4/screenshot5.png)](https://postimg.cc/5Q6MhW41)
+
+## Small
+
+[![screenshot6.png](https://i.postimg.cc/DZk2jWTx/screenshot6.png)](https://postimg.cc/R3d5qZqt)
+
+##  📦 Installation (Haiku/BeOS)
+
+```haiku terminal
+chmod +x install.sh
+./install.sh
+```
+
+### Same chmod command of linux but on Haiku or BeOS
+
+##  🔄 Update (Haiku/BeOS)
+
+update katifetch for haiku here (source code bcz yea, idk what put here and is no updater for haiku)
+
+https://github.com/ximimoments/katifetch/archive/refs/heads/main.zip
+
+## 🧼 Uninstall (Haiku/BeOS)
+
+```haiku terminal
+chmod +x uninstall_haiku.sh
+./uninstall_haiku.sh
+```
 
 # Katifetch for macOS
 
