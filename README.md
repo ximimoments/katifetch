@@ -278,10 +278,61 @@ uninstall.bat
 ```
 ## And enjoy using Katifetch on Windows 10 edition!
 
+# Katifetch For Windows 1.0
+
+<img width="643" height="354" alt="imagen" src="https://github.com/user-attachments/assets/2fd8f653-ee64-447b-abc0-613a6bd76cd2" />
+
+#### I know this might sound crazy, but I tried to make my own version of Katifetch for Windows 1.0. It's rather minimalist because it's not like the transition from Windows XP to Windows 11 where everything is accessible through PowerShell. In this version, I had to use what was available in that version. It's somewhat limited, but the downside, the one I didn't like, is that I was going to use KATIFETCH.BAT, but its limit is 7 characters, so you'll have to use KATIFET.BAT instead.
+
+> And don't confuse Windows 1.0 with Windows 10; version 1.0 has a period in the number, and the other doesn't.
+
+is tiny the guide for install this soo,
+
+##  📦 Installation (Windows 1.0)
+
+#### you have to make a file called
+
+## KATIFET.BAT
+the code (you have to write this a hand bcz you can't copy and paste on old windows, or on usb, idk)
+
+```BAT
+@echo off
+cls
+
+echo -----------------------------
+echo        Katifetch
+echo -----------------------------
+echo.
+
+echo OS:
+ver
+echo.
+
+echo Kernel:
+echo MS-DOS
+echo.
+
+echo Date:
+echo N/A
+echo.
+
+echo Shell:
+echo COMMAND.COM
+echo.
+```
+
+## 🔄 Update (Windows 1.0)
+
+### Idk, but if you want, you could improve the version and update it. And if you want, send the code to the official Katifetch Discord server and we'll add it to the next update :3. And if you want to wait to update, no problem.
+
+## 🧼 Uninstall (Windows 1.0)
+### Just remove the file of the code erasing all
+
+## And enjoy using Katifetch on Windows 1.0 edition! (or in your retro pc with this version)
+
 # Katifetch For Chocolatey (https://community.chocolatey.org/packages/katifetch)
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e93b30f3-6563-45eb-99eb-2bb397cdfa6b" />
-
 
 ##  📦 Installation (Chocolatey repo)
 
