@@ -200,10 +200,12 @@ sudo ./uninstall_katifetch.sh
 
 #
 
-# Katifetch For Windows editions
 
 
-If you're on Windows, you can use the PowerShell version of Katifetch.
+# Katifetch For Windows 11
+
+
+If you're on Windows 11, you can use the PowerShell version of Katifetch.
 
 ![Screenshot](https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/katifetchforwindowsedition.png)
 
@@ -211,11 +213,11 @@ If you're on Windows, you can use the PowerShell version of Katifetch.
 
 # 🎥 Katifetch Video Demo for Windows
 
-📹 See how Katifetch looks on Windows (PowerShell):
+📹 See how Katifetch looks on Windows 11 (PowerShell):
 
 [![Watch the demo](https://img.youtube.com/vi/Y01yuxDgzY4/0.jpg)](https://www.youtube.com/watch?v=Y01yuxDgzY4)
 
-## 📦 Installation (Windows)
+## 📦 Installation (Windows 11)
 
 ```powershell
 git clone https://github.com/ximimoments/katifetch.git
@@ -224,12 +226,12 @@ cd katifetchforwindowsedition
 powershell -ExecutionPolicy Bypass -File .\install.ps1
 ```
 
-## 🔄 Update (Windows)
+## 🔄 Update (Windows 11)
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\katifetch-update.ps1
 ```
-## 🧼 Uninstall (Windows)
+## 🧼 Uninstall (Windows 11)
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\uninstall.ps1
