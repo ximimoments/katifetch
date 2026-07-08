@@ -773,7 +773,7 @@ Reboot.
 And Enjoy Katifetch on grub!!!
 #
 
-# 🧡 Katifetch for Ubuntu 10.04
+# Katifetch for Ubuntu 10.04
 
 Minimal version of Katifetch designed exclusively for legacy systems like Ubuntu 10.04 LTS.
 
@@ -784,8 +784,8 @@ Minimal version of Katifetch designed exclusively for legacy systems like Ubuntu
 ## 📦 Installation
 
 ```bash
-git clone https://github.com/ximimoments/katifetchubuntu10.04.git
-cd katifetchubuntu10.04
+git clone https://github.com/ximimoments/katifetch.git
+cd katifetch/katifetchubuntu10.04
 chmod +x install.sh
 sudo ./install.sh
 ```
