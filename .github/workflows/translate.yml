@@ -18,4 +18,3 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           langs: "zh"
-          provider: "g4f" # Usa un proveedor gratuito para evitar el error de la API de OpenAI
