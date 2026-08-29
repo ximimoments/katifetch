@@ -1,0 +1,20 @@
+name: Translate Readme
+
+on:
+  push:
+    branches: [ "main" ] # Cambia a "master" si tu rama principal se llama así
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run translation
+        uses: Lin-jun-xiang/action-translate-readme@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          langs: "zh"
