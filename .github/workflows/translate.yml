@@ -2,7 +2,7 @@ name: Translate Readme
 
 on:
   push:
-    branches: [ "main" ] # Cambia a "master" si tu rama principal se llama así
+    branches: [ "main" ]
 
 jobs:
   translate:
@@ -18,3 +18,4 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           langs: "zh"
+          provider: "g4f" # Usa un proveedor gratuito para evitar el error de la API de OpenAI
