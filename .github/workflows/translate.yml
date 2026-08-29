@@ -13,8 +13,35 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Run translation
-        uses: Lin-jun-xiang/action-translate-readme@v2
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          langs: "zh"
+          python-version: '3.10'
+
+      - name: Install translator dependency
+        run: pip install deep-translator
+
+      - name: Run translation script
+        run: |
+          python3 -c '
+          from deep_translator import GoogleTranslator
+          
+          # Leer el README original
+          with open("README.md", "r", encoding="utf-8") as f:
+              text = f.read()
+              
+          # Traducir al chino (simplificado)
+          translated_text = GoogleTranslator(source="auto", target="zh-CN").translate(text)
+          
+          # Guardar en un archivo traducido (ej. README_zh.md)
+          with open("README_zh.md", "w", encoding="utf-8") as f:
+              f.write(translated_text)
+          '
+
+      - name: Commit and push translated file
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add README_zh.md
+          git diff --staged --quiet || git commit -m "docs: auto-translate README to Chinese"
+          git push
