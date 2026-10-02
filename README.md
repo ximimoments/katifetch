@@ -1016,7 +1016,14 @@ folloe Katifetch for updates, demos & more:
 
 👥 Join our Reddit Community!
 
+# Old Subbreddit (my main reddit account was banned btw)
+
 <img src="https://raw.githubusercontent.com/ximimoments/katifetch/main/screenshots/whatsup.jpg" width="287" />
+
+# New Subbreddit
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0c24b12d-9aed-4151-9cac-7e6cdf04d45f" />
+
 
 Got feedback? Want to share your setup or ask something?
 You're welcome in the official Katifetch subreddit:
